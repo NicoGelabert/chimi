@@ -1,0 +1,25 @@
+/* Colors */
+$black:#040403;
+$white:#FBFCFF;
+$gray:#F5F5F5;
+$primary-lightest:#c4a2b0;
+$primary-lighter:#996978;
+$primary:#6C4852;
+$primary-darker:#352227;
+$secondary-lighter:#CDFEE7;
+$secondary:#7BF5C9;
+$secondary-darker:#24e3a4;
+$secondary-darkest:#00a474;
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;900&display=swap');
+
+@font-face {
+    font-family: 'Mount-Hills';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/public/fonts/MountHills.woff2') format('woff2'), url('/public/fonts/MountHills.woff') format('woff'), url('/public/fonts/MountHills.ttf') format('truetype');
+}
+
+$primary-font: 'Mount-Hills', display;
+$secondary-font: 'Montserrat', sans-serif;

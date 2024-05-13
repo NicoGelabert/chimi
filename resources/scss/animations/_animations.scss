@@ -1,0 +1,86 @@
+@use '../globals/variables' as *;
+/* Hover underline effect */
+.underline-hover {
+    position: relative;
+  }
+  
+.underline-hover::after {
+    background-color: $primary;
+    bottom: 0;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    width: 100%;
+}
+
+.underline-hover:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+/* Hover underline effect */
+
+/* Slide in left */
+ @-webkit-keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(-1000px);
+              transform: translateX(-1000px);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+@keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(-1000px);
+              transform: translateX(-1000px);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+.slide-in-left {
+	-webkit-animation: slide-in-left 1.5s ease-in-out both;
+	animation: slide-in-left 1.5s ease-in-out both;
+}
+/* Slide in left */
+
+/* Scale-in-center */
+ @-webkit-keyframes scale-in-center {
+    0% {
+      opacity: 1;
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      opacity: 1;
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+.scale-in-center {
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+/* Scale-in-center */
