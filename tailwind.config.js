@@ -14,11 +14,14 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Albert Sans', 'Battambang', ...defaultTheme.fontFamily.sans],
+                
             },
+            colors: {
+                white: '#FBFCFF',
+                black: '#040403',
+            }
         },
     },
-
     plugins: [
         forms,
         require('flowbite/plugin')

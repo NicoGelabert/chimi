@@ -1,151 +1,91 @@
 @use './globals' as *;
 @use './animations/animations' as *;
 body{
-    @apply overflow-x-hidden;
-    background-color: $gray;
-    h1, h2, h3, h4, h5, h6{
-        font-family: $primary-font;
-        letter-spacing: 0.025em;
-    }
+    @apply bg-white text-black dark:bg-black dark:text-white;
     h1{
-        @apply text-3xl md:text-4xl;
-        color: $primary;
+        @apply text-5xl;
     }
     h2{
-        @apply text-3xl;
-        color: $primary;
+        @apply text-4xl;
     }
     h3{
-        color: $black;
-        @apply text-2xl;
+        @apply text-3xl;
     }
     h4{
-        color: $black;
-        @apply text-xl;
+        @apply text-2xl;
     }
     h5{
-        @apply text-base;
+        @apply text-xl;
+    }
+    h6{
+        @apply text-lg;
     }
     p{
-        font-family: $secondary-font;
-        @apply text-base font-normal;
-    }
-    .small{
-        @apply text-xs leading-6;
-    }
-    .a-primary{
-        color:$primary;
-    }
-    .a-primary:hover{
-        color: $primary-lightest;
-    }
-    .a-secondary{
-        color:$secondary-darker;
-    }
-    .a-secondary:hover{
-        color: $secondary-darkest;
+        @apply text-base;
     }
     .logo{
-        svg{
-            @apply w-12 md:w-24 h-auto;
-            fill:$primary;
-        }
+        @apply text-4xl md:text-6xl h-auto font-bold transition-all;
+        font-family: $primary-font;
     }
     .logo-hamburguer{
         svg{
-            @apply w-36 h-auto;
-            fill:$primary;
+            @apply w-36 h-auto fill-black dark:fill-white;
         }
     }
     .toast{
-        background: $white;
-        color: $primary;
-        @apply flex flex-col items-center justify-between;
+        @apply flex flex-col items-center justify-between bg-white text-black dark:bg-black dark:text-white;
         .progress{
-            background: $secondary-lighter;
+            @apply bg-black dark:bg-white;
         }
     }
     header{
-        @apply h-auto fixed top-0 w-full block shadow-none;
-        background:transparent;
-        color:$primary-darker;
+        @apply h-auto fixed top-0 w-full block shadow-none bg-transparent text-black dark:text-white;
         transition: top 0.3s, background-color 0.3s ease;
+        i {
+            @apply leading-none text-lg;
+          }
+        .indicator {
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease; /* Agregar transición para el cambio de posición */
+        }
+        .dark .indicator {
+            transform: translateX(100%) translateY(-50%); /* Mover el indicador al lado derecho en el modo oscuro */
+        }
     }
     .mobile-menu{
-        background-color: $gray;
-        color: $primary;
+        @apply bg-white text-black dark:bg-black dark:text-white;
     }
     header, .mobile-menu{
         a:hover{
-            color:$secondary-darker;
-        }
-        .btn-register{
-            @apply py-2 px-4 rounded-full shadow-md w-full active:bg-slate-400 transition-colors; 
-            border: $primary 1px solid;
-            color: $primary;
-        }
-        .btn-register:hover{
-            border-color: $secondary-darker;
+            @apply text-black;
         }
         .dropdown{
-            background-color: $gray;
-            width: 100%;
+            @apply bg-white w-full;
         }
         .cart-widget{
-            color:$white;
-            @apply mx-2 md:mx-0;
+            @apply text-white mx-2 md:mx-0;
         }
         .flag-icon{
-            margin-right: 0.5rem;
-            width: 1rem;
-        }
-        ul li{
-            @apply w-fit;
+            @apply w-4 mr-[0.5rem];
         }
     }
     // Function to show header according to scroll view
-    .scrolled-bottom{
-        @apply shadow-md;
-        background: $white;
-        color: $black;
-    }
-    // Function to show header according to scroll view
-    // Hamburguer Menu
+    
+    // End Function to show header according to scroll view
+    // Hamburguer Menu icon
     .openbtn {
-        border-radius: 5px;
-        cursor: pointer;
-        height: 20px;
-        position: relative;
-        width: 40px;
+        @apply w-[40px] h-[20px] relative rounded cursor-pointer;
         }
     
         .openbtn .openbtn-area{
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: space-around;
-            position: relative;
+            @apply h-full relative flex flex-col justify-around;
             transition: all .4s;
         }
     
         .openbtn span {
-            background: $primary;
-            border-radius: 3px;
-            display: inline-block;
-            height: 3px;
-            left: 12px;
-            position: relative;
+            @apply w-1/2 h-[3px] relative left-[12px] bg-black dark:bg-white rounded inline ;
             transition: all .4s;
-            width: 50%;
-            // &:nth-of-type(1) {
-            //     top: 16px;
-            // }
-            // &:nth-of-type(2) {
-            //     top: 24px;
-            // }
-            // &:nth-of-type(3) {
-            //     top: 32px;
-            // }   
         }
     
         .openbtn.active .openbtn-area {
@@ -169,424 +109,7 @@ body{
                 width: 45%;
             }
         }
-    // Hamburguer Menu
-    //buttons
-    .btn-primary{
-        @apply py-2 px-6 rounded-full shadow-md transition-colors uppercase tracking-wide text-sm text-center; 
-        background-color: $primary;
-        color: $secondary;
-    }
-    .btn-primary:hover{
-        background-color: $primary-darker;
-        color: $secondary-darker;
-    }
-    .btn-primary:active{
-        background-color: $primary-lighter;
-        color: $primary-darker;
-    }
-
-    .btn-secondary{
-        @apply py-2 px-6 rounded-full shadow-md transition-colors uppercase tracking-wide text-sm text-center; 
-        background-color: $secondary;
-        color: $primary;
-    }
-    .btn-secondary:hover{
-        background-color: $secondary-lighter;
-        color: $primary;
-    }
-    .btn-secondary:active{
-        background-color: $secondary-darkest;
-        color: $primary-darker;
-    }
-    #categorybuttons{
-        @apply w-full md:w-1/2 flex flex-wrap p-2 justify-evenly gap-5;
-        a{
-            div{
-                @apply rounded-lg;
-            }
-            @apply w-2/5 rounded-lg p-0 lg:gap-5 aspect-square;
-            img{
-                @apply w-auto max-h-[40%] lg:max-h-[60%];
-            }
-            h5{
-                @apply text-xl normal-case leading-6;
-            }
-            .svgcolor{
-                fill: aquamarine;
-            }
-        }
-    }
-    //buttons
-    // Hero Banner
-    #hero_banner{
-        background: url('/storage/app/public/img/white-paper-texture.webp');
-        background-position: center;
-        background-size: contain;
-        .splide__pagination li span{
-            @apply hidden sm:block;
-        //     @apply justify-evenly;
-        //     li{
-        //         @apply flex flex-col items-center gap-2;
-        //     }
-        //     .splide__pagination__page{
-        //         background-color: $secondary;
-        //     }
-        //     .splide__pagination__page.is-active{
-        //         background-color: $primary;
-        //     }
-        }
-        /* Estilos para los puntos de paginación */
-/* Estilos para los puntos de paginación */
-        .splide__pagination {
-            @apply relative flex justify-between list-none sm:w-[90%] md:w-2/3 p-0 bottom-8;
-            li {
-                @apply flex flex-col items-center gap-2;
-                span{
-                    @apply text-sm;
-                    color: $primary;
-                }
-                button {
-                    @apply rounded-full border-0 w-3 h-3 opacity-100;
-                    background-color: $secondary-darker;
-                }
-                .is-active{
-                    background-color: $primary;
-                }
-            }
-        }
-        .splide__pagination:before {
-            background: rgb(36,227,164);
-            background: linear-gradient(90deg, rgba(36,227,164,0) 0%, rgba(36,227,164,1) 10%, rgba(36,227,164,1) 50%, rgba(36,227,164,1) 90%, rgba(36,227,164,0) 100%);
-            content: "";
-            @apply hidden sm:block h-px absolute top-[36px] w-full -z-[1];
-        }
-        
-        .splide__pagination li.splide__pagination__page.is-active button {
-            background-color: #333;
-        }
-/* Estilos para los puntos de paginación */
-/* Continua #hero_banner */
-        ul{
-            .cake-1{
-                background: url('/storage/app/public/img/chessecake_ingredients_small.webp');
-                background-position: bottom;
-                background-repeat: no-repeat;
-                background-size: contain !important;
-                @media (min-width: 640px){
-                    background: url('/storage/app/public/img/chessecake_ingredients_large.webp');
-                    background-position: right;
-                    background-repeat: no-repeat;
-                    background-size: contain !important;
-                }
-            }
-            .cake-2{
-                background: url('/storage/app/public/img/carrotcake_ingredients_small.webp');
-                background-position: bottom;
-                background-repeat: no-repeat;
-                background-size: contain !important;
-                @media (min-width: 640px){
-                    background: url('/storage/app/public/img/carrotcake_ingredients_large.webp');
-                    background-position: right;
-                    background-repeat: no-repeat;
-                    background-size: contain !important;
-                }
-            }
-            .cake-3{
-                background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-            }
-            .cake-4{
-                background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-            }
-        }
-    }
-    // Global clases
-    .category_subtitle{
-        @apply font-semibold uppercase tracking-wider;
-        color: $secondary-darker;
-    }
-    .price{
-        background-color: $secondary;
-        h5{
-            @apply text-xl font-semibold;
-            color: $primary;
-            font-family: $secondary-font;
-        }
-    }
-    .price-size{
-        @apply font-semibold;
-        color: $primary-lighter;
-    }
-    .tooltip_alergens{
-        background-color: $secondary;
-        color: $primary;
-    }
-    [type='checkbox']:focus,
-    [type='radio']:focus, 
-    [type='radio']:checked{
-        color: $secondary;
-        --tw-ring-color:transparent;
-    }
-    // Global clases
-    //promo-welcome
-    .promo-welcome{
-        // background-color: $secondary;
-        // background-image: url("/storage/app/public/img/caro.jpeg");
-        // background-position: right;
-        // background-repeat: no-repeat;
-        // background-size: contain;
-        @apply px-8 sm:px-16 max-w-[1024px] mx-auto;
-    }
-    .anchor-btn{
-        @apply py-2 sm:px-8 hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm;
-        color: $black;
-        display: inline-block;
-        text-align: center;
-    }
-    .small-text{
-        font-size: 0.75rem;
-        font-weight: 500;
-        margin: 3px 0;
-    }
-    .title{
-        align-items: center;
-        column-gap: 1rem;
-        display: flex;
-        margin-bottom: 2rem;
-        position: relative;
-    }
-    .title::after{
-        border-top: 1px solid #E5E5E5;
-        content: '';
-        flex-basis: 0;
-        flex-grow: 1;
-        height: 0;
-        max-width: 100%;
-    }
-    .font-number-label{
-        margin-bottom: 0;
-        width: 100%;
-        @apply text-xs md:text-sm;
-    }
-    .font-number{
-        font-family: 'Battambang', display;
-        font-weight: 400;
-    }
-    .card-listing{
-        @apply flex flex-col justify-between gap-y-4 text-center;
-                h3,h4{
-                    @apply text-center;
-                    color: $primary;
-                }
-                p{
-                    -webkit-box-orient: vertical;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    line-height: 1.3rem;
-                    max-height: 2.6rem;
-                    overflow:hidden; 
-                }
-                img{
-                    @apply h-6 w-auto;
-                }
-      }
-    .btn-cart-product{
-        margin: 0;
-        width:auto;
-        svg{
-            @apply h-5 w-5 sm:h-6 sm:w-6;
-        }
-    }
-    /* Product view */
-    .product-thumbnail{
-        border-color: $white;
-    }
-    .product-thumbnail:hover{
-        border-color: $black;
-    }
-    .product-thumbnail-active{
-        border-color: $gray;
-    }
-
-    .product-view{
-        @apply flex flex-col gap-4;
-        .product-delivery{
-            color: $primary;
-            .small-text{
-                @apply font-bold;
-            }
-        };
-        .encargo-ws{
-            @apply w-fit gap-4 rounded-md px-4 py-2 ring-1 ring-black/10;
-            background-color: $primary;
-            color: $secondary;
-        }
-        .encargo-ws:hover{
-            background-color: $secondary;
-            color: $primary;
-        }
-        .add-to-cart-container {
-            width:auto;
-            .product-toast{
-                color: $primary;
-            }
-            .toast-progress{
-                background-color: $secondary;
-            }
-            .add-to-cart-button{
-                background-color: $primary;
-                border-radius: 9999px;
-                color: $secondary;
-                padding: 1rem;
-                transition: all 300ms;
-            }
-            .add-to-cart-button:hover{
-                background-color: $primary-darker;
-                color: $secondary-darker;
-            }
-            .add-to-cart-button:active{
-                background-color: $primary-lighter;
-                color: $primary-darker;
-            }
-        }
-    }
-    #categories{
-        // .listing{
-            
-        //     .product-listing{
-        //         gap: 2rem;
-        //         max-width: 400px;
-        //         .small{
-        //             -webkit-box-orient: vertical;
-        //             display: -webkit-box;
-        //             -webkit-line-clamp: 2;
-        //             line-height: 1.3rem;
-        //             max-height: 2.6rem;
-        //             overflow: hidden;
-        //         }
-        //     }
-        // }
-    }
-    // SPLIDE Home carousel
-    #image-carousel{
-        ul li{
-            // .card-listing{
-            //     @apply justify-between gap-y-4 text-center;
-            //     h3,h4{
-            //         @apply text-center;
-            //         color: $primary;
-            //     }
-            //     p{
-            //         -webkit-box-orient: vertical;
-            //         display: -webkit-box;
-            //         -webkit-line-clamp: 2;
-            //         line-height: 1.3rem;
-            //         max-height: 2.6rem;
-            //         overflow:hidden; 
-            //     }
-            //     img{
-            //         @apply h-6 w-auto;
-            //     }
-            // }
-        }
-        .splide__pagination{
-            @apply bottom-[-2rem] mr-0;
-            .splide__pagination__page{
-                background-color: $black;
-                opacity: 0.5;
-            }
-            .splide__pagination__page.is-active{
-                opacity: 1;
-            }
-        }
-    }
-    // SPLIDE Home carousel
-    // Cart
-    .cartview{
-        h3{
-            color: $primary;
-        }
-        .remove svg{
-            fill:$primary-lighter;
-        }
-    }
-    // Cookie consent
-    .cookie-consent{
-        background-color: $secondary-lighter;
-        @apply z-10;
-        p{
-            color: $primary
-        }
-    }
-    //Login
-    .backlogin, .backprofile{
-        .account{
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px solid $primary-lightest;
-            border-radius: 0;
-        }
-        .formselect{
-            color: $secondary;
-        }
-        .bg-form{
-            background-color: $white;
-            @apply shadow-md rounded-lg w-full max-w-[400px];
-            .title h3{
-                color: $primary;
-            }
-            .auth-session-status{
-                background-color: $secondary;
-                color: $primary;
-            }
-        }
-    }
-    .backprofile{
-        background-image: none;
-    }
-    // FOOTER
-    footer{
-        @apply w-full;
-        background-color: $primary;
-        color: $secondary;
-        .footer-container{
-            @apply pt-16 pb-8 justify-between flex-wrap;
-            .logo {
-                @apply mx-8 sm:mx-0;
-            }
-            a{
-                @apply flex items-center justify-center;
-                color: $secondary;
-            }
-            a:hover{
-                color: $secondary-lighter;
-            }
-            svg{
-                @apply h-28 w-auto;
-                fill: $secondary;
-                margin-left: 0;
-            }
-            .footer-menu > div {
-                @apply flex-1 md:flex-auto;
-                h4{
-                    @apply text-lg;
-                    color: $secondary;
-                }
-                ul li{
-                    @apply text-sm pb-1 md:pl-2;
-                    a{
-                        @apply md:justify-start;
-                    }
-                }
-            }
-        }
-        .post-footer{
-            @apply flex flex-col-reverse sm:flex-row items-center justify-between mx-auto pt-8 pb-8 md:py-8 text-xs gap-y-4;
-            a{
-                color: $secondary;
-            }
-            a:hover{
-                color: $secondary-lighter;
-            }
-        }
+    .divider{ // línea divisoria
+        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-50 dark:opacity-100
     }
 }

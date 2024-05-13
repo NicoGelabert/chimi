@@ -4,7 +4,7 @@
         cartItemsCount: {{ \App\Helpers\Cart::getCartItemsCount() }},
     }"
     @cart-change.window="cartItemsCount = $event.detail.count"
-    class="flex justify-between md:justify-center z-10 w-full py-2"
+    class="flex justify-between md:justify-center z-10 w-full"
     id="navbar"
 >
     <div class="logo flex items-center ml-6 md:hidden">
@@ -23,8 +23,8 @@
             <ul class="flex flex-col gap-y-4 items-center">
                 <li>
                     <a
-                        href="{{ route('categories.index') }}"
-                        class="relative flex items-center justify-between py-2 px-3 transition-colors underline-hover"
+                        href="{{ route('category.index') }}"
+                        class="relative flex items-center justify-between py-2 px-3 transition-colors"
                     >
                         <div class="flex items-center">
                             <svg
@@ -134,10 +134,10 @@
                                     {{ __('My profile') }}
                                 </a>
                             </li>
-                            <li class="underline-hover">
+                            <li>
                                 <a
                                     href="{{ route('order.index') }}"
-                                    class="flex items-center px-3 py-2 underline-hover"
+                                    class="flex items-center px-3 py-2"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -231,9 +231,9 @@
             </div>
         </div>
     </div>
-    
     <!--/ Responsive Menu -->
-    <nav class="hidden md:flex w-full max-w-[1080px] mx-12 justify-between">    
+
+    <nav class="hidden md:flex w-full max-w-screen-xl mx-12 justify-between items-center">    
         <div class="logo flex justify-center">
             <x-application-logo/>
         </div>
@@ -241,7 +241,7 @@
             <li x-data="{open: false}" class="relative">
                 <a
                     @click="open = !open"
-                    class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
+                    class="cursor-pointer flex items-center px-navbar-item pr-5 underline-hover"
                 >
                 <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span><span class="small-text">{{ Config::get('languages')[App::getLocale()]['display'] }}</span>
                     <svg
@@ -274,9 +274,19 @@
                 </ul>
             </li>
             <li>
+                <div class="relative flex gap-2 items-center">
+                    <i class="fi fi-rr-sun text-yellow-500 dark:text-white"></i>
+                    <button id="toggle-theme" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors bg-gray-200 dark:bg-gray-600 focus:outline-none">
+                        <span class="sr-only">Toggle theme</span>
+                        <span class="indicator absolute left-0 inline-block w-5 h-5 transform bg-white rounded-full shadow-sm transition-transform"></span>
+                    </button>
+                    <i class="fi fi-br-moon text-black dark:text-white"></i>
+                </div>
+            </li>
+            <li>
                 <a
-                    href="{{ route('categories.index') }}"
-                    class="relative inline-flex items-center py-navbar-item px-navbar-item underline-hover"
+                    href="{{ route('category.index') }}"
+                    class="relative inline-flex items-center px-navbar-item underline-hover"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +306,7 @@
             <li>
                 <a
                     href="{{ route('cart.index') }}"
-                    class="relative inline-flex items-center py-navbar-item px-navbar-item underline-hover"
+                    class="relative inline-flex items-center px-navbar-item underline-hover"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -326,7 +336,7 @@
                 <li x-data="{open: false}" class="relative">
                     <a
                         @click="open = !open"
-                        class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
+                        class="cursor-pointer flex items-center px-navbar-item pr-5 underline-hover"
                     >
                         <span class="flex items-center">
                             <svg
@@ -441,7 +451,7 @@
                 <li>
                     <a
                         href="{{ route('login') }}"
-                        class="flex items-center py-navbar-item px-navbar-item underline-hover"
+                        class="flex items-center px-navbar-item underline-hover"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -488,13 +498,18 @@
                 @endforeach
             </ul>
         </div>
+        <div class="relative flex gap-2 items-center">
+            <i class="fi fi-rr-sun text-yellow-500 dark:text-white"></i>
+            <button id="toggle-theme" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors bg-gray-200 dark:bg-gray-600 focus:outline-none">
+                <span class="sr-only">Toggle theme</span>
+                <span class="indicator absolute left-0 inline-block w-5 h-5 transform bg-white rounded-full shadow-sm transition-transform"></span>
+            </button>
+            <i class="fi fi-br-moon text-black dark:text-white"></i>
+        </div>
         <x-hamburguer />
     </div>
 </header>
-<style>
-    .left-full{
-        left:-100%;
-    }
+
 </style>
 <script>
     var prevScrollpos = window.pageYOffset;

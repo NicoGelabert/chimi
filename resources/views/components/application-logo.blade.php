@@ -1,3 +1,3 @@
-<a href="/welcome" class="block fill-current text-gray-800">
+<a href="{{ route('welcome') }}">
     <x-logo />
 </a>

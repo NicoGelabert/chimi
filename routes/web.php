@@ -6,7 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AlergenController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +31,10 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
     // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
-    Route::get('/menu', [CategoriesController::class, 'index'])->name('categories.index');
-    Route::get('/categorias-json', [CategoriesController::class, 'categoriasJson'])->name('categorias.json');
-    Route::get('/menu/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
-    Route::get('/menu/{categories:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
+    Route::get('/menu', [CategoryController::class, 'index'])->name('category.index');
+    // Route::get('/categorias-json', [CategoryController::class, 'categoriasJson'])->name('categorias.json');
+    Route::get('/menu/{category:slug}', [CategoryController::class, 'view'])->name('category.view');
+    Route::get('/menu/{category:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     
     //Alergens
     Route::get('/alergens', [AlergenController::class, 'index'])->name('alergen.index');

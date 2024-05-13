@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -19,14 +19,20 @@ class ProductController extends Controller
         ]);
     }
 
-    public function view(Categories $categories, Product $product)
+    public function view(Category $category, Product $product)
     {
-        $categories = Categories::all();
+        $categories = Category::all();
         $products = Product::all();
-        return view('product.view', ['categories' => $categories, 'product' => $product, 'products' => $products]);
+        return view('product.view', ['categories' => $categories, 'products' => $products, 'category' => $category, 'product' => $product]);
     }
     public function categories()
     {
-        return Categories::all();
+        return Category::all();
+    }
+
+    public function categoriasJson()
+    {
+        $categories = Category::all();
+        return response()->json($categories);
     }
 }

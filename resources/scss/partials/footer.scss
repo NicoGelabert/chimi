@@ -1,0 +1,33 @@
+footer{
+    @apply bg-black text-white;
+    .footer-container{
+        @apply max-w-screen-xl mx-auto flex flex-col items-center gap-y-8 py-12 px-4 md:flex-row md:justify-between;
+        .footer-logo svg{
+            @apply w-36 h-auto fill-white mx-auto md:mx-0;
+        }
+        .social-icons{
+            @apply flex gap-8 justify-center md:justify-start md:gap-4;
+            a{
+                @apply text-white bg-white/15 ring-white/20;
+            }
+        }
+        .footer-menu{
+            @apply flex flex-col gap-4 text-center md:flex-row md:gap-8 md:text-left;
+            a{
+                @apply text-sm;
+            }
+        }
+        p{
+            @apply text-center;
+        }
+    }
+    .post-footer{
+        @apply max-w-screen-xl mx-auto flex justify-between items-center p-4 text-xs;
+        .developed-by{
+            @apply text-white/50;
+            a:hover{
+                @apply text-white;
+            }
+        }
+    }
+}

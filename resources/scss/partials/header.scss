@@ -1,0 +1,17 @@
+header{
+    .logo{
+        @apply text-black dark:text-white;
+    }
+    nav ul li a{
+        @apply py-6 transition-all;        
+    }
+}
+.scrolled-bottom{
+    @apply shadow-md bg-white text-black dark:bg-black dark:text-white;
+    .logo{
+        @apply text-2xl;
+    }
+    nav ul li a{
+        @apply py-4;
+    }
+}

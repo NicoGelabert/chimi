@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -30,17 +31,7 @@ class Product extends Model
     
     public function category()
     {
-        return $this->belongsTo(Categories::class, 'categories_id');
-    }
-
-    public function alergens()
-    {
-        return $this->belongsToMany(Alergen::class, 'products_alergens', 'product_id', 'alergen_id');
-    }
-
-    public function prices()
-    {
-        return $this->belongsToMany(Price::class, 'product_price', 'product_id', 'price_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
 }
