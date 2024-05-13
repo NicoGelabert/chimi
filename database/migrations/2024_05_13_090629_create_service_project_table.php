@@ -12,10 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prices', function (Blueprint $table) {
+        Schema::create('service_project', function (Blueprint $table) {
             $table->id();
-            $table->decimal('number', 10, 2);
-            $table->string('size', 200)->nullable();
+            $table->unsignedBiginteger('service_id')->unsigned();
+            $table->unsignedBiginteger('project_id')->unsigned();
+
+            // Claves foráneas
+            $table->foreign('service_id')->references('id')
+                 ->on('services')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')
+                ->on('projects')->onDelete('cascade');
 
             // User info para backend
             $table->foreignIdFor(User::class, 'created_by')->nullable();
@@ -33,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prices');
+        Schema::dropIfExists('service_project');
     }
 };

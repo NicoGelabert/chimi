@@ -12,14 +12,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('alergens', function (Blueprint $table) {
-            $table->string('slug', 50);
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->text('title', 50);
+            $table->text('slug', 50);
+            $table->string('image', 2000)->nullable();
             $table->string('image_mime')->nullable();
             $table->integer('image_size')->nullable();
+            $table->longText('description')->nullable();
+            $table->boolean('published')->default(true);
             $table->foreignIdFor(User::class, 'created_by')->nullable();
             $table->foreignIdFor(User::class, 'updated_by')->nullable();
             $table->softDeletes();
             $table->foreignIdFor(User::class, 'deleted_by')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -28,8 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('alergens', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('projects');
     }
 };

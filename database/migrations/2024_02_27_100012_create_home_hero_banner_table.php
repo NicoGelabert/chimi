@@ -12,20 +12,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('home_hero_banners', function (Blueprint $table) {
             $table->id();
-            $table->text('title', 50);
-            $table->text('slug', 50);
+            // para la imagen
             $table->string('image', 2000)->nullable();
             $table->string('image_mime')->nullable();
             $table->integer('image_size')->nullable();
+            // Textos y clase css
+            $table->string('headline', 200);
             $table->longText('description')->nullable();
-            $table->decimal('price', 10, 2);
-            $table->boolean('published')->default(true);
+            $table->string('slug', 200);
+            $table->string('link', 200);
+            $table->string('background', 200);
+            // User info para backend
             $table->foreignIdFor(User::class, 'created_by')->nullable();
             $table->foreignIdFor(User::class, 'updated_by')->nullable();
             $table->softDeletes();
             $table->foreignIdFor(User::class, 'deleted_by')->nullable();
+            //
             $table->timestamps();
         });
     }
@@ -35,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('home_hero_banners');
     }
 };

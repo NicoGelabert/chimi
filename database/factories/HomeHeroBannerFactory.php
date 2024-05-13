@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Price>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\HomeHeroBanner>
  */
-class PriceFactory extends Factory
+class HomeHeroBannerFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,11 @@ class PriceFactory extends Factory
     public function definition(): array
     {
         return [
-            'number' => fake()->randomFloat(2, 2, 5),
-            'size' => fake()->text(),
+            'image' => fake()->imageUrl(),
+            'headline' => fake()->text(),
+            'description' => fake()->realText(2000),
+            'link' => fake()->text(),
+            'background' => fake()->text(),
             'created_at' => now(),
             'updated_at' => now(),
             'created_by' => 1,

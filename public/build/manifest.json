@@ -2216,7 +2216,7 @@
     "src": "public/fonts/MountHills.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-44b00a40.css",
+    "file": "assets/app-fb94b72c.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -2224,25 +2224,5 @@
     "file": "assets/app-0509c539.js",
     "isEntry": true,
     "src": "resources/js/app.js"
-  },
-  "storage/app/public/img/carrotcake_ingredients_large.webp": {
-    "file": "assets/carrotcake_ingredients_large-0b2d7b4a.webp",
-    "src": "storage/app/public/img/carrotcake_ingredients_large.webp"
-  },
-  "storage/app/public/img/carrotcake_ingredients_small.webp": {
-    "file": "assets/carrotcake_ingredients_small-96790d1a.webp",
-    "src": "storage/app/public/img/carrotcake_ingredients_small.webp"
-  },
-  "storage/app/public/img/chessecake_ingredients_large.webp": {
-    "file": "assets/chessecake_ingredients_large-d9fcce37.webp",
-    "src": "storage/app/public/img/chessecake_ingredients_large.webp"
-  },
-  "storage/app/public/img/chessecake_ingredients_small.webp": {
-    "file": "assets/chessecake_ingredients_small-d0cc1c0c.webp",
-    "src": "storage/app/public/img/chessecake_ingredients_small.webp"
-  },
-  "storage/app/public/img/white-paper-texture.webp": {
-    "file": "assets/white-paper-texture-8cf70690.webp",
-    "src": "storage/app/public/img/white-paper-texture.webp"
   }
 }

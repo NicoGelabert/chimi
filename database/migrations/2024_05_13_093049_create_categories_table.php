@@ -12,24 +12,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_price', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBiginteger('product_id')->unsigned();
-            $table->unsignedBiginteger('price_id')->unsigned();
-
-            // Claves foráneas
-            $table->foreign('product_id')->references('id')
-                 ->on('products')->onDelete('cascade');
-            $table->foreign('price_id')->references('id')
-                ->on('prices')->onDelete('cascade');
-
-            // User info para backend
+            $table->string('title', 50);
+            $table->string('slug', 50);
+            $table->longText('description')->nullable();
+            $table->string('image', 2000)->nullable();
+            $table->string('image_mime')->nullable();
+            $table->integer('image_size')->nullable();
+            $table->boolean('published')->default(true);
             $table->foreignIdFor(User::class, 'created_by')->nullable();
             $table->foreignIdFor(User::class, 'updated_by')->nullable();
             $table->softDeletes();
             $table->foreignIdFor(User::class, 'deleted_by')->nullable();
-
-            //
             $table->timestamps();
         });
     }
@@ -39,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_price');
+        Schema::dropIfExists('categories');
     }
 };
