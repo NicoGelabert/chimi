@@ -24,6 +24,7 @@
         "@alpinejs/collapse": "^3.12.3",
         "@flaticon/flaticon-uicons": "^2.4.0",
         "@splidejs/splide": "^4.1.4",
+        "@splidejs/splide-extension-auto-scroll": "^0.5.3",
         "alpinejs": "^3.12.3",
         "flag-icon-css": "^4.1.7",
         "http.js": "^1.0.0",

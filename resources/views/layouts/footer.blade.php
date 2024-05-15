@@ -1,11 +1,11 @@
 <footer>
     <div class="footer-container">
-        <div class="flex flex-col gap-y-4">
+        <div class="flex flex-col items-center md:items-start gap-y-4">
             <div class="logo footer-logo">
                 <x-application-logo />
+                <x-social-icons />
             </div>
-            <x-social-icons />
-            <p class="">Av. Ramón y Cajal 10, Fuengirola, Málaga.</p>
+            <p class="">Fuengirola, Málaga.</p>
         </div>
         <div class="footer-menu">
             <div>
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <hr class="divider" />
+    <hr class="footer-divider" />
     <div class="post-footer">
         <span class="developed-by">{{__('Sitio diseñado y desarrollado por')}}<a href="https://nicolasgelabert.com.ar" target="_blank"> Nicolás Gelabert</a></span>
         <ul class="flex gap-x-4">

@@ -2,6 +2,10 @@
 @use './animations/animations' as *;
 body{
     @apply bg-white text-black dark:bg-black dark:text-white;
+    font-family: $secondary-font;
+    h1, h2, h3, h4, h5, h6{
+        font-family: $primary-font;
+    }
     h1{
         @apply text-5xl;
     }
@@ -23,8 +27,11 @@ body{
     p{
         @apply text-base;
     }
+    a{
+        @apply hover:text-primary;
+    }
     .logo{
-        @apply text-4xl md:text-6xl h-auto font-bold transition-all;
+        @apply text-4xl md:text-6xl h-auto font-bold w-max	 transition-all;
         font-family: $primary-font;
     }
     .logo-hamburguer{
@@ -109,7 +116,16 @@ body{
                 width: 45%;
             }
         }
-    .divider{ // línea divisoria
-        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-50 dark:opacity-100
+    // Contenedor gral
+    .container{
+        @apply w-full max-w-screen-xl mx-auto px-4 py-12 border-x-2 2xl:p-0;
+    }
+    // línea divisoria
+    .divider{ 
+        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-black to-transparent opacity-30 dark:via-white my-16 lg:my-24;
+    }
+    // Social icons
+    .social-icons a{
+        @apply h-8 w-8 aspect-square rounded-md flex justify-center items-center ring-1 text-black bg-black/5 ring-black/20 hover:bg-primary hover:text-white hover:ring-primary_darker transition-all;
     }
 }

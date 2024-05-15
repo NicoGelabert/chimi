@@ -1,3 +1,9 @@
-<button {{ $attributes->merge(['type' => 'submit', 'class' => 'btn-primary bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 w-full']) }}>
-    {{ $slot }}
-</button>
+@if ($href)
+    <a href="{{ $href }}" {{ $attributes->merge(['class' => $class]) }}>
+        {{ $slot }}
+    </a>
+@else
+    <button {{ $attributes->merge(['type' => $type, 'class' => $class]) }}>
+        {{ $slot }}
+    </button>
+@endif

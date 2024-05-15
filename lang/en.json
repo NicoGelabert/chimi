@@ -1,70 +1,40 @@
 {
     "Sitio diseñado y desarrollado por": "Site design and developed by",
 
-    "Tarta de Queso": "Cheese Cake",
-    "Tarta de Zanahoria": "Carrot Cake",
-    "Tarta Banoffee": "Banoffee Cake",
-    "Tarta Brownie": "Brownie Cake",
-    "Tarta de Chocolate": "Chocolate Cake",
-    "Empanadas de Ternera": "Beef Pies",
-    "Empanadas de Pollo": "Chicken Pies",
-    "Empanadas de Espinaca": "Spinach Pies",
-    "Lemon Pie" : "Lemon Pie",
-    "Tartaleta de Coco" : "Coconut tartlet",
-    
-    "Tartas": "Cakes",
-    "Empanadas": "Pies",
-    "Otras Delicias": "Other Delicacies",
-    "Desayunos": "Breakfasts",
+    "Características" : "Features",
+    "Convertimos sus ideas en realidad con un diseño gráfico y web único" : "We Bring Your Ideas to Life with unique Graphic and Web Design",
+    "Potencia la Identidad de tu Marca con Servicios de Branding Profesionales" : "Enhance your Brand Identity with Professional Branding Services",
+    "Nuestros servicios integrales incluyen branding, diseño web y diseño gráfico para ayudar a que su negocio se destaque." : "Our comprehensive services include branding, web design, and graphic design to help your business stand out.",
+    "Cree experiencias de usuario atractivas con un diseño web innovador" : "Create Engaging User Experiences with Cutting-Edge Web Design",
+    "Nuestro equipo de diseñadores creará un sitio web que cautive a su audiencia." : "Our team of designers will create a website that captivates your audience.",
+    "Eleve su marca con soluciones de diseño gráfico llamativas" : "Elevate Your Brand with Eye-Catching Graphic Design Solutions",
+    "Desde logotipos hasta materiales de marketing, crearemos imágenes atractivas que dejen una impresión duradera." : "From logos to marketing materials, we'll create compelling visuals that leave a lasting impression.",
+    "Ver más" : "Learn More",
 
-    "Mediana | 6 porciones | 20cm": "Medium | 6 portions | 20cm",
-    "Grande | 12 porciones | 28cm": "Large | 12 portions | 28cm",
-    "Mínimo 6 unidades" : "Minimum 6 units",
-    "Mínimo 3 unidades" : "Minimum 3 units",
-    
-    "Contiene": "Contains",
-    "Gluten": "Gluten",
-    "Lactosa": "Lactose",
-    "Azúcar": "Sugar",
-    "Huevo": "Egg",
+    "Beneficios" : "Benefits",
+    "Destaca con innovadoras soluciones de diseño" : "Stand out with innovative design solutions",
+    "En nuestra agencia, combinamos creatividad y experiencia para ofrecer soluciones atractivas de diseño gráfico y web que ayuden a las empresas a tener éxito. Con nuestro enfoque único, nos aseguramos de que su marca se destaque de la competencia y cautive a su público objetivo." : "At our agency, we combine creativity and expertise to deliver compelling graphic and web design solutions that help businesses succeed. With our unique approach, we ensure that your brand stands out from the competition and captivates your target audience.",
+    "Aptitudes" : "Expertise",
+    "Nuestro equipo de diseñadores y desarrolladores capacitados hace realidad su visión con precisión y estilo." : "Our team of skilled designers and developers bring your vision to life with precision and flair.",
+    "Colaboración" : "Collaboration",
+    "Trabajamos estrechamente con nuestros clientes para comprender sus objetivos y ofrecer soluciones de diseño personalizadas." : "We work closely with our clients to understand their goals and deliver tailored design solutions.",
 
-    "Una irresistible combinación de queso crema y nata reposa sobre una base de galleta crujiente, prometiendo un festín de sabores y texturas en cada bocado.": "An irresistible combination of cream cheese and cream rests on a crunchy cookie base, promising a feast of flavors and textures in every bite.",
-    "Una irresistible combinación de queso crema y nata sobre una base de galleta crujiente." : "An irresistible combination of cream cheese and cream on a crunchy cookie base.",
+    "Servicios" : "Services",
+    "Soluciones de diseño" : "Design Solutions",
+    "Ofrecemos una gama de servicios de diseño creativo para satisfacer sus necesidades." : "We offer a range of creative design services to meet your needs.",
+    "Diseño Web" : "Web Design",
+    "Creamos sitios web impresionantes que son visualmente atractivos y fáciles de usar." : "We create stunning websites that are visually appealing and user-friendly.",
+    "Diseño Gráfico" : "Graphic Design",
+    "Nuestros servicios de diseño gráfico ayudan a que su marca se destaque." : "Our graphic design services help your brand stand out.",
+    "Soluciones de Branding" : "Branding Solutions",
+    "Creamos soluciones de marca únicas y memorables para su negocio." : "We create unique and memorable branding solutions for your business.",
 
-    "Una mezcla tentadora de zanahoria rallada se une con suavidad al queso hecho crema, sobre una base de nueces trituradas, creando una experiencia única que deleita los sentidos en cada mordisco.": "A tantalizing blend of grated carrot gently blends with cream cheese on a base of crushed walnuts, creating a unique experience that delights the senses with every bite.",
-    "Una mezcla tentadora de zanahoria con la suavidad del queso hecho crema y nueces trituradas." : "A tempting mix of carrot with the softness of cream cheese and crushed walnuts.",
-
-    "Una combinación exquisita de banana fresca se une con suavidad a una capa de crema, mientras el dulce de leche se desliza entre cada capa, creando una armonía de sabores que despiertan los sentidos.": "An exquisite combination of fresh banana gently joins a layer of cream, while the dulce de leche slides between each layer, creating a harmony of flavors that awaken the senses.",
-    "Una suave combinación de crema, con la dulzura del dulce de leche sobre una base de galletas" : "A soft combination of cream, with the sweetness of dulce de leche on a cookie base",
-
-    "Un brownie tentador se fusiona con suavidad en una capa de crema, mientras el dulce de leche se desliza entre sus recovecos, creando una sinfonía de sabores que deleitan el paladar.": "A tempting brownie melts softly into a layer of cream, while the dulce de leche slides through its nooks, creating a symphony of flavors that delight the palate.",
-    "Un brownie tentador se fusiona con su mejor aliado, el dulce de leche, creando una sinfonía de sabores." : "A tempting brownie merges with its best ally, dulce de leche, creating a symphony of flavors.",
-
-    "Una mezcla exquisita de chocolate se combina con suavidad en un lecho de dulce de leche, mientras una tentadora cobertura de chocolate completa esta experiencia celestial para el paladar." : "An exquisite blend of chocolate is gently combined on a bed of dulce de leche, while a tantalizing chocolate coating completes this heavenly experience for the palate.",
-
-    "Un relleno jugoso de ternera se envuelve con delicadeza en una masa dorada y crujiente, creando una experiencia gastronómica que deleita los sentidos." : "A juicy beef filling is delicately wrapped in a crispy, golden crust, creating a dining experience that delights the senses.",
-
-    "Un relleno tierno de pollo se abraza con cariño en una masa dorada y crujiente, ofreciendo una experiencia gastronómica que cautiva los sentidos." : "A tender chicken filling is lovingly embraced in a crispy, golden crust, offering a dining experience that captivates the senses.",
-
-    "Un relleno suculento de pollo se acurruca con esmero en una masa dorada y crujiente, brindando una experiencia gastronómica que enamora los sentidos." : "A succulent chicken filling is carefully nestled in a golden and crispy dough, providing a gastronomic experience that enchants the senses.",
-
-    "Una deliciosa mezcla de espinacas se envuelve con cuidado en una masa dorada y crujiente, ofreciendo una experiencia culinaria que sorprende y deleita." : "A delicious spinach blend is carefully wrapped in a crispy, golden crust, offering a culinary experience that surprises and delights.",
-
-    "Una suave y refrescante crema de limón reposa sobre una base de masa quebrada, regalando una explosión de frescura en cada bocado." : "A soft and refreshing lemon cream rests on a shortcrust pastry base, giving an explosion of freshness in every bite.",
-
-    "Una exquisita combinación de coco rallado se entrelaza con dulce de leche sobre una base de masa quebrada, creando una armonía de sabores que te transporta a un paraíso tropical en cada mordisco." : "An exquisite combination of grated coconut is intertwined with dulce de leche on a shortcrust pastry base, creating a harmony of flavors that transports you to a tropical paradise in every bite.",
-
-    "Leer Menos": "Read Less",
-    "Leer Más": "Read More",
-    "Ver más" : "See more",
-
-    "Los pedidos se realizan con 48hs de anticipación": "Orders are placed 48 hours in advance",
-    "Encargar por whatsapp": "Order by WhatsApp",
+    "Portfolio" : "Portfolio",
+    "una ventana a nuestro mundo creativo" : "A window into our creative world",
+    "Desde diseños innovadores hasta soluciones tecnológicas avanzadas, cada proyecto cuenta una historia única de creatividad, pasión y excelencia." : "From innovative designs to advanced technological solutions, each project tells a unique story of creativity, passion and excellence.",
 
     "No hay productos publicados" : "There are no products published",
 
-    "Más cosas ricas" : "More delicious things",
-    "La felicidad está en un trozo de tarta": "Find the happiness in a piece of cake",
     "Ver productos": "See products",
     "Ir al carrito": "Go to cart",
     "Últimos productos": "Latest products",
@@ -124,11 +94,6 @@
     "Quitar": "Remove",
     "Continuar con la compra": "Proceed to Checkout",
 
-    "Dónde nos encuentras": "Where do you find us",
-    "Desde el año 2009 estamos en el corazón de Fuengirola, en la Costa del Sol.": "Since 2009 we have been in the heart of Fuengirola, on the Costa del Sol.",
-    "Horario de atención": "Opening Hours",
-    "Lu - Vi": "Mon - Fri",
-    "Sa": "Sat",
     "Suscríbete a nuestro newsletter.": "Subscribe to our newsletter.",
     "Suscríbete": "Subscribe",
     "Artículos semanales": "Weekly articles",

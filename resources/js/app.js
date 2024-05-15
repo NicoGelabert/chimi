@@ -5,6 +5,7 @@ import collapse from '@alpinejs/collapse'
 import {get, post} from "./http.js";
 import 'flowbite';
 import Splide from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 Alpine.plugin(collapse)
 
@@ -102,3 +103,19 @@ const toggleThemeButton = document.getElementById('toggle-theme');
 toggleThemeButton.addEventListener('click', function() {
     toggleThemeButton.classList.toggle('dark');
 });
+
+// SPLIDE PORTFOLIO
+const splide = new Splide( '#portolio', {
+  type   : 'loop',
+  drag   : 'free',
+  focus  : 'center',
+  pagination : false,
+  arrows : false,
+  perPage: 3,
+  autoWidth: true,
+  autoScroll: {
+    speed: 1,
+  },
+} );
+splide.mount( { AutoScroll } );
+// END SPLIDE PORTFOLIO

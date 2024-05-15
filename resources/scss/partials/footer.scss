@@ -2,13 +2,13 @@ footer{
     @apply bg-black text-white;
     .footer-container{
         @apply max-w-screen-xl mx-auto flex flex-col items-center gap-y-8 py-12 px-4 md:flex-row md:justify-between;
-        .footer-logo svg{
-            @apply w-36 h-auto fill-white mx-auto md:mx-0;
-        }
-        .social-icons{
-            @apply flex gap-8 justify-center md:justify-start md:gap-4;
-            a{
-                @apply text-white bg-white/15 ring-white/20;
+        .footer-logo{
+            @apply flex flex-col gap-4 text-6xl text-primary;
+            svg{
+                @apply w-36 h-auto fill-white mx-auto md:mx-0;
+            }
+            .social-icons a{
+                @apply h-8 w-8 aspect-square rounded-md flex justify-center items-center ring-1 text-white bg-white/15 ring-white/20 hover:bg-primary hover:text-white hover:ring-primary_darker transition-all;
             }
         }
         .footer-menu{
@@ -20,6 +20,9 @@ footer{
         p{
             @apply text-center;
         }
+    }
+    .footer-divider{ 
+        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-50 my-16 lg:my-24;
     }
     .post-footer{
         @apply max-w-screen-xl mx-auto flex justify-between items-center p-4 text-xs;

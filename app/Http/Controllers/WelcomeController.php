@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\HomeHeroBanner;
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\Feature;
+use App\Models\Service;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        $homeHeroBanners = HomeHeroBanner::all();
-        $categories = Category::all();
-        $products = Product::query()
-            ->where('published', '=', 1)
-            ->orderBy('updated_at', 'desc')
-            ->paginate(4);
+        $features = Feature::all();
+        $services = Service::all();
+        $portfolios = Portfolio::all();
             return view('welcome', [
-            'products' => $products, 'categories' => $categories, 'homeHeroBanners' => $homeHeroBanners
+                'features' => $features,
+                'services' => $services,
+                'portfolios' => $portfolios
         ]);
     }
 }

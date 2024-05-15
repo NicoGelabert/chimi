@@ -1,0 +1,6 @@
+.home-hero-banner{
+    @apply flex items-center justify-evenly h-screen;
+    img{
+        @apply w-auto;
+    }
+}
