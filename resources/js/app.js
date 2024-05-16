@@ -105,17 +105,42 @@ toggleThemeButton.addEventListener('click', function() {
 });
 
 // SPLIDE PORTFOLIO
-const splide = new Splide( '#portolio', {
-  type   : 'loop',
-  drag   : 'free',
-  focus  : 'center',
-  pagination : false,
-  arrows : false,
-  perPage: 3,
-  autoWidth: true,
-  autoScroll: {
-    speed: 1,
-  },
+document.addEventListener( 'DOMContentLoaded', function () {
+  var main = new Splide( '#main-carousel', {
+    type      : 'fade',
+    rewind    : true,
+    pagination: false,
+    arrows    : false,
+    fixedWidth  : '100%',
+    fixedHeight : 600,
+  } );
+
+  var thumbnails = new Splide( '#thumbnail-carousel', {
+    type        : 'loop',
+    gap         : 10,
+    rewind      : true,
+    pagination  : false,
+    isNavigation: true,
+    focus       : 'center',
+    fixedWidth  : '100%',
+    fixedHeight : '100vh',
+  } );
+
+  main.sync( thumbnails );
+  main.mount();
+  thumbnails.mount();
 } );
-splide.mount( { AutoScroll } );
+// const splide = new Splide( '#portolio', {
+//   type   : 'loop',
+//   drag   : 'free',
+//   focus  : 'center',
+//   pagination : false,
+//   arrows : false,
+//   perPage: 3,
+//   autoWidth: true,
+//   autoScroll: {
+//     speed: 1,
+//   },
+// } );
+// splide.mount( { AutoScroll } );
 // END SPLIDE PORTFOLIO
