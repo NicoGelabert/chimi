@@ -8,7 +8,44 @@
         <h3 class="text-center">Una ventana a nuestro mundo creativo</h3>
         <p class="text-center">Desde diseños innovadores hasta soluciones tecnológicas avanzadas, cada proyecto cuenta una historia única de creatividad, pasión y excelencia.</p>
     </div>
-    <div x-data="{ modalImage: null }">
+
+    <div id="portfolio" class="relative">
+        <div id="main-carousel" class="splide mx-auto" aria-label="Portfolio">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    @foreach($portfolios as $portfolio)
+                    <li class="splide__slide">
+                        <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}">
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        <div
+            id="thumbnail-carousel"
+            class="splide"
+            aria-label="Puede ver todos nuestros trabajos."
+            >
+            <div class="splide__track h-full">
+                    <ul class="splide__list">
+                        @foreach($portfolios as $portfolio)
+                        <li class="splide__slide">
+                            <div class="flex flex-col-reverse items-center justify-between w-full max-w-screen-md mx-auto md:flex-row h-full gap-8 py-8 md:py-0">
+                                <div class="md:w-1/2 h-full flex items-center justify-center">
+                                    <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}">
+                                </div>
+                                <div class="text-white md:w-1/2">
+                                    <h3>{{ $portfolio->title }}</h3>
+                                    <p>{{ $portfolio->client }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <div x-data="{ modalImage: null }">
         <div class="splide mb-12" id="portolio" aria-label="Portfolio">
             <div class="splide__track">
                 <ul class="splide__list">
@@ -30,27 +67,20 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <script>
-    modalImage = null;
-    currentIndex = 0; // Definir currentIndex en un alcance global
+    document.addEventListener('DOMContentLoaded', function() {
+      const portfolioSection = document.getElementById('portfolio');
 
-    images = [
-        @foreach ($portfolios as $portfolio)
-            '{{ url("$portfolio->image") }}',
-        @endforeach
-    ];
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            portfolioSection.style.height = `${window.innerHeight}px`;
+          }
+        });
+      }, { threshold: 0.5 });
 
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        modalImage = images[currentIndex];
-        console.log(modalImage);
-    }
-
-    function prevImage() {
-        console.log("Previous image clicked");
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        modalImage = images[currentIndex];
-    }
-</script>
+      observer.observe(portfolioSection);
+    });
+  </script>
