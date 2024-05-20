@@ -3,7 +3,7 @@
         <ul class="splide__list">
             @foreach($homeherobanners as $homeherobanner)
             <li class="splide__slide mx-auto">
-                <div class="flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 md:px-16 md:flex-row">
+                <div class="flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 mx-auto md:px-16 md:flex-row">
                     <div class="flex flex-col justify-start gap-8 w-full md:w-1/2">
                         <hr class="animate-hr" />
                         <div class="flex justify-between">
@@ -29,5 +29,9 @@
             </li>
             @endforeach
         </ul>
+        <div class="splide__progress w-full py-8 md:py-12">
+            <div class="splide__progress__bar bg-primary h-px">
+            </div>
+        </div>
     </div>
 </div>

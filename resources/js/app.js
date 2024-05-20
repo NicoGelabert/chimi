@@ -138,6 +138,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
       isNavigation: false,
       arrows      : false,
       focus       : 'center',
+      autoplay    : 'play',
+      interval    : '7000'
   });
 
   homeHeroBanner.on('mounted move', function() {

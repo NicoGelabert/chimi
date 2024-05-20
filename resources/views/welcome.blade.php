@@ -2,8 +2,8 @@
 
     <x-home-hero-banner :homeherobanners="$homeherobanners" />
 
-    <hr class="divider" />
-
+    <x-services :services="$services"/>
+    
     <x-features :features="$features"/>
     
     <hr class="divider" />
@@ -12,7 +12,6 @@
 
     <x-clients />
 
-    <x-services :services="$services"/>
     
     <hr class="divider" />
     
