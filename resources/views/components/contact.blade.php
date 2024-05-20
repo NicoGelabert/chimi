@@ -1,10 +1,8 @@
 <div class="container flex flex-col md:flex-row items-start gap-16">
     <div class="w-full md:w-1/2 flex flex-col justify-start gap-8">
-        <p class="text-xs">
-            <span class="p-1 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block">
-                <span class="relative text-white font-semibold">Contáctenos</span>
-            </span>
-        </p>
+        <div class="pretitle">
+            <p>Contáctenos</p>
+        </div>
         <h3 class="">Estemos en contacto
         </h3>
         <p class="">No dudes en ponerte en contacto con nosotros. Estamos ansiosos por escuchar de ti y trabajar juntos en tus proyectos. ¡Esperamos tu mensaje!</p>
@@ -28,7 +26,7 @@
                 <textarea id="messageInput" name="message" placeholder="Déjenos un mensaje" rows="4" required ></textarea>
                 <div class="g-recaptcha" data-sitekey="6LcjHtMpAAAAAII4PAM3Vh2hT-0RDntu6B-3a_pH"></div>
                 <x-button id="subscribeBtn" type="submit">
-                    <i class="fi fi-rr-arrow-right"></i> <span>{{__('Enviar')}}</span>
+                    <i class="fi fi-rr-arrow-right arrow-to-right"></i> <span>{{__('Enviar')}}</span>
                 </x-button>
             </div>
         </form>

@@ -31,9 +31,13 @@ body{
         @apply hover:text-primary;
     }
     .logo{
-        @apply text-4xl md:text-6xl h-auto font-bold w-max	 transition-all;
-        font-family: $primary-font;
+        @apply h-auto max-w-24 transition-all fill-primary;
     }
+    // nav{
+    //     .logo{
+    //         @apply bg-primary p-2;
+    //     }
+    // }
     .logo-hamburguer{
         svg{
             @apply w-36 h-auto fill-black dark:fill-white;
@@ -118,11 +122,22 @@ body{
         }
     // Contenedor gral
     .container{
-        @apply w-full max-w-screen-xl mx-auto px-4 py-12 border-x-2 2xl:p-0;
+        @apply w-full max-w-screen-xl mx-auto px-4 py-12 border-x-2 2xl:px-0;
     }
     // línea divisoria
     .divider{ 
-        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-black to-transparent opacity-30 dark:via-white my-16 lg:my-24;
+        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-black to-transparent opacity-30 dark:via-white my-16;
+    }
+    .pretitle{
+        @apply relative w-fit z-0;
+    }
+    .pretitle p{
+        @apply text-sm tracking-wider relative text-white;
+        font-family: $primary-font;
+    }
+    .pretitle::before{
+        @apply p-2 -inset-2 -skew-y-3 bg-secondary absolute inline-block;
+        content: ""
     }
     // Social icons
     .social-icons a{

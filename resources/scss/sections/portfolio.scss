@@ -37,9 +37,9 @@
             border:none;
         }
         .splide__arrows{
-            @apply absolute w-full bottom-8 flex justify-center gap-20;
+            @apply absolute w-full bottom-8 flex justify-center gap-12;
             .splide__arrow{
-                @apply relative;
+                @apply relative left-0 translate-y-0 bg-white opacity-100;
             }
         }
     }

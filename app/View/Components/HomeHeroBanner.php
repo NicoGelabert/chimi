@@ -8,12 +8,15 @@ use Illuminate\View\Component;
 
 class HomeHeroBanner extends Component
 {
+    public $homeherobanners;
     /**
      * Create a new component instance.
+     * @param  mixed  $homeherobanners
+     * @return void
      */
-    public function __construct()
+    public function __construct($homeherobanners)
     {
-        //
+        $this->homeherobanners = $homeherobanners;
     }
 
     /**

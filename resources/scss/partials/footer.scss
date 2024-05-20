@@ -3,7 +3,7 @@ footer{
     .footer-container{
         @apply max-w-screen-xl mx-auto flex flex-col items-center gap-y-8 py-12 px-4 md:flex-row md:justify-between;
         .footer-logo{
-            @apply flex flex-col gap-4 text-6xl text-primary;
+            @apply flex flex-col gap-4 max-w-32;
             svg{
                 @apply w-36 h-auto fill-white mx-auto md:mx-0;
             }
@@ -22,7 +22,7 @@ footer{
         }
     }
     .footer-divider{ 
-        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-50 my-16 lg:my-24;
+        @apply h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-50;
     }
     .post-footer{
         @apply max-w-screen-xl mx-auto flex justify-between items-center p-4 text-xs;

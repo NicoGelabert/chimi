@@ -1,1 +1,1 @@
-<span>CHIMI</span>
+<img src="{{ asset('storage/common/logo-chimi.svg') }}" alt="">

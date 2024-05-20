@@ -1,10 +1,8 @@
 <div class="flex flex-col gap-12">
-    <div class="container flex flex-col gap-12">
-        <p class="text-xs text-center">
-            <span class="p-1 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block">
-                <span class="relative text-white font-semibold">Portfolio</span>
-            </span>
-        </p>
+    <div class="container flex flex-col gap-12 items-center">
+        <div class="pretitle">
+            <p>Portfolio</p>
+        </div>
         <h3 class="text-center">Una ventana a nuestro mundo creativo</h3>
         <p class="text-center">Desde diseños innovadores hasta soluciones tecnológicas avanzadas, cada proyecto cuenta una historia única de creatividad, pasión y excelencia.</p>
     </div>
@@ -30,7 +28,7 @@
                     <ul class="splide__list">
                         @foreach($portfolios as $portfolio)
                         <li class="splide__slide">
-                            <div class="flex flex-col-reverse items-center justify-between w-full max-w-screen-md mx-auto md:flex-row h-full gap-8 py-8 md:py-0">
+                            <div class="flex flex-col-reverse items-center justify-between w-full max-w-screen-md mx-auto md:flex-row h-full gap-8 py-16 md:py-8 md:py-0">
                                 <div class="md:w-1/2 h-full flex items-center justify-center">
                                     <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}">
                                 </div>
