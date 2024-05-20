@@ -6,5 +6,6 @@
     <p class="text-center">Desde pequeños emprendedores hasta grandes corporaciones, cada cliente es único.</p>
     <div class="flex items-center justify-center text-black">
         <img src="{{ asset('storage/clients/logo-punto-sur.svg') }}" class="h-24" alt="">
+        
     </div>
 </div>

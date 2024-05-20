@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -41,6 +42,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
         Route::post('/remove/{product:slug}', [CartController::class, 'remove'])->name('remove');
         Route::post('/update-quantity/{product:slug}', [CartController::class, 'updateQuantity'])->name('update-quantity');
     });
+    
+    Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 });
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/profile', [ProfileController::class, 'view'])->name('profile');
