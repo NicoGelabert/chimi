@@ -4,15 +4,14 @@
 
     <x-services :services="$services"/>
     
-    <x-features :features="$features"/>
-    
     <hr class="divider" />
-
-    <x-benefits />
-
-    <x-clients />
-
     
+    <x-benefits />
+    
+    <x-clients />
+    
+    <x-features :features="$features"/>
+        
     <hr class="divider" />
     
     <x-portfolio :portfolios="$portfolios"/>
