@@ -13,7 +13,7 @@
                         <h1 class="animate-h1 text-6xl leading-tight dark:text-primary">{{ $homeherobanner->headline }}</h1>
                         <p class="animate-p">{{ $homeherobanner->description }}</p>
                         <div class="animate-button">
-                            <x-button><i class="fi fi-rr-arrow-right arrow-to-right"></i><span>Conózcanos</span></x-button>
+                            <x-button href="{{ route('service.view', $homeherobanner->slug) }}"><i class="fi fi-rr-arrow-right arrow-to-right"></i><span>Conózcanos</span></x-button>
                         </div>
                     </div>
                     <div class="flex w-full md:w-1/2 h-auto overflow-hidden">

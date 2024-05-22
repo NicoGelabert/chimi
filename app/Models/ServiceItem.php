@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\ServiceItem;
+use App\Models\Service;
 use App\Models\Client;
 use App\Models\Portfolio;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Service extends Model
+class ServiceItem extends Model
 {
-    use SoftDeletes;
     use HasFactory;
     use HasSlug;
-
-    protected $fillable = ['title', 'image', 'image_mime', 'image_size', 'description', 'created_by', 'updated_by'];
+    use SoftDeletes;
+    
+    protected $fillable = ['title', 'desciption', 'published', 'service_id', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -30,20 +30,19 @@ class Service extends Model
     {
         return 'slug';
     }
-
-    public function serviceItems()
+    
+    public function service()
     {
-        return $this->hasMany(ServiceItem::class);
-    }
-
-    public function clients()
-    {
-        return $this->hasManyThrough(Client::class, ServiceItem::class);
+        return $this->belongsTo(Service::class);
     }
 
     public function portfolios()
     {
-        return $this->hasManyThrough(Portfolio::class, ServiceItem::Class, 'service_id', 'id', 'id', 'portfolio_id');
+        return $this->belongsToMany(Portfolio::class, 'portfolio_service_item', 'service_item_id', 'portfolio_id');
     }
 
+    public function clients()
+    {
+        return $this->belongsToMany(Client::clas, 'client_service_item', 'service_item_id', 'client_id');
+    }
 }

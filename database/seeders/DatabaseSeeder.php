@@ -20,8 +20,11 @@ class DatabaseSeeder extends Seeder
             // ProductSeeder::class,
             // ProjectSeeder::class,
             // ServiceSeeder::class,
+            // ClientSeeder::class,
             // PortfolioSeeder::class,
             // FeatureSeeder::class,
+            // ServiceItemSeeder::class,
+            PortfolioServiceItemSeeder::class,
         ]);
     }
 }

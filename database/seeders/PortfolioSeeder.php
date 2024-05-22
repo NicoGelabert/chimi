@@ -17,77 +17,77 @@ class PortfolioSeeder extends Seeder
         DB::table('portfolios')->insert([
             'title' => 'Homenaje a Fernando Peña',
             'image' => 'storage/portfolio/el-parquimetro-homanaje-a-fernando-pena.jpg',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Promo Carrera de Producción',
             'image' => 'storage/portfolio/publi-carrera-produccion.jpg',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Mick',
             'image' => 'storage/portfolio/eter-sos-lo-que-estudias.png',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
         DB::table('portfolios')->insert([
-            'title' => 'Mick',
+            'title' => 'Isologo Sur Comunica',
             'image' => 'storage/portfolio/isologo-sur-comunica.jpg',
-            'client' => 'Isologo Sur Comunica',
+            'client_id' => 2,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Arte Stone',
             'image' => 'storage/portfolio/arte-stone.jpg',
-            'client' => 'Inspiración Rolling Stone',
+            'client_id' => 3,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Amor',
             'image' => 'storage/portfolio/amor.jpg',
-            'client' => 'Licenciada Graciela Antes',
+            'client_id' => 4,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Isologo 100 años de radio',
             'image' => 'storage/portfolio/isologo-100-anos-de-radio.jpg',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Logo Rada',
             'image' => 'storage/portfolio/logotipo-rada.jpg',
-            'client' => 'Rada Zapatos',
+            'client_id' => 5,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Promo ETER Carreras',
             'image' => 'storage/portfolio/publi-eter-carreras.jpg',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Isologo Bamboo',
             'image' => 'storage/portfolio/isologo-bamboo-sushi-wok.jpg',
-            'client' => 'Bamboo Sushi & Wok',
+            'client_id' => 6,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Publi Johnnie Walker',
             'image' => 'storage/portfolio/publi-johnny-walker.jpg',
-            'client' => 'Escuela de Creativos Publicitarios',
+            'client_id' => 7,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Diseño Editorial - Skatalites',
             'image' => 'storage/portfolio/editorial-skatalites.jpg',
-            'client' => 'Escuela de Creativos Publicitarios',
+            'client_id' => 7,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Diploma Premios ETER',
             'image' => 'storage/portfolio/premioseter-diploma.png',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Efeméride 24 de marzo',
             'image' => 'storage/portfolio/nunca-mas-pandemia.jpg',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
         DB::table('portfolios')->insert([
             'title' => 'Señalador ETER carreras',
             'image' => 'storage/portfolio/eter-senalador.png',
-            'client' => 'ETER, Escuela de Comunicación',
+            'client_id' => 1,
         ]);
     }
 }
