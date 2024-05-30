@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             // FeatureSeeder::class,
             // ServiceItemSeeder::class,
             // PortfolioServiceItemSeeder::class,
-            TagSeeder::class,
+            // TagSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }
