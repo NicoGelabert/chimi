@@ -61,7 +61,7 @@ body{
             transition: transform 0.3s ease; /* Agregar transición para el cambio de posición */
         }
         .dark .indicator {
-            transform: translateX(100%) translateY(-50%); /* Mover el indicador al lado derecho en el modo oscuro */
+            transform: translateX(1.75rem) translateY(-50%); /* Mover el indicador al lado derecho en el modo oscuro */
         }
     }
     .mobile-menu{
@@ -72,7 +72,19 @@ body{
             @apply text-black;
         }
         .dropdown{
-            @apply bg-white w-full;
+            @apply absolute z-10 w-full text-center;
+            li{
+                @apply bg-gray-100 w-full;
+                a{
+                    @apply pt-0 pb-0;
+                }
+            }
+            li:hover{
+                @apply bg-gray-200;
+                a{
+                    @apply text-primary;
+                }
+            }
         }
         .cart-widget{
             @apply text-white mx-2 md:mx-0;

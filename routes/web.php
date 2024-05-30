@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\QuotationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,10 +33,10 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
     // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
-    Route::get('/menu', [CategoryController::class, 'index'])->name('category.index');
+    // Route::get('/menu', [CategoryController::class, 'index'])->name('category.index');
     // Route::get('/categorias-json', [CategoryController::class, 'categoriasJson'])->name('categorias.json');
-    Route::get('/menu/{category:slug}', [CategoryController::class, 'view'])->name('category.view');
-    Route::get('/menu/{category:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
+    // Route::get('/menu/{category:slug}', [CategoryController::class, 'view'])->name('category.view');
+    // Route::get('/menu/{category:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     //Servicios
     Route::get('/servicios', [ServiceController::class, 'index'])->name('service.index');
     Route::get('/servicios/{service:slug}', [ServiceController::class, 'view'])->name('service.view');
@@ -49,6 +50,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
     
     Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+    Route::get('/quotation', [QuotationController::class, 'create'])->name('quotation.create');
+    Route::post('/quotation', [QuotationController::class, 'store'])->name('quotation.store');
 });
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/profile', [ProfileController::class, 'view'])->name('profile');

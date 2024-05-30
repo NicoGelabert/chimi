@@ -28,13 +28,18 @@
                     <ul class="splide__list">
                         @foreach($portfolios as $portfolio)
                         <li class="splide__slide">
-                            <div class="flex flex-col-reverse items-center justify-between w-full max-w-screen-md mx-auto md:flex-row h-full gap-8 py-16 md:py-8 md:py-0">
+                            <div class="flex flex-col-reverse items-center justify-between w-full max-w-screen-lg mx-auto md:flex-row h-full gap-8 py-16 md:py-8 md:py-0">
                                 <div class="md:w-1/2 h-full flex items-center justify-center">
                                     <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}">
                                 </div>
-                                <div class="text-white md:w-1/2">
+                                <div class="text-white md:w-1/2 flex flex-col gap-4">
                                     <h3>{{ $portfolio->title }}</h3>
-                                    <p>{{ $portfolio->client }}</p>
+                                    <p>{{ $portfolio->client->title }}</p>
+                                    <ul>
+                                        @foreach($portfolio->serviceItems as $serviceItem)
+                                        <li class="mt-1 bg-gray-50 text-[0.65rem] w-fit rounded-full px-2 py-1 text-black">{{ $serviceItem->title }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </li>

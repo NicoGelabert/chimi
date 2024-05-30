@@ -2,7 +2,7 @@
 <div class="flex flex-col items-center justify-center">
     <!-- <img src="{{ url($service->image) }}" alt=""> -->
     
-        <div class="flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 mx-auto md:px-16 md:flex-row">
+        <div class="flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 mx-auto md:px-16 md:flex-row overflow-hidden">
             <div class="flex flex-col justify-start gap-8 w-full md:w-1/2">
                 <hr class="animate-hr border-t-2 border-black" />
                 <div class="flex justify-between">
@@ -87,8 +87,8 @@
         </div>
         
         <hr class="divider w-full" />
-    
-        <x-contact />
+        
+        <x-quotation :tags="$groupedTags" />
 </div>
 
 </x-app-layout>

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\ServiceItem;
 use App\Models\Client;
 use App\Models\Portfolio;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -44,6 +45,11 @@ class Service extends Model
     public function portfolios()
     {
         return $this->hasManyThrough(Portfolio::class, ServiceItem::Class, 'service_id', 'id', 'id', 'portfolio_id');
+    }
+
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
     }
 
 }

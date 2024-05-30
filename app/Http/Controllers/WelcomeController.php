@@ -15,7 +15,7 @@ class WelcomeController extends Controller
         $homeherobanners = HomeHeroBanner::all();
         $features = Feature::all();
         $services = Service::all();
-        $portfolios = Portfolio::all();
+        $portfolios = Portfolio::with('client')->with('serviceItems')->get();
         return view('welcome', [
             'homeherobanners' => $homeherobanners,
             'features' => $features,

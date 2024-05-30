@@ -14,4 +14,14 @@
     select{
         @apply text-gray-500
     }
+    input[type=checkbox]{
+        @apply border-gray-300
+    }
+}
+
+#quotationForm{
+    .checkbox-container .peer:checked ~ label {
+        @apply bg-primary text-white;
+    }
+
 }
