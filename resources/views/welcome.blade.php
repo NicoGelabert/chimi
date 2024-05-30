@@ -17,6 +17,10 @@
     <x-portfolio :portfolios="$portfolios"/>
     
     <hr class="divider" />
+    
+    <x-faq :faqs="$faqs"/>
+    
+    <hr class="divider" />
 
     <x-contact />
     
