@@ -150,6 +150,7 @@ function onSubmit() {
             if (response.status === 201) {
                 // TODO show notification
                 store.dispatch('getPrices')
+                emit('priceUpdated');
                 closeModal()
             }
         })

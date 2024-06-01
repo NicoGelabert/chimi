@@ -29,7 +29,7 @@ class CategoryController extends Controller
 
 
         $query = Category::query()
-            ->where('name', 'like', "%{$search}%")
+            ->where('title', 'like', "%{$search}%")
             ->orderBy($sortField, $sortDirection)
             ->paginate($perPage);
 

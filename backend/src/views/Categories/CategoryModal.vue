@@ -19,7 +19,7 @@
                         class="absolute left-0 top-0 bg-white right-0 bottom-0 flex items-center justify-center"/>
                 <header class="py-3 px-4 flex justify-between items-center">
                     <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900">
-                    {{ category.id ? `Update category: "${props.category.name}"` : 'Create new Category' }}
+                    {{ category.id ? `Update category: "${props.category.title}"` : 'Create new Category' }}
                     </DialogTitle>
                     <button
                     @click="closeModal()"
@@ -43,7 +43,8 @@
                 </header>
                 <form @submit.prevent="onSubmit">
                     <div class="bg-white px-4 pt-5 pb-4">
-                    <CustomInput class="mb-2" v-model="category.name" label="Category Title"/>
+                    <CustomInput class="mb-2" v-model="category.title" label="Category Title"/>
+                    <CustomInput type="textarea" class="mb-2" v-model="category.description" label="Category description"/>
                     <CustomInput type="file" class="mb-2" label="Category Image" @change="file => category.image = file"/>
                     </div>
                     <footer class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -82,7 +83,8 @@ const props = defineProps({
 })
 const category = ref({
   id: props.category.id,
-  name: props.category.name,
+  title: props.category.title,
+  description: props.category.description,
   image: props.category.image
 })
 console.log(category)
@@ -95,7 +97,8 @@ const show = computed({
 onUpdated(() => {
   category.value = {
     id: props.category.id,
-    name: props.category.name,
+    title: props.category.title,
+    description: props.category.description,
     image: props.category.image,
   }
 })

@@ -33,9 +33,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
     // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
-    // Route::get('/menu', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
     // Route::get('/categorias-json', [CategoryController::class, 'categoriasJson'])->name('categorias.json');
-    // Route::get('/menu/{category:slug}', [CategoryController::class, 'view'])->name('category.view');
+    Route::get('/categories/{category:slug}', [CategoryController::class, 'view'])->name('category.view');
     // Route::get('/menu/{category:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     //Servicios
     Route::get('/servicios', [ServiceController::class, 'index'])->name('service.index');

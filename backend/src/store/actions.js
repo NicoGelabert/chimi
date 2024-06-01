@@ -145,7 +145,8 @@ export function getCategory({commit}, id) {
 export function createCategory({commit}, category) {
   if (category.image instanceof File) {
     const form = new FormData();
-    form.append('name', category.name);
+    form.append('title', category.title);
+    form.append('description', category.description);
     form.append('image', category.image);
     category = form;
   }
@@ -157,7 +158,8 @@ export function updateCategory({commit}, category) {
   if (category.image instanceof File) {
     const form = new FormData();
     form.append('id', category.id);
-    form.append('name', category.name);
+    form.append('title', category.title);
+    form.append('description', category.description);
     form.append('image', category.image);
     form.append('_method', 'PUT');
     category = form;

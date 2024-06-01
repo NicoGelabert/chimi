@@ -29,8 +29,8 @@
             <TableHeaderCell field="image" :sort-field="sortField" :sort-direction="sortDirection">
             Image
             </TableHeaderCell>
-            <TableHeaderCell field="name" :sort-field="sortField" :sort-direction="sortDirection"
-                            @click="sortCategories('name')">
+            <TableHeaderCell field="title" :sort-field="sortField" :sort-direction="sortDirection"
+                            @click="sortCategories('title')">
             Name
             </TableHeaderCell>
             <TableHeaderCell field="updated_at" :sort-field="sortField" :sort-direction="sortDirection"
@@ -56,10 +56,10 @@
         <tr v-for="(category, index) of categories.data" :key="index">
             <td class="border-b p-2 ">{{ category.id }}</td>
             <td class="border-b p-2 ">
-            <img class="w-16 h-16 object-cover" :src="category.image_url" :alt="category.name">
+            <img class="w-16 h-16 object-cover" :src="category.image_url" :alt="category.title">
             </td>
             <td class="border-b p-2 max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
-            {{ category.name }}
+            {{ category.title }}
             </td>
             <td class="border-b p-2 ">
             {{ category.updated_at }}
@@ -183,6 +183,7 @@ const emit = defineEmits(['clickEdit'])
 onMounted(() => {
   getCategories();
 })
+
 function getForPage(ev, link) {
   ev.preventDefault();
   if (!link.url || link.active) {

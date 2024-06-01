@@ -53,10 +53,10 @@
                         <button :value="category.id" :class="[
                           'active:bg-black text-base font-medium active:text-white border rounded-md border-gray-300 shadow-sm w-full inline-flex justify-center mt-3 px-4 py-2 hover:bg-black/10 hover:text-black focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-black sm:w-auto sm:mt-0 sm:ml-3 sm:text-sm',
                           {
-                            'bg-black text-white': category.id === product.categories_id,
-                            'bg-white border border-gray-300 text-black': category.id !== product.categories_id,
+                            'bg-black text-white': category.id === product.category_id,
+                            'bg-white border border-gray-300 text-black': category.id !== product.category_id,
                           }
-                        ]" @click.prevent="updateCategory(category.id)">{{category.name}}</button>
+                        ]" @click.prevent="updateCategory(category.id)">{{category.title}}</button>
                       </li>
                     </ul>
                   </div>
@@ -112,12 +112,12 @@ const product = ref({
 id: props.product.id,
 title: props.product.title,
 category:props.product.category,
-categories_id:props.product.categories_id,
+category_id:props.product.category_id,
 image: props.product.image,
 description: props.product.description,
 prices: props.product.prices,
 published: props.product.published,
-selectedCategoryId: props.product.categories_id,
+selectedCategoryId: props.product.category_id,
 })
 
 const categories = computed(() => store.state.categories);
@@ -139,14 +139,14 @@ set: (value) => emit('update:modelValue', value)
 })
 
 function updateCategory(categoryId) {
-  product.value.categories_id = categoryId;
+  product.value.category_id = categoryId;
 }
 onUpdated(() => {
 product.value = {
   id: props.product.id,
   title: props.product.title,
   category:props.product.category,
-  categories_id:props.product.categories_id,
+  category_id:props.product.category_id,
   image: props.product.image,
   description: props.product.description,
   prices: props.product.prices,

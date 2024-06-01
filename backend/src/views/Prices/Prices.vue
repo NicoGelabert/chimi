@@ -9,7 +9,7 @@
           Add new Price
           </button>
       </div>
-      <PricesTable @clickEdit="editPrice"/>
+      <PricesProduct @clickEdit="editPrice"/>
       <PriceModal v-model="showPriceModal" :price="priceModel" @close="onModalClose"/>        
   </div>
     
@@ -17,7 +17,7 @@
 <script setup>
 import {ref} from "vue";
 import store from "../../store";
-import PricesTable from "./PricesTable.vue";
+import PricesProduct from "./PricesProduct.vue";
 import PriceModal from "./PriceModal.vue";
 
 const DEFAULT_PRICE = {

@@ -9,6 +9,7 @@ import NotFound from "../views/NotFound.vue";
 import HomeHeroBanners from "../views/HomeHeroBanners/HomeHeroBanners.vue";
 import Categories from "../views/Categories/Categories.vue";
 import Products from "../views/Products/Products.vue";
+import ProductView from "../views/Products/ProductView.vue";
 import Prices from "../views/Prices/Prices.vue";
 import Alergens from "../views/Alergens/Alergens.vue";
 import Users from "../views/Users/Users.vue";
@@ -54,6 +55,11 @@ const routes = [
         path: 'products',
         name: 'app.products',
         component: Products
+      },
+      {
+        path: 'products/:id?',
+        name: 'app.products.view',
+        component: ProductView
       },
       {
         path: 'prices',
