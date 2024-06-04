@@ -9,6 +9,7 @@ use App\Http\Resources\ProductResource;
 use App\Models\Api\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
+use App\Models\ProductAlergen;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -53,11 +54,13 @@ class ProductController extends Controller
         $images = $data['images'] ?? [];
         $imagePositions = $data['image_positions'] ?? [];
         $categories = $data['categories'] ?? [];
+        $alergens = $data['alergens'] ?? [];
 
         $product = Product::create($data);
 
         $this->saveCategories($categories, $product);
         $this->saveImages($images, $imagePositions, $product);
+        $this->saveAlergens($alergens, $product);
 
         return new ProductResource($product);
     }
@@ -90,12 +93,14 @@ class ProductController extends Controller
         $deletedImages = $data['deleted_images'] ?? [];
         $imagePositions = $data['image_positions'] ?? [];
         $categories = $data['categories'] ?? [];
+        $alergens = $data['alergens'] ?? [];
 
         $this->saveCategories($categories, $product);
         $this->saveImages($images, $imagePositions, $product);
         if (count($deletedImages) > 0) {
             $this->deleteImages($deletedImages, $product);
         }
+        $this->saveAlergens($alergens, $product);
 
         $product->update($data);
 
@@ -121,6 +126,14 @@ class ProductController extends Controller
         $data = array_map(fn($id) => (['category_id' => $id, 'product_id' => $product->id]), $categoryIds);
 
         ProductCategory::insert($data);
+    }
+
+    private function saveAlergens($alergenIds, Product $product)
+    {
+        ProductAlergen::where('product_id', $product->id)->delete();
+        $data = array_map(fn($id) => (['alergen_id' => $id, 'product_id' => $product->id]), $alergenIds);
+
+        ProductAlergen::insert($data);
     }
 
     /**

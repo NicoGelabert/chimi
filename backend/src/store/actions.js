@@ -335,16 +335,11 @@ export function deleteCustomer({commit}, customer) {
 }
 
 //ALERGENS
-export function getAlergens({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
+export function getAlergens({commit, state}, {sort_field, sort_direction} = {}) {
   commit('setAlergens', [true])
-  url = url || '/alergens'
-  const params = {
-    per_page: state.alergens.limit,
-  }
-  return axiosClient.get(url, {
+  return axiosClient.get('/alergens', {
     params: {
-      ...params,
-      search, per_page, sort_field, sort_direction
+      sort_field, sort_direction
     }
   })
     .then((response) => {
@@ -355,34 +350,14 @@ export function getAlergens({commit, state}, {url = null, search = '', per_page,
     })
 }
 
-export function getAlergen({commit}, id) {
-  return axiosClient.get(`/alergens/${id}`)
-}
-
 export function createAlergen({commit}, alergen) {
-  if (alergen.image instanceof File) {
-    const form = new FormData();
-    form.append('name', alergen.name);
-    form.append('image', alergen.image);
-    alergen = form;
-  }
   return axiosClient.post('/alergens', alergen)
 }
 
 export function updateAlergen({commit}, alergen) {
-  const id = alergen.id
-  if (alergen.image instanceof File) {
-    const form = new FormData();
-    form.append('name', alergen.name);
-    form.append('image', alergen.image);
-    form.append('_method', 'PUT');
-    alergen = form;
-  } else {
-    alergen._method = 'PUT'
-  }
-  return axiosClient.post(`/alergens/${id}`, alergen)
+  return axiosClient.put(`/alergens/${alergen.id}`, alergen)
 }
 
-export function deleteAlergen({commit}, id) {
-  return axiosClient.delete(`/alergens/${id}`)
+export function deleteAlergen({commit}, alergen) {
+  return axiosClient.delete(`/alergens/${alergen.id}`)
 }

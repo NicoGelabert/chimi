@@ -12,11 +12,12 @@
         <div class="grid grid-cols-3">
           <div class="col-span-2 px-4 pt-5 pb-4">
             <CustomInput class="mb-2" v-model="product.title" label="Product Title" :errors="errors['title']"/>
+            <treeselect v-model="product.categories" :multiple="true" :options="categoriesOptions" :errors="errors['categories']"/>
             <CustomInput type="richtext" class="mb-2" v-model="product.description" label="Description" :errors="errors['description']"/>
             <CustomInput type="number" class="mb-2" v-model="product.price" label="Price" prepend="$" :errors="errors['price']"/>
             <CustomInput type="number" class="mb-2" v-model="product.quantity" label="Quantity" :errors="errors['quantity']"/>
             <CustomInput type="checkbox" class="mb-2" v-model="product.published" label="Published" :errors="errors['published']"/>
-            <treeselect v-model="product.categories" :multiple="true" :options="options" :errors="errors['categories']"/>
+            <treeselect v-model="product.alergens" :multiple="true" :options="alergensOptions" :errors="errors['alergens']"/>
           </div>
           <div class="col-span-1 px-4 pt-5 pb-4">
             <image-preview v-model="product.images"
@@ -71,13 +72,15 @@
     price: null,
     quantity: null,
     published: false,
-    category_id: []
+    category_id: [],
+    alergens: [],
   })
   
   const errors = ref({});
   
-  const loading = ref(false)
-  const options = ref([])
+  const loading = ref(false);
+  const categoriesOptions = ref([]);
+  const alergensOptions = ref([]);
   
   const emit = defineEmits(['update:modelValue', 'close'])
   
@@ -90,11 +93,17 @@
           product.value = response.data
         })
     }
-  
+    
     axiosClient.get('/categories/tree')
-      .then(result => {
-        options.value = result.data
-      })
+    .then(result => {
+      categoriesOptions.value = result.data
+    })
+    
+    axiosClient.get('/alergens/tree')
+    .then(result => {
+      alergensOptions.value = result.data
+    })
+
   })
   
   function onSubmit($event, close = false) {

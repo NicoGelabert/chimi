@@ -33,7 +33,8 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('/categories/tree', [CategoryController::class, 'getAsTree']);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('prices', PriceController::class);
-    Route::apiResource('alergens', AlergenController::class);
+    Route::apiResource('alergens', AlergenController::class)->except('show');
+    Route::get('/alergens/tree', [AlergenController::class, 'getAsTree']);
     Route::apiResource('users', UserController::class);
     Route::apiResource('customers', CustomerController::class);
     Route::get('/countries', [CustomerController::class, 'countries']);
