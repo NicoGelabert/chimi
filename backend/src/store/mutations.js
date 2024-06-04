@@ -58,23 +58,6 @@ export function setProducts(state, [loading, data = null]) {
   state.products.loading = loading;
 }
 
-export function setPrices(state, [loading, data = null]) {
-
-  if (data) {
-    state.prices = {
-      ...state.prices,
-      data: data.data,
-      links: data.meta?.links,
-      page: data.meta.current_page,
-      limit: data.meta.per_page,
-      from: data.meta.from,
-      to: data.meta.to,
-      total: data.meta.total,
-    }
-  }
-  state.prices.loading = loading;
-}
-
 export function setUsers(state, [loading, data = null]) {
 
   if (data) {

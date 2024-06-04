@@ -25,14 +25,16 @@ class ProductRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:2000'],
+            'categories.*' => ['nullable', 'int', 'exists:categories,id'],
+            'alergens.*' => ['nullable', 'int', 'exists:alergens,id'],
+            'prices' => ['required', 'array'],
+            'prices.*.number' => ['required', 'numeric', 'min:0.01'],
+            'prices.*.size' => ['required', 'string', 'max:200'],
+            'quantity' => ['nullable', 'numeric', 'min:0'],
+            'description' => ['nullable', 'string'],
             'images.*' => ['nullable', 'image'],
             'deleted_images.*' => ['nullable', 'int'],
             'image_positions.*' => ['nullable', 'int'],
-            'categories.*' => ['nullable', 'int', 'exists:categories,id'],
-            'alergens.*' => ['nullable', 'int', 'exists:alergens,id'],
-            'price' => ['required', 'numeric', 'min:0.01'],
-            'quantity' => ['nullable', 'numeric', 'min:0'],
-            'description' => ['nullable', 'string'],
             'published' => ['required', 'boolean']
         ];
     }

@@ -11,7 +11,6 @@ import Products from "../views/Products/Products.vue";
 import Categories from "../views/Categories/Categories.vue";
 import ProductView from "../views/Products/ProductView.vue";
 import Alergens from "../views/Alergens/Alergens.vue";
-import Prices from "../views/Prices/Prices.vue";
 import Users from "../views/Users/Users.vue";
 import Customers from "../views/Customers/Customers.vue";
 import CustomerView from "../views/Customers/CustomerView.vue";
@@ -68,11 +67,6 @@ const routes = [
         props: {
           id: (value) => /^\d+$/.test(value)
         }
-      },
-      {
-        path: 'prices',
-        name: 'app.prices',
-        component: Prices
       },
       {
         path: 'alergens',

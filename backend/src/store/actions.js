@@ -170,18 +170,50 @@ export function getProduct({commit}, id) {
   return axiosClient.get(`/products/${id}`)
 }
 
-export function createProduct({commit}, product) {
-  if (product.images && product.images.length) {
-    const form = new FormData();
-    form.append('title', product.title);
-    product.images.forEach(im => form.append('images[]', im))
-    form.append('description', product.description || '');
-    form.append('published', product.published ? 1 : 0);
-    form.append('price', product.price);
-    product = form;
+export function createProduct({ commit }, product) {
+  const form = new FormData();
+
+  form.append('title', product.title);
+  form.append('description', product.description || '');
+  form.append('published', product.published ? 1 : 0);
+
+  // Agregar precios al FormData
+  if (product.prices && product.prices.length) {
+    product.prices.forEach((price, index) => {
+      form.append(`prices[${index}][number]`, price.number);
+      form.append(`prices[${index}][size]`, price.size);
+    });
   }
-  return axiosClient.post('/products', product)
+
+  // Agregar imágenes al FormData
+  if (product.images && product.images.length) {
+    product.images.forEach((im) => {
+      form.append(`images[]`, im);
+    });
+  }
+
+  // Agregar categorías al FormData
+  if (product.categories && product.categories.length) {
+    product.categories.forEach((category) => {
+      form.append(`categories[]`, category);
+    });
+  }
+
+  // Agregar alérgenos al FormData
+  if (product.alergens && product.alergens.length) {
+    product.alergens.forEach((alergen) => {
+      form.append(`alergens[]`, alergen);
+    });
+  }
+
+  // Agregar cantidad al FormData
+  if (product.quantity) {
+    form.append('quantity', product.quantity);
+  }
+
+  return axiosClient.post('/products', form);
 }
+
 
 export function updateProduct({commit}, product) {
   const id = product.id
@@ -189,16 +221,28 @@ export function updateProduct({commit}, product) {
     const form = new FormData();
     form.append('id', product.id);
     form.append('title', product.title);
-    product.images.forEach(im => form.append(`images[${im.id}]`, im))
-    if (product.deleted_images) {
-      product.deleted_images.forEach(id => form.append('deleted_images[]', id))
-    }
-    for (let id in product.image_positions) {
-      form.append(`image_positions[${id}]`, product.image_positions[id])
-    }
     form.append('description', product.description || '');
     form.append('published', product.published ? 1 : 0);
-    form.append('price', product.price);
+    if (product.prices && product.prices.length) {
+      product.prices.forEach((price, index) => {
+        form.append(`prices[${index}][number]`, price.number);
+        form.append(`prices[${index}][size]`, price.size);
+      });
+    }
+    // Agregar imágenes al FormData
+    if (product.images && product.images.length) {
+      product.images.forEach((im) => {
+        form.append(`images[]`, im);
+      });
+    }
+    // Agregar imágenes eliminadas al FormData
+    if (product.deleted_images && product.deleted_images.length) {
+      product.deleted_images.forEach((id) => form.append('deleted_images[]', id));
+    }
+    // Agregar posiciones de imágenes al FormData
+    for (let id in product.image_positions) {
+      form.append(`image_positions[${id}]`, product.image_positions[id]);
+    }
     form.append('_method', 'PUT');
     product = form;
   } else {
@@ -209,64 +253,6 @@ export function updateProduct({commit}, product) {
 
 export function deleteProduct({commit}, id) {
   return axiosClient.delete(`/products/${id}`)
-}
-
-// PRICES
-export function getPrices({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
-  commit('setPrices', [true])
-  url = url || '/prices'
-  const params = {
-    per_page: state.prices.limit,
-  }
-  return axiosClient.get(url, {
-    params: {
-      ...params,
-      search, per_page, sort_field, sort_direction
-    }
-  })
-    .then((response) => {
-      commit('setPrices', [false, response.data])
-    })
-    .catch(() => {
-      commit('setPrices', [false])
-    })
-}
-
-
-export function getPrice({commit}, id) {
-  return axiosClient.get(`/prices/${id}`)
-}
-
-export function createPrice({commit}, price) {
-  if (price.image instanceof File) {
-    const form = new FormData();
-    form.append('number', price.number);
-    form.append('size', price.size);
-    form.append('product', price.product);
-    
-    price = form;
-  }
-  return axiosClient.post('/prices', price)
-}
-
-export function updatePrice({commit}, price) {
-  const id = price.id
-  if (price.image instanceof File) {
-    const form = new FormData();
-    form.append('id', price.id);
-    form.append('number', price.number);
-    form.append('size', price.size);
-    form.append('product_id', price.product_id);
-    form.append('_method', 'PUT');
-    price = form;
-  } else {
-    price._method = 'PUT'
-  }
-  return axiosClient.post(`/prices/${id}`, price)
-}
-
-export function deletePrice({commit}, id) {
-  return axiosClient.delete(`/prices/${id}`)
 }
 
 // USERS
