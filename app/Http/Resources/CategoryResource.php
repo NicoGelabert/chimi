@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\URL;
 
 class CategoryResource extends JsonResource
 {
-    public static $wrap = false;
     /**
      * Transform the resource into an array.
      *
@@ -19,9 +18,13 @@ class CategoryResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'active' => $this->active,
             'description' => $this->description,
             'image_url' => $this->image ?: null,
+            'parent_id' => $this->parent_id,
+            'parent' => $this->parent ? new CategoryResource($this->parent) : null,
             'created_at' => (new \DateTime($this->created_at))->format('Y-m-d H:i:s'),
             'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
         ];

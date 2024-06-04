@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,23 +14,65 @@ class Category extends Model
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = ['title', 'description', 'image', 'image_mime', 'image_size', 'created_by', 'updated_by'];
+    protected $fillable = ['name', 'slug', 'active', 'description', 'image', 'image_mime', 'image_size', 'parent_id', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
+            ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
 
-    public function getRouteKeyName()
+    public function parent()
     {
-        return 'slug';
+        return $this->belongsTo(Category::class);
     }
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class); // product_category
+    }
+
+    public static function getActiveAsTree($resourceClassName = null)
+    {
+        $categories = Category::where('active', true)->orderBy('parent_id')->get();
+        return self::buildCategoryTree($categories, null, $resourceClassName);
+    }
+
+    public static function getAllChildrenByParent(Category $category)
+    {
+        $categories = Category::where('active', true)->orderBy('parent_id')->get();
+        $result[] = $category;
+        self::getCategoriesArray($categories, $category->id, $result);
+
+        return $result;
+    }
+
+    private static function buildCategoryTree($categories, $parentId = null, $resourceClassName = null)
+    {
+        $categoryTree = [];
+
+        foreach ($categories as $category) {
+            if ($category->parent_id === $parentId) {
+                $children = self::buildCategoryTree($categories, $category->id, $resourceClassName);
+                if ($children) {
+                    $category->setAttribute('children', $children);
+                }
+                $categoryTree[] = $resourceClassName ? new $resourceClassName($category) : $category;
+            }
+        }
+
+        return $categoryTree;
+    }
+
+    private static function getCategoriesArray($categories, $parentId, &$result)
+    {
+        foreach ($categories as $category) {
+            if ($category->parent_id === $parentId) {
+                $result[] = $category;
+                self::getCategoriesArray($categories, $category->id, $result);
+            }
+        }
     }
 
 }

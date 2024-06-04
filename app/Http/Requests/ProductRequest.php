@@ -8,8 +8,10 @@ class ProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -23,13 +25,14 @@ class ProductRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:2000'],
-            'category' => ['nullable', 'string'],
-            'category_id' => ['nullable', 'numeric'],
-            'image' => ['nullable', 'image'],
-            'prices' => ['nullable', 'array'],
-            'prices.id' => ['nullable', 'numeric', 'exists:prices,id'],
+            'images.*' => ['nullable', 'image'],
+            'deleted_images.*' => ['nullable', 'int'],
+            'image_positions.*' => ['nullable', 'int'],
+            'categories.*' => ['nullable', 'int', 'exists:categories,id'],
+            'price' => ['required', 'numeric', 'min:0.01'],
+            'quantity' => ['nullable', 'numeric', 'min:0'],
             'description' => ['nullable', 'string'],
-            'published' => ['required', 'boolean'],
+            'published' => ['required', 'boolean']
         ];
     }
 }

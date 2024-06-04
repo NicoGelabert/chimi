@@ -29,7 +29,8 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
 
     Route::apiResource('homeherobanners', HomeHeroBannerController::class);
-    Route::apiResource('categories', CategoryController::class);
+    Route::apiResource('categories', CategoryController::class)->except('show');
+    Route::get('/categories/tree', [CategoryController::class, 'getAsTree']);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('prices', PriceController::class);
     Route::apiResource('alergens', AlergenController::class);

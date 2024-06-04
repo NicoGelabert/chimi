@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Category;
-use App\Models\Prices;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,7 +14,7 @@ class Product extends Model
     use HasSlug;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'price', 'image', 'published', 'category_id', 'image_mime', 'image_size', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'description', 'price', 'quantity', 'published', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -30,14 +28,19 @@ class Product extends Model
         return 'slug';
     }
     
-    public function category()
+    public function images()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->hasMany(ProductImage::class)->orderBy('position');
     }
 
-    public function prices()
+    public function getImageAttribute()
     {
-        return $this->belongsToMany(Price::class, 'product_price', 'product_id', 'price_id');
+        return $this->images->count() > 0 ? $this->images->get(0)->url : null;
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'product_categories');
     }
 
 }

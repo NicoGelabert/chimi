@@ -6,7 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
+//use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuotationController;
@@ -32,11 +32,11 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/welcome',[WelcomeController::class, 'index'])->name('welcome');
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
-    // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
-    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+    // Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
     // Route::get('/categorias-json', [CategoryController::class, 'categoriasJson'])->name('categorias.json');
-    Route::get('/categories/{category:slug}', [CategoryController::class, 'view'])->name('category.view');
-    // Route::get('/menu/{category:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
+    // Route::get('/categories/{category:slug}', [CategoryController::class, 'view'])->name('category.view');
+    Route::get('/products/{category:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     //Servicios
     Route::get('/servicios', [ServiceController::class, 'index'])->name('service.index');
     Route::get('/servicios/{service:slug}', [ServiceController::class, 'view'])->name('service.view');
