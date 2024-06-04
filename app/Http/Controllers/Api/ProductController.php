@@ -10,6 +10,7 @@ use App\Models\Api\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
 use App\Models\ProductAlergen;
+use App\Models\ProductPrice;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -55,12 +56,14 @@ class ProductController extends Controller
         $imagePositions = $data['image_positions'] ?? [];
         $categories = $data['categories'] ?? [];
         $alergens = $data['alergens'] ?? [];
+        $prices = $data['prices'] ?? [];
 
         $product = Product::create($data);
 
         $this->saveCategories($categories, $product);
         $this->saveImages($images, $imagePositions, $product);
         $this->saveAlergens($alergens, $product);
+        $this->savePrices($prices, $product);
 
         return new ProductResource($product);
     }
@@ -94,6 +97,7 @@ class ProductController extends Controller
         $imagePositions = $data['image_positions'] ?? [];
         $categories = $data['categories'] ?? [];
         $alergens = $data['alergens'] ?? [];
+        $prices = $data['prices'] ?? [];
 
         $this->saveCategories($categories, $product);
         $this->saveImages($images, $imagePositions, $product);
@@ -101,6 +105,7 @@ class ProductController extends Controller
             $this->deleteImages($deletedImages, $product);
         }
         $this->saveAlergens($alergens, $product);
+        $this->savePrices($prices, $product);
 
         $product->update($data);
 
@@ -134,6 +139,15 @@ class ProductController extends Controller
         $data = array_map(fn($id) => (['alergen_id' => $id, 'product_id' => $product->id]), $alergenIds);
 
         ProductAlergen::insert($data);
+    }
+
+    protected function savePrices(array $prices, Product $product)
+    {
+        $product->prices()->delete(); // Limpia precios existentes para simplificar la actualización
+
+        foreach ($prices as $price) {
+            $product->prices()->create($price); // Esto usará la relación hasMany para crear los precios
+        }
     }
 
     /**

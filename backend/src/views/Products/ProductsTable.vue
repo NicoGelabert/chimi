@@ -33,10 +33,10 @@
                            @click="sortProducts('title')">
             Title
           </TableHeaderCell>
-          <TableHeaderCell field="price" :sort-field="sortField" :sort-direction="sortDirection"
+          <!-- <TableHeaderCell field="price" :sort-field="sortField" :sort-direction="sortDirection"
                            @click="sortProducts('price')">
             Price
-          </TableHeaderCell>
+          </TableHeaderCell> -->
           <TableHeaderCell field="quantity" :sort-field="sortField" :sort-direction="sortDirection"
                            @click="sortProducts('quantity')">
             Quantity
@@ -70,9 +70,9 @@
           <td class="border-b p-2 max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
             {{ product.title }}
           </td>
-          <td class="border-b p-2">
+          <!-- <td class="border-b p-2">
             {{ $filters.currencyUSD(product.price) }}
-          </td>
+          </td> -->
           <td class="border-b p-2">
             {{ product.quantity }}
           </td>
