@@ -12,8 +12,8 @@
                     <h2 class="text-right border-b-2 pb-4 border-primary">0{{ $service->id }}</h2>
                     <i class="text-4xl {{ $service->icon }} text-primary"></i>
                 </div>
-                <h4>{{ $service->title }}</h4>
-                <p :class="{ 'visible': hover }" class="description">{{ $service->description }}</p>
+                <h4>{{ $service->name }}</h4>
+                <div :class="{ 'visible': hover }" class="description">{!! $service->description !!}</div>
                 <x-button href="{{ route('service.view', $service->slug) }}">
                     <i class="fi fi-rr-arrow-right"></i> <span>{{__('Ver más')}}</span>
                 </x-button>

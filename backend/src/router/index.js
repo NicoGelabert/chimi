@@ -11,6 +11,7 @@ import Products from "../views/Products/Products.vue";
 import Categories from "../views/Categories/Categories.vue";
 import ProductView from "../views/Products/ProductView.vue";
 import Alergens from "../views/Alergens/Alergens.vue";
+import Services from "../views/Services/Services.vue";
 import Users from "../views/Users/Users.vue";
 import Customers from "../views/Customers/Customers.vue";
 import CustomerView from "../views/Customers/CustomerView.vue";
@@ -72,6 +73,11 @@ const routes = [
         path: 'alergens',
         name: 'app.alergens',
         component: Alergens
+      },
+      {
+        path: 'services',
+        name: 'app.services',
+        component: Services
       },
       {
         path: 'users',

@@ -133,10 +133,6 @@ export function getCategories({commit, state}, {sort_field, sort_direction} = {}
     })
 }
 
-// export function getCategory({commit}, id) {
-//   return axiosClient.get(`/categories/${id}`)
-// }
-
 export function createCategory({commit}, category) {
   if (category.image instanceof File) {
     const form = new FormData();
@@ -399,7 +395,56 @@ export function updateAlergen({commit}, alergen) {
   return axiosClient.post(`/alergens/${id}`, alergen)
 }
 
-
 export function deleteAlergen({commit}, alergen) {
   return axiosClient.delete(`/alergens/${alergen.id}`)
+}
+
+// SERVICES
+export function getServices({commit, state}, {sort_field, sort_direction} = {}) {
+  commit('setServices', [true])
+  return axiosClient.get('/services', {
+    params: {
+      sort_field, sort_direction
+    }
+  })
+    .then((response) => {
+      commit('setServices', [false, response.data])
+    })
+    .catch(() => {
+      commit('setServices', [false])
+    })
+}
+
+export function createService({commit}, service) {
+  if (service.image instanceof File) {
+    const form = new FormData();
+    form.append('name', service.name);
+    form.append('icon', service.icon);
+    form.append('active', service.active ? 1 : 0);
+    form.append('description', service.description);
+    form.append('image', service.image);
+    service = form;
+  }
+  return axiosClient.post('/services', service)
+}
+
+export function updateService({commit}, service) {
+  const id = service.id
+  if (service.image instanceof File) {
+    const form = new FormData();
+    form.append('name', service.name);
+    form.append('icon', service.icon);
+    form.append('active', service.active ? 1 : 0);
+    form.append('description', service.description);
+    form.append('image', service.image);
+    form.append('_method', 'PUT');
+    service = form;
+  } else {
+    service._method = 'PUT'
+  }
+  return axiosClient.post(`/services/${id}`, service)
+}
+
+export function deleteService({commit}, service) {
+  return axiosClient.delete(`/services/${service.id}`)
 }

@@ -16,13 +16,13 @@ class WelcomeController extends Controller
         $homeherobanners = HomeHeroBanner::all();
         $features = Feature::all();
         $services = Service::all();
-        $portfolios = Portfolio::with('client')->with('serviceItems')->get();
+        // $portfolios = Portfolio::with('client')->with('serviceItems')->get();
         $faqs = Faq::all();
         return view('welcome', [
             'homeherobanners' => $homeherobanners,
             'features' => $features,
             'services' => $services,
-            'portfolios' => $portfolios,
+            // 'portfolios' => $portfolios,
             'faqs' => $faqs,
         ]);
     }

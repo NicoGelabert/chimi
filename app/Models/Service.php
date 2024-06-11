@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\ServiceItem;
-use App\Models\Client;
-use App\Models\Portfolio;
-use App\Models\Tag;
+// use App\Models\ServiceItem;
+// use App\Models\Client;
+// use App\Models\Portfolio;
+// use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -27,9 +27,51 @@ class Service extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function getRouteKeyName()
+    public function parent()
     {
-        return 'slug';
+        return $this->belongsTo(Service::class);
+    }
+
+    public static function getActiveAsTree($resourceClassName = null)
+    {
+        $services = Service::where('active', true)->orderBy('parent_id')->get();
+        return self::buildServiceTree($services, null, $resourceClassName);
+    }
+
+    public static function getAllChildrenByParent(Service $service)
+    {
+        $services = Service::where('active', true)->orderBy('parent_id')->get();
+        $result[] = $service;
+        self::getServicesArray($services, $service->id, $result);
+
+        return $result;
+    }
+
+    private static function buildServiceTree($services, $parentId = null, $resourceClassName = null)
+    {
+        $ServiceTree = [];
+
+        foreach ($services as $service) {
+            if ($service->parent_id === $parentId) {
+                $children = self::buildServiceTree($services, $service->id, $resourceClassName);
+                if ($children) {
+                    $service->setAttribute('children', $children);
+                }
+                $serviceTree[] = $resourceClassName ? new $resourceClassName($service) : $service;
+            }
+        }
+
+        return $serviceTree;
+    }
+
+    private static function getServicesArray($services, $parentId, &$result)
+    {
+        foreach ($services as $service) {
+            if ($service->parent_id === $parentId) {
+                $result[] = $service;
+                self::getServicesArray($services, $service->id, $result);
+            }
+        }
     }
 
     // public function serviceItems()

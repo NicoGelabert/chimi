@@ -134,3 +134,15 @@ export function setAlergens(state, [loading, data = null]) {
 
   state.alergens.loading = loading;
 }
+
+export function setServices(state, [loading, data = null]) {
+
+  if (data) {
+    state.services = {
+      ...state.services,
+      data: data.data,
+    }
+  }
+
+  state.services.loading = loading;
+}

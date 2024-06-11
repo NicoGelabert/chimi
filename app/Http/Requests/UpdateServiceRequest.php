@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Alergen;
+use App\Models\Service;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAlergenRequest extends FormRequest
+class UpdateServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,22 +24,24 @@ class UpdateAlergenRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
+            'icon' => ['required', 'string'],
+            'active' => ['required', 'boolean'],
+            'description' => ['required', 'string'],
+            'image' => ['nullable', 'image'],
             'parent_id' => [
-                'nullable', 'exists:alergens,id',
+                'nullable', 'exists:services,id',
                 function(string $attribute, $value, \Closure $fail) {
                     $id = $this->get('id');
-                    $alergen = Alergen::where('id', $id)->first();
+                    $service = Service::where('id', $id)->first();
 
-                    $children = Alergen::getAllChildrenByParent($alergen);
+                    $children = Service::getAllChildrenByParent($service);
                     $ids = array_map(fn($c) => $c->id, $children);
 
                     if (in_array($value, $ids)) {
-                        return $fail('You cannot choose alergen as parent which is already a child of the alergen.');
+                        return $fail('You cannot choose service as parent which is already a child of the service.');
                     }
                 }
             ],
-            'image' => ['nullable', 'image'],
-            'active' => ['required', 'boolean']
         ];
     }
 }

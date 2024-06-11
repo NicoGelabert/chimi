@@ -14,7 +14,7 @@
         
     <hr class="divider" />
     
-    <x-portfolio :portfolios="$portfolios"/>
+    
     
     <hr class="divider" />
     
