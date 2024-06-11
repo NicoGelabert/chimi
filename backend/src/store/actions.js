@@ -133,16 +133,38 @@ export function getCategories({commit, state}, {sort_field, sort_direction} = {}
     })
 }
 
+// export function getCategory({commit}, id) {
+//   return axiosClient.get(`/categories/${id}`)
+// }
+
 export function createCategory({commit}, category) {
+  if (category.image instanceof File) {
+    const form = new FormData();
+    form.append('name', category.name);
+    form.append('image', category.image);
+    form.append('active', category.active ? 1 : 0);
+    category = form;
+  }
   return axiosClient.post('/categories', category)
 }
 
 export function updateCategory({commit}, category) {
-  return axiosClient.put(`/categories/${category.id}`, category)
+  const id = category.id
+  if (category.image instanceof File) {
+    const form = new FormData();
+    form.append('name', category.name);
+    form.append('image', category.image);
+    form.append('active', category.active ? 1 : 0);
+    form.append('_method', 'PUT');
+    category = form;
+  } else {
+    category._method = 'PUT'
+  }
+  return axiosClient.post(`/categories/${id}`, category)
 }
 
-export function deleteCategory({commit}, category) {
-  return axiosClient.delete(`/categories/${category.id}`)
+export function deleteCategory({commit}, id) {
+  return axiosClient.delete(`/categories/${id}`)
 }
 
 // PRODUCTS
@@ -223,6 +245,21 @@ export function updateProduct({commit}, product) {
     form.append('title', product.title);
     form.append('description', product.description || '');
     form.append('published', product.published ? 1 : 0);
+    
+  // Agregar categorías al FormData
+  if (product.categories && product.categories.length) {
+    product.categories.forEach((category) => {
+      form.append(`categories[]`, category);
+    });
+  }
+
+  // Agregar alérgenos al FormData
+  if (product.alergens && product.alergens.length) {
+    product.alergens.forEach((alergen) => {
+      form.append(`alergens[]`, alergen);
+    });
+  }
+  
     if (product.prices && product.prices.length) {
       product.prices.forEach((price, index) => {
         form.append(`prices[${index}][number]`, price.number);
@@ -337,12 +374,31 @@ export function getAlergens({commit, state}, {sort_field, sort_direction} = {}) 
 }
 
 export function createAlergen({commit}, alergen) {
+  if (alergen.image instanceof File) {
+    const form = new FormData();
+    form.append('name', alergen.name);
+    form.append('image', alergen.image);
+    form.append('active', alergen.active ? 1 : 0);
+    alergen = form;
+  }
   return axiosClient.post('/alergens', alergen)
 }
 
 export function updateAlergen({commit}, alergen) {
-  return axiosClient.put(`/alergens/${alergen.id}`, alergen)
+  const id = alergen.id
+  if (alergen.image instanceof File) {
+    const form = new FormData();
+    form.append('name', alergen.name);
+    form.append('image', alergen.image);
+    form.append('active', alergen.active ? 1 : 0);
+    form.append('_method', 'PUT');
+    alergen = form;
+  } else {
+    alergen._method = 'PUT'
+  }
+  return axiosClient.post(`/alergens/${id}`, alergen)
 }
+
 
 export function deleteAlergen({commit}, alergen) {
   return axiosClient.delete(`/alergens/${alergen.id}`)

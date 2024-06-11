@@ -42,6 +42,8 @@
                   </svg>
                 </button>
               </header>
+              <td class="border-b p-2 ">
+              </td>
               <form @submit.prevent="onSubmit">
                 <div class="bg-white px-4 pt-5 pb-4">
                   <CustomInput class="mb-2" v-model="alergen.name" label="Name" :errors="errors['name']"/>
@@ -50,6 +52,13 @@
                                class="mb-2"
                                v-model="alergen.parent_id"
                                label="Parent" :errors="errors['parent_id']"/>
+                  <div class="flex items-center gap-4">
+                    <div class="my-4">
+                      <img v-if="alergen.image_url" class="w-16 h-16" :src="alergen.image_url" :alt="alergen.name">
+                      <img v-else class="w-16 h-16 object-cover" src="../../assets/noimage.png">
+                    </div>
+                    <CustomInput type="file" class="mb-2" label="Alergen Image" @change="file => alergen.image = file"/>
+                  </div>
                   <CustomInput type="checkbox" class="mb-2" v-model="alergen.active" label="Active"  :errors="errors['active']"/>
                 </div>
                 <footer class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -91,6 +100,7 @@ const props = defineProps({
 const alergen = ref({
   id: props.alergen.id,
   name: props.alergen.name,
+  image: props.alergen.image,
   active: props.alergen.active,
   parent_id: props.alergen.parent_id,
 })
@@ -128,6 +138,7 @@ onUpdated(() => {
   alergen.value = {
     id: props.alergen.id,
     name: props.alergen.name,
+    image_url: props.alergen.image_url,
     active: props.alergen.active,
     parent_id: props.alergen.parent_id,
   }

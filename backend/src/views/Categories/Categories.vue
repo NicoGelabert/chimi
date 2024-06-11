@@ -27,7 +27,7 @@ const DEFAULT_CATEGORY = {
 }
 
 const categories = computed(() => store.state.categories);
-console.log(categories)
+
 const categoryModel = ref({...DEFAULT_CATEGORY})
 const showCategoryModal = ref(false);
 

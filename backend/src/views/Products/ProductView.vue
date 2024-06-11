@@ -131,7 +131,7 @@ const product = ref({
   prices: [{ number: '', size: '' }],
   quantity: null,
   published: false,
-  category_id: [],
+  categories: [],
   alergens: [],
 })
 

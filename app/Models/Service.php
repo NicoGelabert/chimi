@@ -18,12 +18,12 @@ class Service extends Model
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = ['title', 'image', 'image_mime', 'image_size', 'description', 'created_by', 'updated_by'];
+    protected $fillable = ['name', 'slug', 'icon', 'active', 'description', 'image', 'image_mime', 'image_size', 'parent_id', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
+            ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
 
@@ -32,24 +32,24 @@ class Service extends Model
         return 'slug';
     }
 
-    public function serviceItems()
-    {
-        return $this->hasMany(ServiceItem::class);
-    }
+    // public function serviceItems()
+    // {
+    //     return $this->hasMany(ServiceItem::class);
+    // }
 
-    public function clients()
-    {
-        return $this->hasManyThrough(Client::class, ServiceItem::class);
-    }
+    // public function clients()
+    // {
+    //     return $this->hasManyThrough(Client::class, ServiceItem::class);
+    // }
 
-    public function portfolios()
-    {
-        return $this->hasManyThrough(Portfolio::class, ServiceItem::Class, 'service_id', 'id', 'id', 'portfolio_id');
-    }
+    // public function portfolios()
+    // {
+    //     return $this->hasManyThrough(Portfolio::class, ServiceItem::Class, 'service_id', 'id', 'id', 'portfolio_id');
+    // }
 
-    public function tags()
-    {
-        return $this->hasMany(Tag::class);
-    }
+    // public function tags()
+    // {
+    //     return $this->hasMany(Tag::class);
+    // }
 
 }

@@ -90,14 +90,14 @@ class ProductController extends Controller
     {
         $data = $request->validated();
         $data['updated_by'] = $request->user()->id;
+        $categories = $data['categories'] ?? [];
+        $alergens = $data['alergens'] ?? [];
+        $prices = $data['prices'] ?? [];
 
         /** @var \Illuminate\Http\UploadedFile[] $images */
         $images = $data['images'] ?? [];
         $deletedImages = $data['deleted_images'] ?? [];
         $imagePositions = $data['image_positions'] ?? [];
-        $categories = $data['categories'] ?? [];
-        $alergens = $data['alergens'] ?? [];
-        $prices = $data['prices'] ?? [];
 
         $this->saveCategories($categories, $product);
         $this->saveImages($images, $imagePositions, $product);

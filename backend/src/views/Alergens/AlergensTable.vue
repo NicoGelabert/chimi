@@ -17,9 +17,8 @@
                            @click="sortAlergens('name')">
             Name
           </TableHeaderCell>
-          <TableHeaderCell field="slug" :sort-field="sortField" :sort-direction="sortDirection"
-                           @click="sortAlergens('slug')">
-            Slug
+          <TableHeaderCell field="image" :sort-field="sortField" :sort-direction="sortDirection">
+            image
           </TableHeaderCell>
           <TableHeaderCell field="active" :sort-field="sortField" :sort-direction="sortDirection"
                            @click="sortAlergens('active')">
@@ -54,8 +53,9 @@
           <td class="border-b p-2 ">
            {{ alergen.name }}
           </td>
-          <td class="border-b p-2 max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
-            {{ alergen.slug }}
+          <td class="border-b p-2 ">
+            <img v-if="alergen.image_url" class="w-16 h-16 object-cover" :src="alergen.image_url" :alt="alergen.name">
+            <img v-else class="w-16 h-16 object-cover" src="../../assets/noimage.png">
           </td>
           <td class="border-b p-2">
             {{ alergen.active ? 'Yes' : 'No' }}

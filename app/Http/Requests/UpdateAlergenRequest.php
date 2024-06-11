@@ -38,6 +38,7 @@ class UpdateAlergenRequest extends FormRequest
                     }
                 }
             ],
+            'image' => ['required', 'image'],
             'active' => ['required', 'boolean']
         ];
     }
