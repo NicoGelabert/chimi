@@ -49,7 +49,7 @@ class Service extends Model
 
     private static function buildServiceTree($services, $parentId = null, $resourceClassName = null)
     {
-        $ServiceTree = [];
+        $serviceTree = [];
 
         foreach ($services as $service) {
             if ($service->parent_id === $parentId) {

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Service;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,22 +14,64 @@ class Tag extends Model
     use HasSlug;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'desciption', 'published', 'service_id', 'created_by', 'updated_by'];
+    protected $fillable = ['name', 'slug', 'description', 'image', 'image_mime', 'image_size', 'active', 'parent_id', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
+            ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
     
-    public function service()
+    public function parent()
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(Tag::class);
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
+
+    public static function getActiveAsTree($resourceClassName = null)
+    {
+        $tags = Tag::where('active', true)->orderBy('parent_id')->get();
+        return self::buildTagTree($tags, null, $resourceClassName);
+    }
+
+    public static function getAllChildrenByParent(Tag $tag)
+    {
+        $tag = Tag::where('active', true)->orderBy('parent_id')->get();
+        $result[] = $tag;
+        self::getTagsArray($tags, $tag->id, $result);
+
+        return $result;
+    }
+
+    private static function buildTagTree($tags, $parentId = null, $resourceClassName = null)
+    {
+        $tagTree = [];
+
+        foreach ($tags as $tag) {
+            if ($tag->parent_id === $parentId) {
+                $children = self::buildTagTree($tags, $tag->id, $resourceClassName);
+                if ($children) {
+                    $tag->setAttribute('children', $children);
+                }
+                $tagTree[] = $resourceClassName ? new $resourceClassName($tag) : $tag;
+            }
+        }
+
+        return $tagTree;
+    }
+
+    private static function getTagsArray($tags, $parentId, &$result)
+    {
+        foreach ($tags as $tag) {
+            if ($tag->parent_id === $parentId) {
+                $result[] = $tag;
+                self::getTagsArray($tags, $tag->id, $result);
+            }
+        }
     }
 }

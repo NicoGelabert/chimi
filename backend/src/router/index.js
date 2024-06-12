@@ -7,11 +7,14 @@ import AppLayout from '../components/AppLayout.vue'
 import store from "../store";
 import NotFound from "../views/NotFound.vue";
 import HomeHeroBanners from "../views/HomeHeroBanners/HomeHeroBanners.vue";
-import Products from "../views/Products/Products.vue";
 import Categories from "../views/Categories/Categories.vue";
+import Products from "../views/Products/Products.vue";
 import ProductView from "../views/Products/ProductView.vue";
 import Alergens from "../views/Alergens/Alergens.vue";
 import Services from "../views/Services/Services.vue";
+import Projects from "../views/Projects/Projects.vue";
+import ProjectView from "../views/Projects/ProjectView.vue";
+import Tags from "../views/Tags/Tags.vue";
 import Users from "../views/Users/Users.vue";
 import Customers from "../views/Customers/Customers.vue";
 import CustomerView from "../views/Customers/CustomerView.vue";
@@ -78,6 +81,29 @@ const routes = [
         path: 'services',
         name: 'app.services',
         component: Services
+      },
+      {
+        path: 'projects',
+        name: 'app.projects',
+        component: Projects
+      },
+      {
+        path: 'projects/create',
+        name: 'app.projects.create',
+        component: ProjectView
+      },
+      {
+        path: 'projects/:id',
+        name: 'app.projects.edit',
+        component: ProjectView,
+        props: {
+          id: (value) => /^\d+$/.test(value)
+        }
+      },
+      {
+        path: 'tags',
+        name: 'app.tags',
+        component: Tags
       },
       {
         path: 'users',

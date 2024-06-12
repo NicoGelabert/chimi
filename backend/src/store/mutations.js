@@ -146,3 +146,32 @@ export function setServices(state, [loading, data = null]) {
 
   state.services.loading = loading;
 }
+
+export function setProjects(state, [loading, data = null]) {
+
+  if (data) {
+    state.projects = {
+      ...state.projects,
+      data: data.data,
+      links: data.meta?.links,
+      page: data.meta.current_page,
+      limit: data.meta.per_page,
+      from: data.meta.from,
+      to: data.meta.to,
+      total: data.meta.total,
+    }
+  }
+  state.projects.loading = loading;
+}
+
+export function setTags(state, [loading, data = null]) {
+
+  if (data) {
+    state.tags = {
+      ...state.tags,
+      data: data.data,
+    }
+  }
+
+  state.tags.loading = loading;
+}

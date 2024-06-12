@@ -14,15 +14,18 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->text('title', 200);
-            $table->text('slug', 200)->nullable();
-            $table->longText('description')->nullable();
-            $table->boolean('published')->default(true);
-            $table->foreignId('service_id')->constrained()->onDelete('cascade');
-            $table->foreignIdFor(User::class, 'created_by')->nullable();
-            $table->foreignIdFor(User::class, 'updated_by')->nullable();
-            $table->softDeletes();
-            $table->foreignIdFor(User::class, 'deleted_by')->nullable();
+            $table->string('name');
+            $table->string('slug');
+            $table->longtext('description')->nullable();
+            $table->string('image', 2000)->nullable();
+            $table->string('image_mime')->nullable();
+            $table->integer('image_size')->nullable();
+            $table->boolean('active');
+            $table->foreignId('parent_id')->nullable()->constrained('tags');
+            $table->foreignIdFor(\App\Models\User::class, 'created_by');
+            $table->foreignIdFor(\App\Models\User::class, 'updated_by');
+            $table->timestamp('deleted_at')->nullable();
+            $table->foreignIdFor(\App\Models\User::class, 'deleted_by')->nullable();
             $table->timestamps();
         });
     }

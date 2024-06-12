@@ -29,4 +29,23 @@ class Project extends Model
         return 'slug';
     }
     
+    public function images()
+    {
+        return $this->hasMany(ProjectImage::class)->orderBy('position');
+    }
+
+    public function getImageAttribute()
+    {
+        return $this->images->count() > 0 ? $this->images->get(0)->url : null;
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'project_services');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'project_tags');
+    }
 }

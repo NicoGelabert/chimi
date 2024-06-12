@@ -60,6 +60,24 @@
                 <EyeDropperIcon class="w-5"/>
             </span>
         </router-link>
+        <router-link :to="{name: 'app.projects'}"
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
+            <span class="text-sm">
+                Projects
+            </span>
+            <span class="mr-2">
+                <EyeDropperIcon class="w-5"/>
+            </span>
+        </router-link>
+        <router-link :to="{name: 'app.tags'}"
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
+            <span class="text-sm">
+                Tags
+            </span>
+            <span class="mr-2">
+                <EyeDropperIcon class="w-5"/>
+            </span>
+        </router-link>
         <router-link :to="{name: 'app.orders'}"
                     class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">

@@ -2,29 +2,32 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
-class AlergenResource extends JsonResource
+class ProjectResource extends JsonResource
 {
+    public static $wrap = false;
+
     /**
      * Transform the resource into an array.
      *
-     * @return array<string, mixed>
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public function toArray(Request $request): array
+    public function toArray($request)
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'title' => $this->title,
             'slug' => $this->slug,
             'description' => $this->description,
-            'image_url' => $this->image ?: null,
-            'active' => $this->active,
-            'parent_id' => $this->parent_id,
-            'parent' => $this->parent ? new AlergenResource($this->parent) : null,
+            'image_url' => $this->image,
+            'images' => $this->images,
+            'published' => (bool)$this->published,
+            'services' => $this->services->map(fn($s) => $s->id),
+            'tags' => $this->tags->map(fn($t) => $t->id),
             'created_at' => (new \DateTime($this->created_at))->format('Y-m-d H:i:s'),
             'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
         ];

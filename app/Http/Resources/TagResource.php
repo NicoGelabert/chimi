@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
-class AlergenResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -24,7 +24,7 @@ class AlergenResource extends JsonResource
             'image_url' => $this->image ?: null,
             'active' => $this->active,
             'parent_id' => $this->parent_id,
-            'parent' => $this->parent ? new AlergenResource($this->parent) : null,
+            'parent' => $this->parent ? new TagResource($this->parent) : null,
             'created_at' => (new \DateTime($this->created_at))->format('Y-m-d H:i:s'),
             'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
         ];
