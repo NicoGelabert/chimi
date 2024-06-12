@@ -422,6 +422,12 @@ export function createService({commit}, service) {
     form.append('icon', service.icon);
     form.append('active', service.active ? 1 : 0);
     form.append('description', service.description);
+    // Agregar atributos al FormData
+    if (service.attributes && service.attributes.length) {
+      service.attributes.forEach((attribute, index) => {
+        form.append(`attributes[${index}][text]`, attribute.text);
+      });
+    }
     form.append('image', service.image);
     service = form;
   }
@@ -436,6 +442,12 @@ export function updateService({commit}, service) {
     form.append('icon', service.icon);
     form.append('active', service.active ? 1 : 0);
     form.append('description', service.description);
+    // Agregar atributos al FormData
+    if (service.attributes && service.attributes.length) {
+      service.attributes.forEach((attribute, index) => {
+        form.append(`attributes[${index}][text]`, attribute.text);
+      });
+    }
     form.append('image', service.image);
     form.append('_method', 'PUT');
     service = form;

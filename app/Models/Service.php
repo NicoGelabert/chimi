@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use App\Models\ServiceItem;
+use App\Models\ServiceAttributes;
 // use App\Models\Client;
 // use App\Models\Portfolio;
 // use App\Models\Tag;
@@ -72,6 +72,11 @@ class Service extends Model
                 self::getServicesArray($services, $service->id, $result);
             }
         }
+    }
+
+    public function attributes()
+    {
+        return $this->hasMany(ServiceAttributes::class);
     }
 
     // public function serviceItems()

@@ -24,6 +24,7 @@
     icon: '',
     active: '',
     description: '',
+    attributes: [],
     image: '',
     parent_id: '',
   }

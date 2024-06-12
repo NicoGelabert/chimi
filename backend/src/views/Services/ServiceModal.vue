@@ -54,6 +54,28 @@
                                class="mb-2"
                                v-model="service.parent_id"
                                label="Parent" :errors="errors['parent_id']"/>
+
+                  <!-- Attributes Section -->
+                  <div class="my-4">
+                    <h4 class="text-lg font-medium text-gray-900 mb-2">Attributes</h4>
+                    <div v-for="(attribute, index) in service.attributes" :key="index" class="flex items-center gap-2 mb-2">
+                      <CustomInput class="flex-1" v-model="attribute.text" :label="'Attribute ' + (index + 1)" :errors="errors[`attributes.${index}.text`]"/>
+                      <button class="group border-0 rounded-full" @click="removeAttribute(index)">
+                        <TrashIcon
+                          class="mr-2 h-5 w-5 text-black group-hover:text-red-500"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
+                    <button class="group flex items-end gap-2 border rounded-lg px-4 py-2 w-fit hover:bg-black hover:text-white" type="button" @click="addAttribute">
+                      <h4 class="text-sm">New Attribute</h4>
+                      <PlusCircleIcon
+                        class="h-5 w-5 text-black group-hover:text-white"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </div>
+
                   <div class="flex items-center gap-4">
                     <div class="my-4">
                       <img v-if="service.image_url" class="w-16 h-16" :src="service.image_url" :alt="service.name">
@@ -91,6 +113,7 @@ import {ExclamationCircleIcon} from '@heroicons/vue/24/solid';
 import CustomInput from "../../components/core/CustomInput.vue";
 import store from "../../store/index.js";
 import Spinner from "../../components/core/Spinner.vue";
+import {PlusCircleIcon, TrashIcon} from '@heroicons/vue/24/solid';
 
 const props = defineProps({
   modelValue: Boolean,
@@ -107,11 +130,13 @@ const service = ref({
   image: props.service.image,
   active: props.service.active,
   parent_id: props.service.parent_id,
+  attributes: props.service.attributes || []  // Adding attributes field
 })
+
+console.log(service.attributes)
 
 const loading = ref(false)
 const errors = ref({})
-
 
 const emit = defineEmits(['update:modelValue', 'close'])
 
@@ -147,6 +172,7 @@ onUpdated(() => {
     image_url: props.service.image_url,
     active: props.service.active,
     parent_id: props.service.parent_id,
+    attributes: props.service.attributes || []  // Initialize attributes
   }
 })
 
@@ -154,6 +180,14 @@ function closeModal() {
   show.value = false
   emit('close')
   errors.value = {};
+}
+
+function addAttribute() {
+  service.value.attributes.push({ text: '' });
+}
+
+function removeAttribute(index) {
+  service.value.attributes.splice(index, 1);
 }
 
 function onSubmit() {

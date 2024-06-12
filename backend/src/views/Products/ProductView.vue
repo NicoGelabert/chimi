@@ -46,7 +46,7 @@
               />
               <div class="w-1/12 flex items-center justify-center">
                 <button class="group border-0 rounded-full hover:bg-black" v-if="product.prices.length > 1" @click.prevent="removePrice(index)">
-                  <MinusCircleIcon
+                  <TrashIcon
                     class="h-5 w-5 text-black group-hover:text-white"
                     aria-hidden="true"
                   />
@@ -111,7 +111,7 @@ import store from "../../store/index.js";
 import Spinner from "../../components/core/Spinner.vue";
 import {useRoute, useRouter} from "vue-router";
 import ImagePreview from "../../components/ImagePreview.vue";
-import {PlusCircleIcon, MinusCircleIcon} from '@heroicons/vue/24/solid';
+import {PlusCircleIcon, TrashIcon} from '@heroicons/vue/24/solid';
 // import the component
 import Treeselect from 'vue3-treeselect'
 // import the styles

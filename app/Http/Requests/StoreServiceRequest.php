@@ -26,6 +26,8 @@ class StoreServiceRequest extends FormRequest
             'icon' => ['required', 'string'],
             'active' => ['required', 'boolean'],
             'description' => ['required', 'string'],
+            'attributes' => ['required', 'array'],
+            'attributes.*.text' => ['required', 'string', 'min:0.01'],
             'image' => ['required', 'image'],
             'parent_id' => ['nullable', 'exists:categories,id'],
         ];

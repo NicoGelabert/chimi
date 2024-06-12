@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\ServiceTreeResource;
 use App\Models\Service;
+use App\Models\ServiceAttributes;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -53,7 +54,11 @@ class ServiceController extends Controller
             $data['image_size'] = $image->getSize();
         }
 
+        $attributes = $data['attributes'] ?? [];
+
         $service = Service::create($data);
+
+        $this->saveAttributes($attributes, $service);
 
         return new ServiceResource($service);
     }
@@ -65,6 +70,7 @@ class ServiceController extends Controller
     {
         $data = $request->validated();
         $data['updated_by'] = $request->user()->id;
+        $attributes = $data['attributes'] ?? [];
 
         /** @var \Illuminate\Http\UploadedFile $image */
         $image = $data['image'] ?? null;
@@ -81,6 +87,8 @@ class ServiceController extends Controller
                 Storage::deleteDirectory('/public/' . dirname($service->image));
             }
         }
+
+        $this->saveAttributes($attributes, $service);
 
         $service->update($data);
 
@@ -109,5 +117,14 @@ class ServiceController extends Controller
 
 
         return $path . '/' . $image->getClientOriginalName();
+    }
+
+    protected function saveAttributes(array $attributes, Service $service)
+    {
+        $service->attributes()->delete(); // Limpia atributos existentes para simplificar la actualización
+
+        foreach ($attributes as $attribute) {
+            $service->attributes()->create($attribute); // Esto usará la relación hasMany para crear los atributos
+        }
     }
 }
