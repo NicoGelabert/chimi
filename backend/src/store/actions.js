@@ -514,6 +514,13 @@ export function createProject({ commit }, project) {
     });
   }
 
+  // Agregar clients al FormData
+  if (project.clients && project.clients.length) {
+    project.clients.forEach((client) => {
+      form.append(`clients[]`, client);
+    });
+  }
+
   return axiosClient.post('/projects', form);
 }
 
@@ -538,6 +545,13 @@ export function updateProject({commit}, project) {
     if (project.tags && project.tags.length) {
       project.tags.forEach((tag) => {
         form.append(`tags[]`, tag);
+      });
+    }
+
+    // Agregar clients al FormData
+    if (project.clients && project.clients.length) {
+      project.clients.forEach((client) => {
+        form.append(`clients[]`, client);
       });
     }
 
@@ -613,4 +627,50 @@ export function updateTag({commit}, tag) {
 
 export function deleteTag({commit}, tag) {
   return axiosClient.delete(`/tags/${tag.id}`)
+}
+
+//CLIENTS
+export function getClients({commit, state}, {sort_field, sort_direction} = {}) {
+  commit('setClients', [true])
+  return axiosClient.get('/clients', {
+    params: {
+      sort_field, sort_direction
+    }
+  })
+    .then((response) => {
+      commit('setClients', [false, response.data])
+    })
+    .catch(() => {
+      commit('setClients', [false])
+    })
+}
+
+export function createClient({commit}, client) {
+  if (client.image instanceof File) {
+    const form = new FormData();
+    form.append('name', client.name);
+    form.append('image', client.image);
+    form.append('active', client.active ? 1 : 0);
+    client = form;
+  }
+  return axiosClient.post('/clients', client)
+}
+
+export function updateClient({commit}, client) {
+  const id = client.id
+  if (client.image instanceof File) {
+    const form = new FormData();
+    form.append('name', client.name);
+    form.append('image', client.image);
+    form.append('active', client.active ? 1 : 0);
+    form.append('_method', 'PUT');
+    client = form;
+  } else {
+    client._method = 'PUT'
+  }
+  return axiosClient.post(`/clients/${id}`, client)
+}
+
+export function deleteClient({commit}, client) {
+  return axiosClient.delete(`/clients/${client.id}`)
 }

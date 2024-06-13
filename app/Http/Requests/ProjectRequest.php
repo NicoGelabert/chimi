@@ -25,6 +25,7 @@ class ProjectRequest extends FormRequest
             'title' => ['required', 'max:2000'],
             'services.*' => ['nullable', 'int', 'exists:services,id'],
             'tags.*' => ['nullable', 'int', 'exists:tags,id'],
+            'clients.*' => ['nullable', 'int', 'exists:clients,id'],
             'description' => ['nullable', 'string'],
             'images.*' => ['nullable', 'image'],
             'deleted_images.*' => ['nullable', 'int'],

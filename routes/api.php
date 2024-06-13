@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\AlergenController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TagController;
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\CustomerController;
@@ -40,6 +41,8 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('/services/tree', [ServiceController::class, 'getAsTree']);
     Route::apiResource('tags', TagController::class)->except('show');
     Route::get('/tags/tree', [TagController::class, 'getAsTree']);
+    Route::apiResource('clients', ClientController::class)->except('show');
+    Route::get('/clients/tree', [ClientController::class, 'getAsTree']);
     Route::apiResource('projects', ProjectController::class);
     Route::apiResource('users', UserController::class);
     Route::apiResource('customers', CustomerController::class);

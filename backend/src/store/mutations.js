@@ -175,3 +175,15 @@ export function setTags(state, [loading, data = null]) {
 
   state.tags.loading = loading;
 }
+
+export function setClients(state, [loading, data = null]) {
+
+  if (data) {
+    state.clients = {
+      ...state.clients,
+      data: data.data,
+    }
+  }
+
+  state.clients.loading = loading;
+}

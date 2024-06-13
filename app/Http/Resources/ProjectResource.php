@@ -28,6 +28,7 @@ class ProjectResource extends JsonResource
             'published' => (bool)$this->published,
             'services' => $this->services->map(fn($s) => $s->id),
             'tags' => $this->tags->map(fn($t) => $t->id),
+            'clients' => $this->clients->map(fn($c) => $c->id),
             'created_at' => (new \DateTime($this->created_at))->format('Y-m-d H:i:s'),
             'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
         ];

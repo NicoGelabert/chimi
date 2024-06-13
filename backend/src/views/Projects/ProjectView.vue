@@ -23,6 +23,11 @@
                     </div>
                     <hr class="my-4">
                     <div class="flex flex-col gap-2">
+                        <h3 class="text-lg font-bold">Client</h3>
+                        <treeselect v-model="project.clients" :multiple="true" :options="clientsOptions" :errors="errors['clients']"/>
+                    </div>
+                    <hr class="my-4">
+                    <div class="flex flex-col gap-2">
                         <h3 class="text-lg font-bold">Description</h3>
                         <CustomInput type="richtext" class="mb-2" v-model="project.description" label="Description" :errors="errors['description']"/>
                     </div>
@@ -94,12 +99,14 @@ const project = ref({
     published: false,
     services: [],
     tags: [],
+    clients: [],
 })
 
 const errors = ref({});
 const loading = ref(false);
 const servicesOptions = ref([]);
 const tagsOptions = ref([]);
+const clientsOptions = ref([]);
 
 const emit = defineEmits(['update:modelValue', 'close'])
 
@@ -119,6 +126,10 @@ onMounted(() => {
     axiosClient.get('/tags/tree')
     .then(result => {
         tagsOptions.value = result.data
+    })
+    axiosClient.get('/clients/tree')
+    .then(result => {
+        clientsOptions.value = result.data
     })
 })
 
