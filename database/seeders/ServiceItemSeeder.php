@@ -14,81 +14,81 @@ class ServiceItemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('service_items')->insert([
-            'title' => 'Desarrollo de sitios web responsivos y adaptativos.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Desarrollo de sitios web responsivos y adaptativos.',
             'service_id' => 1,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Desarrollo de sitios web estáticos o dinámicos.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Desarrollo de sitios web estáticos o dinámicos.',
             'service_id' => 1,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Desarrollo de tiendas en línea (e-commerce).',
+        DB::table('service_attributes')->insert([
+            'text' => 'Desarrollo de tiendas en línea (e-commerce).',
             'service_id' => 1,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Optimización para motores de búsqueda (SEO).',
+        DB::table('service_attributes')->insert([
+            'text' => 'Optimización para motores de búsqueda (SEO).',
             'service_id' => 1,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Integración de sistemas de análisis web como Google Analytics.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Integración de sistemas de análisis web como Google Analytics.',
             'service_id' => 1,
         ]);
         
-        DB::table('service_items')->insert([
-            'title' => 'Optimización de velocidad y rendimiento del sitio web.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Optimización de velocidad y rendimiento del sitio web.',
             'service_id' => 1,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Mantenimiento web y actualizaciones periódicas.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Mantenimiento web y actualizaciones periódicas.',
             'service_id' => 1,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Asesoramiento técnico y consultoría.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Asesoramiento técnico y consultoría.',
             'service_id' => 1,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Creación de logotipos.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Creación de logotipos.',
             'service_id' => 2,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Diseño de identidad de marca.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Diseño de identidad de marca.',
             'service_id' => 2,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Diseño de folletos, volantes y material publicitario impreso.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Diseño de folletos, volantes y material publicitario impreso.',
             'service_id' => 2,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Diseño de tarjetas de visita y papelería corporativa.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Diseño de tarjetas de visita y papelería corporativa.',
             'service_id' => 2,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Diseño de empaques y etiquetas.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Diseño de empaques y etiquetas.',
             'service_id' => 2,
         ]);        
-        DB::table('service_items')->insert([
-            'title' => 'Diseño de empaques y etiquetas.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Diseño de empaques y etiquetas.',
             'service_id' => 2,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Estrategia de branding digital.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Estrategia de branding digital.',
             'service_id' => 3,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Creación de contenido visual para redes sociales.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Creación de contenido visual para redes sociales.',
             'service_id' => 3,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Gestión de redes sociales.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Gestión de redes sociales.',
             'service_id' => 3,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Publicidad en línea (Google Ads, Facebook Ads, etc.).',
+        DB::table('service_attributes')->insert([
+            'text' => 'Publicidad en línea (Google Ads, Facebook Ads, etc.).',
             'service_id' => 3,
         ]);
-        DB::table('service_items')->insert([
-            'title' => 'Email marketing y creación de boletines.',
+        DB::table('service_attributes')->insert([
+            'text' => 'Email marketing y creación de boletines.',
             'service_id' => 3,
         ]);
     }

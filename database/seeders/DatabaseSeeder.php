@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             // TagSeeder::class,
             // FaqSeeder::class,
             // PriceSeeder::class,
-            ProductPriceSeeder::class,
+            // ProductPriceSeeder::class,
         ]);
     }
 }

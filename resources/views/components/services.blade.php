@@ -4,7 +4,7 @@
     </div>
     <h3 class="text-center">Soluciones de diseño</h3>
     <p class="text-center">Ofrecemos una gama de servicios de diseño creativo para satisfacer sus necesidades.</p>
-    <div class="flex flex-col md:flex-row md:px-0 gap-12 md:gap-4 items-start">
+    <div class="w-full flex flex-col md:flex-row md:px-0 gap-12 md:gap-4 items-start">
     @foreach ($services as $service)
         <div class="card" style="background-image:url({{ $service->image }})" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false">
             <div class="card-content">

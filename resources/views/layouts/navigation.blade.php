@@ -4,7 +4,7 @@
         cartItemsCount: {{ \App\Helpers\Cart::getCartItemsCount() }},
     }"
     @cart-change.window="cartItemsCount = $event.detail.count"
-    class="flex justify-between md:justify-center z-10 w-full mt-4 md:mt-0"
+    class="flex justify-between md:justify-center z-10 w-full py-4"
     id="navbar"
 >
     <div class="logo flex items-center ml-6 md:hidden">

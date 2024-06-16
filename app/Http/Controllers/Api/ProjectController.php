@@ -9,6 +9,7 @@ use App\Http\Resources\ProjectResource;
 use App\Models\Api\Project;
 use App\Models\ProjectService;
 use App\Models\ProjectImage;
+use App\Models\ProjectClient;
 use App\Models\ProjectTag;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -54,12 +55,14 @@ class ProjectController extends Controller
         $images = $data['images'] ?? [];
         $imagePositions = $data['image_positions'] ?? [];
         $services = $data['services'] ?? [];
+        $clients = $data['clients'] ?? [];
         $tags = $data['tags'] ?? [];
 
         $project = Project::create($data);
 
         $this->saveServices($services, $project);
         $this->saveImages($images, $imagePositions, $project);
+        $this->saveClients($clients, $project);
         $this->saveTags($tags, $project);
 
         return new ProjectResource($project);
@@ -88,6 +91,7 @@ class ProjectController extends Controller
         $data = $request->validated();
         $data['updated_by'] = $request->user()->id;
         $services = $data['services'] ?? [];
+        $clients = $data['clients'] ?? [];
         $tags = $data['tags'] ?? [];
         $prices = $data['prices'] ?? [];
         
@@ -101,6 +105,7 @@ class ProjectController extends Controller
         if (count($deletedImages) > 0) {
             $this->deleteImages($deletedImages, $project);
         }
+        $this->saveClients($clients, $project);
         $this->saveTags($tags, $project);
 
         $project->update($data);
@@ -127,6 +132,14 @@ class ProjectController extends Controller
         $data = array_map(fn($id) => (['service_id' => $id, 'project_id' => $project->id]), $serviceIds);
 
         ProjectService::insert($data);
+    }
+
+    private function saveClients($clientIds, Project $project)
+    {
+        ProjectClient::where('project_id', $project->id)->delete();
+        $data = array_map(fn($id) => (['client_id' => $id, 'project_id' => $project->id]), $clientIds);
+
+        ProjectClient::insert($data);
     }
 
     private function saveTags($tagIds, Project $project)

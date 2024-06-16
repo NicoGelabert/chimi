@@ -3,7 +3,7 @@ footer{
     .footer-container{
         @apply max-w-screen-xl mx-auto flex flex-col items-center gap-y-8 py-12 px-4 md:flex-row md:justify-between;
         .footer-logo{
-            @apply flex flex-col gap-4 max-w-32;
+            @apply flex flex-col gap-4 max-w-none;
             svg{
                 @apply w-36 h-auto fill-white mx-auto md:mx-0;
             }
