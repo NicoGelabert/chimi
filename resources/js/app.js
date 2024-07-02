@@ -117,29 +117,29 @@ toggleThemeButton.addEventListener('click', function() {
 // SPLIDE
 document.addEventListener( 'DOMContentLoaded', function () {
   // Portfolio
-// var main = new Splide( '#main-carousel', {
-//   type      : 'fade',
-//   rewind    : true,
-//   pagination: false,
-//   arrows    : false,
-//   fixedWidth  : '100%',
-//   fixedHeight : '100vh',
-// });
+var main = new Splide( '#main-carousel', {
+  type      : 'fade',
+  rewind    : true,
+  pagination: false,
+  arrows    : false,
+  fixedWidth  : '100%',
+  fixedHeight : '100vh',
+});
 
-// var thumbnails = new Splide( '#thumbnail-carousel', {
-//   type        : 'loop',
-//   gap         : 10,
-//   rewind      : true,
-//   pagination  : false,
-//   isNavigation: true,
-//   focus       : 'center',
-//   fixedWidth  : '100%',
-//   fixedHeight : '100vh',
-// });
+var thumbnails = new Splide( '#thumbnail-carousel', {
+  type        : 'loop',
+  gap         : 10,
+  rewind      : true,
+  pagination  : false,
+  isNavigation: true,
+  focus       : 'center',
+  fixedWidth  : '100%',
+  fixedHeight : '100vh',
+});
 
-// main.sync( thumbnails );
-// main.mount();
-// thumbnails.mount();
+main.sync( thumbnails );
+main.mount();
+thumbnails.mount();
 // Fin Portfolio
 
   // Home Hero Banner
@@ -202,6 +202,26 @@ document.addEventListener( 'DOMContentLoaded', function () {
     });
   }
   // Fin Home Hero Banner
+  // Services home
+  var homeServices = new Splide('#home-services', {
+    perPage   : 3,
+    gap       : '2rem',
+    arrows    : false,
+    breakpoints: {
+      1024:{
+        perPage:2,
+        type   :'loop',
+      },
+      640: {
+        perPage: 1,
+      },
+      480: {
+        perPage: 1,
+      },
+    }
+  });
+  homeServices.mount();
+// Fin Services Home
   
 });
 

@@ -4,7 +4,7 @@
         cartItemsCount: {{ \App\Helpers\Cart::getCartItemsCount() }},
     }"
     @cart-change.window="cartItemsCount = $event.detail.count"
-    class="flex justify-between md:justify-center z-10 w-full py-4"
+    class="flex justify-between md:justify-center z-10 w-full"
     id="navbar"
 >
     <div class="logo flex items-center ml-6 md:hidden">
@@ -52,7 +52,7 @@
                             @foreach ($services as $service)
                                 <li>
                                     <a href="{{ route('service.view', $service->slug) }}">
-                                        <span class="text-xs">{{ $service->title }}</span>
+                                        <span class="text-xs">{{ $service->name }}</span>
                                     </a>
                                 </li>
                             @endforeach
@@ -85,7 +85,7 @@
                 <a
                     @click="open = !open"
                     class="cursor-pointer flex items-center px-navbar-item pr-5  "
-                    :class="{'bg-gray-100': open, 'w-full': open}"
+                    :class="{'w-full': open}"
                 >
                     <span class="flag-icon flag-icon-{{ Config::get('languages')[App::getLocale()]['flag-icon'] }}"></span>
                     <span class="text-sm">{{ Config::get('languages')[App::getLocale()]['display'] }}</span>
@@ -140,8 +140,8 @@
             <li x-data="{open: false}" class="relative">
                 <a
                     @click="open = !open"
-                    :class="{'bg-gray-100': open, 'w-full': open}"
-                    class="cursor-pointer flex items-center px-navbar-item w-max"
+                    :class="{'w-full': open}"
+                    class="cursor-pointer flex items-center px-navbar-item w-max hover:text-primary"
                 >
                 {{ __('Servicios') }}
                 <svg
@@ -167,11 +167,24 @@
                     @foreach ($services as $service)
                         <li class="py-lang-navbar-item" >
                             <a href="{{ route('service.view', $service->slug) }}">
-                                <span class="text-xs">{{ $service->title }}</span>
+                                <span class="text-xs">{{ $service->name }}</span>
                             </a>
                         </li>
                     @endforeach
                 </ul>
+            </li>
+            <li>
+                <div class="flex justify-center gap-4 social-icons">
+                    <a href="https://wa.me/34622406965" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                        <i class="flex text-base leading-none fi fi-brands-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/puntosurfuengirola/?hl=es" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                        <i class="flex text-base leading-none fi fi-brands-instagram"></i>
+                    </a>
+                    <a href="https://maps.app.goo.gl/22GUnZ2foJeEYud98" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                        <i class="flex text-base leading-none fi fi-rs-map-marker"></i>
+                    </a>
+                </div>
             </li>
         </ul>
     </nav>
@@ -181,7 +194,7 @@
             <a
                 @click="open = !open"
                 class="cursor-pointer flex items-center px-navbar-item pr-5 py-4"
-                :class="{'bg-gray-100': open, 'w-full': open}"
+                :class="{'w-full': open}"
             >
                 <span class="flag-icon flag-icon-{{ Config::get('languages')[App::getLocale()]['flag-icon'] }}"></span>
                 <span class="text-sm">{{ Config::get('languages')[App::getLocale()]['display'] }}</span>

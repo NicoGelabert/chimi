@@ -5,10 +5,4 @@ header{
 }
 .scrolled-bottom{
     @apply shadow-md bg-white text-black dark:bg-black dark:text-white;
-    .logo{
-        @apply max-w-16;
-    }
-    nav ul li a{
-        @apply py-4;
-    }
 }

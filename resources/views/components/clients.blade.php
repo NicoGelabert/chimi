@@ -5,7 +5,13 @@
     <h3 class="text-center">Nuestros clientes</h3>
     <p class="text-center">Desde pequeños emprendedores hasta grandes corporaciones, cada cliente es único.</p>
     <div class="flex items-center justify-center text-black">
-        <img src="{{ asset('storage/clients/logo-punto-sur.svg') }}" class="h-24" alt="">
+        <ul class="flex flex-wrap gap-4">
+            @foreach($clients as $client)
+            <li class="max-w-20 h-auto">
+                <img src="{{ $client->image }}" alt="{{ $client->name }}">
+            </li>
+            @endforeach
+        </ul>
         
     </div>
 </div>

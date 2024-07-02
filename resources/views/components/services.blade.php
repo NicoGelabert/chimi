@@ -1,25 +1,41 @@
-<div class="container flex flex-col gap-8 items-center" id="services">
-    <div class="pretitle">
-        <p>Servicios</p>
-    </div>
-    <h3 class="text-center">Soluciones de diseño</h3>
-    <p class="text-center">Ofrecemos una gama de servicios de diseño creativo para satisfacer sus necesidades.</p>
-    <div class="w-full flex flex-col md:flex-row md:px-0 gap-12 md:gap-4 items-start">
-    @foreach ($services as $service)
-        <div class="card" style="background-image:url({{ $service->image }})" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false">
-            <div class="card-content">
-                <div class="flex justify-between items-center w-full">
-                    <h2 class="text-right border-b-2 pb-4 border-primary">0{{ $service->id }}</h2>
-                    <i class="text-4xl {{ $service->icon }} text-primary"></i>
-                </div>
-                <h4>{{ $service->name }}</h4>
-                <div :class="{ 'visible': hover }" class="description">{!! $service->description !!}</div>
-                <x-button href="{{ route('service.view', $service->slug) }}">
-                    <i class="fi fi-rr-arrow-right"></i> <span>{{__('Ver más')}}</span>
-                </x-button>
+<div class="container flex flex-col gap-8" id="services">
+    <div class="flex flex-col md:flex-row w-full justify-between gap-16">
+        <div class="flex justify-between md:hidden">
+            <div class="">
+                <h3 class="text-center">Servicios</h3>
+            </div>
+            <i class="fi fi-br-arrow-up-left -rotate-90 text-4xl overflow-hidden"></i>
+        </div>
+        <div class="splide w-full md:w-10/12" id="home-services">
+            <div class="splide__track w-full md:px-0  items-start">
+                <ul class="splide__list">
+                    @foreach ($services as $service)
+                        <li class="card splide__slide mx-auto">
+                            <div class="imgBx" style="background-image:url({{ $service->image }})">
+                                <span class="price"><h4>0{{ $service->id }}</h4></span>
+                            </div>
+                            <div class="content">
+                                <div class="card-title">
+                                    <h5>{{ $service->name }}</h5>
+                                    <a href="{{ route('service.view', $service->slug) }}"><i class="fi fi-sr-add"></i></a>
+                                </div>
+                                <div>
+                                    <p>{!! $service->description !!}</p>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
-    @endforeach
-
+        <div class="hidden md:flex flex-col justify-between">
+            <div class="h-fit vertical-text ">
+                <h3 class="text-center">Servicios</h3>
+            </div>
+            <i class="fi fi-br-arrow-up-left text-4xl overflow-hidden"></i>
+        </div>
+    </div>
+    <div class="flex justify-end">
+        <p class="text-right text-2xl">Diseño creativo para satisfacer<br>sus necesidades.</p>
     </div>
 </div>

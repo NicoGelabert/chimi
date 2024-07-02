@@ -11,9 +11,9 @@
         <div id="main-carousel" class="splide mx-auto" aria-label="Portfolio">
             <div class="splide__track">
                 <ul class="splide__list">
-                    @foreach($portfolios as $portfolio)
+                    @foreach($projects as $project)
                     <li class="splide__slide">
-                        <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}">
+                        <img src="{{ $project->image }}" alt="{{ $project->name }}">
                     </li>
                     @endforeach
                 </ul>
@@ -26,18 +26,24 @@
             >
             <div class="splide__track h-full">
                     <ul class="splide__list">
-                        @foreach($portfolios as $portfolio)
+                        @foreach($projects as $project)
                         <li class="splide__slide">
-                            <div class="flex flex-col-reverse items-center justify-between w-full max-w-screen-lg mx-auto md:flex-row h-full gap-8 py-16 md:py-8 md:py-0">
+                            <div class="flex flex-col items-center justify-between w-full max-w-screen-lg mx-auto md:flex-row h-5/6 md:h-full gap-8 py-16 md:py-8 md:py-0">
                                 <div class="md:w-1/2 h-full flex items-center justify-center">
-                                    <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}">
+                                    <img src="{{ $project->image }}" alt="{{ $project->title }}">
                                 </div>
-                                <div class="text-white md:w-1/2 flex flex-col gap-4">
-                                    <h3>{{ $portfolio->title }}</h3>
-                                    <p>{{ $portfolio->client->title }}</p>
-                                    <ul>
-                                        @foreach($portfolio->serviceItems as $serviceItem)
-                                        <li class="mt-1 bg-gray-50 text-[0.65rem] w-fit rounded-full px-2 py-1 text-black">{{ $serviceItem->title }}</li>
+                                <div class="text-white mx-8 md:w-1/2 h-auto flex flex-col justify-between gap-16">
+                                    <div>
+                                        <h3>{{ $project->title }}</h3>
+                                        <ul>
+                                            @foreach($project->clients as $client)
+                                            <li class="text-sm">{{ $client->name }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <ul class="flex flex-wrap gap-2">
+                                        @foreach($project->tags as $tag)
+                                        <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-2 py-1 text-black">{{ $tag->name }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -48,29 +54,7 @@
             </div>
         </div>
     </div>
-    <!-- <div x-data="{ modalImage: null }">
-        <div class="splide mb-12" id="portolio" aria-label="Portfolio">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    @foreach($portfolios as $portfolio)
-                        <li class="splide__slide" @click="modalImage = '{{ $portfolio->image}}'">
-                            <img class="w-80 h-96 object-cover" src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}">
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        <div x-show="modalImage" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-            <div class="modal-content" @click.away="modalImage = null">
-                <span @click="modalImage = null" class="absolute text-6xl cursor-pointer font-bold top-0 right-4 hover:text-white">&times;</span>
-                <div class="modal-nav">
-                    <button @click="prevImage()" class="modal-prev">Prev</button>
-                    <img :src="modalImage" alt="Imagen en grande" class="max-h-[75vh]">
-                    <button @click="nextImage()" class="modal-next">Next</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

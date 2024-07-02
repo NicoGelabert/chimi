@@ -8,12 +8,15 @@ use Illuminate\View\Component;
 
 class Clients extends Component
 {
+    public $clients;
     /**
      * Create a new component instance.
+     * @param  mixed  $clients
+     * @return void
      */
-    public function __construct()
+    public function __construct($clients)
     {
-        //
+        $this->clients = $clients;
     }
 
     /**

@@ -8,15 +8,15 @@ use Illuminate\View\Component;
 
 class Portfolio extends Component
 {
-    public $portfolios;
+    public $projects;
     /**
      * Create a new component instance.
-     * @param  mixed  $portfolios
+     * @param  mixed  $projects
      * @return void
      */
-    public function __construct($portfolios)
+    public function __construct($projects)
     {
-        $this->portfolios = $portfolios;
+        $this->projects = $projects;
     }
 
     /**
