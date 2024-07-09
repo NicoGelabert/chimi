@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\HomeHeroBanner;
 use App\Models\Feature;
 use App\Models\Service;
-use App\Models\Project;
+use App\Models\Tag;
 use App\Models\Client;
+use App\Models\Project;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class WelcomeController extends Controller
         $homeherobanners = HomeHeroBanner::all();
         $features = Feature::all();
         $services = Service::all();
+        $tags = Tag::all();
         $clients = Client::all();
         $projects = Project::with('tags', 'clients')->get();
         $faqs = Faq::all();
@@ -24,6 +26,7 @@ class WelcomeController extends Controller
             'homeherobanners',
             'features',
             'services',
+            'tags',
             'clients',
             'projects',
             'faqs'

@@ -6,7 +6,9 @@
     
     <hr class="divider" />
     
-    <x-benefits />
+    <x-benefits :tags="$tags" />
+    
+    <hr class="divider" />
     
     <x-features :features="$features"/>
         

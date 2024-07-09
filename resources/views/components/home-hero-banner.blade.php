@@ -10,7 +10,7 @@
                             <h3 class="animate-h3">0{{ $homeherobanner->id }}</h3>
                             <i class="fi fi-br-arrow-up-left text-4xl animate-arrow overflow-hidden"></i>
                         </div>
-                        <h1 class="animate-h1 text-6xl leading-tight dark:text-primary">{{ $homeherobanner->headline }}</h1>
+                        <h1 class="animate-h1 text-6xl leading-tight dark:text-white">{{ $homeherobanner->headline }}</h1>
                         <p class="animate-p">{{ $homeherobanner->description }}</p>
                         <div class="animate-button">
                             <x-button href="{{ $homeherobanner->link }}"><i class="fi fi-rr-arrow-right arrow-to-right"></i><span>Conózcanos</span></x-button>
