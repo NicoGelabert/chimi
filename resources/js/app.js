@@ -120,26 +120,51 @@ document.addEventListener( 'DOMContentLoaded', function () {
 var main = new Splide( '#main-carousel', {
   type      : 'fade',
   rewind    : true,
-  pagination: false,
-  arrows    : false,
-  fixedWidth  : '100%',
-  fixedHeight : '100vh',
+  pagination: true,
+  arrows    : true,
 });
 
 var thumbnails = new Splide( '#thumbnail-carousel', {
   type        : 'loop',
+  perPage     : 3,
   gap         : 10,
   rewind      : true,
-  pagination  : false,
+  pagination  : true,
+  arrows      : false,
   isNavigation: true,
-  focus       : 'center',
-  fixedWidth  : '100%',
-  fixedHeight : '100vh',
 });
 
 main.sync( thumbnails );
 main.mount();
 thumbnails.mount();
+
+thumbnails.on('mounted', function(){
+  limitPaginationDots(thumbnails);
+})
+
+function limitPaginationDots(thumbnails) {
+  const maxDots = 5;
+  const pagination = thumbnails.Components.Pagination;
+  const dots = pagination.data.list.childNodes;
+
+  if (dots.length > maxDots) {
+    const step = Math.ceil(dots.length / maxDots);
+    const newDots = [];
+
+    for (let i = 0; i < maxDots; i++) {
+      const dotIndex = i * step;
+      newDots.push(dots[dotIndex]);
+    }
+
+    // Clear existing dots
+    pagination.data.list.innerHTML = '';
+
+    // Append limited dots
+    newDots.forEach(dot => {
+      pagination.data.list.appendChild(dot);
+    });
+  }
+}
 // Fin Portfolio
 
   // Home Hero Banner

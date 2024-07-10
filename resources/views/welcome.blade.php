@@ -10,11 +10,11 @@
     
     <hr class="divider" />
     
-    <x-features :features="$features"/>
-        
+    <x-portfolio :projects="$projects" />
+    
     <hr class="divider" />
     
-    <x-portfolio :projects="$projects" />
+    <x-features :features="$features"/>
     
     <x-clients :clients="$clients" />
     

@@ -17,11 +17,12 @@ export default {
                 
             },
             colors: {
-                white: '#FBFCFF',
-                black: '#0A0A0A',
-                primary: '#E74694',
-                secondary: '#4B30CA',
-                primary_darker:'#BF125D',
+                white           : '#FBFCFF',
+                black           : '#0A0A0A',
+                ligth_gray      : '#D9D9D9',
+                primary         : '#E74694',
+                secondary       : '#4B30CA',
+                primary_darker  : '#BF125D',
             },
             fontSize: {
                 xxs: '0.6rem',
