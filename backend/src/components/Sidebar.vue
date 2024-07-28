@@ -30,7 +30,7 @@
                 Categories
             </span>
             <span class="mr-2">
-                <TagIcon class="w-5"/>
+                <MegaphoneIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.products'}"
@@ -57,7 +57,7 @@
                 Services
             </span>
             <span class="mr-2">
-                <EyeDropperIcon class="w-5"/>
+                <BriefcaseIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.projects'}"
@@ -66,7 +66,7 @@
                 Projects
             </span>
             <span class="mr-2">
-                <EyeDropperIcon class="w-5"/>
+                <LightBulbIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.tags'}"
@@ -75,7 +75,7 @@
                 Tags
             </span>
             <span class="mr-2">
-                <EyeDropperIcon class="w-5"/>
+                <TagIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.clients'}"
@@ -84,7 +84,7 @@
                 Clients
             </span>
             <span class="mr-2">
-                <EyeDropperIcon class="w-5"/>
+                <TrophyIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.orders'}"
@@ -129,7 +129,7 @@
 
 <script setup>
 
-import { ChevronLeftIcon,  BuildingStorefrontIcon, PhotoIcon, TagIcon, ArchiveBoxIcon, CurrencyEuroIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon, EyeDropperIcon } from '@heroicons/vue/24/outline'
+import { ChevronLeftIcon,  BuildingStorefrontIcon, PhotoIcon, MegaphoneIcon, ArchiveBoxIcon, EyeDropperIcon, BriefcaseIcon, LightBulbIcon, TagIcon, TrophyIcon, CurrencyEuroIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outline'
 import {ref} from "vue";
 
 const emit = defineEmits(['toggle-sidebar'])

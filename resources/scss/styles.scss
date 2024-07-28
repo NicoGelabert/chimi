@@ -1,5 +1,8 @@
 @use './globals' as *;
 @use './animations/animations' as *;
+html {
+    scroll-behavior: smooth;
+  }
 body{
     @apply bg-white text-black dark:bg-black dark:text-white;
     font-family: $secondary-font;
@@ -7,13 +10,13 @@ body{
         font-family: $primary-font;
     }
     h1{
-        @apply text-5xl;
+        @apply text-6xl;
     }
     h2{
-        @apply text-4xl;
+        @apply text-5xl;
     }
     h3{
-        @apply text-6xl uppercase;
+        @apply text-4xl;
     }
     h4{
         @apply text-4xl;
@@ -134,7 +137,7 @@ body{
         }
     // Contenedor gral
     .container{
-        @apply w-full max-w-screen-xl mx-auto py-8 md:py-0 px-4 border-x-2 2xl:px-0;
+        @apply w-full max-w-screen-xl mx-auto px-4 2xl:px-0;
     }
     // línea divisoria
     .divider{ 

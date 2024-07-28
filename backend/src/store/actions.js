@@ -421,6 +421,7 @@ export function createService({commit}, service) {
     form.append('name', service.name);
     form.append('icon', service.icon);
     form.append('active', service.active ? 1 : 0);
+    form.append('short_description', service.short_description);
     form.append('description', service.description);
     // Agregar atributos al FormData
     if (service.attributes && service.attributes.length) {
@@ -441,6 +442,7 @@ export function updateService({commit}, service) {
     form.append('name', service.name);
     form.append('icon', service.icon);
     form.append('active', service.active ? 1 : 0);
+    form.append('short_description', service.short_description);
     form.append('description', service.description);
     // Agregar atributos al FormData
     if (service.attributes && service.attributes.length) {

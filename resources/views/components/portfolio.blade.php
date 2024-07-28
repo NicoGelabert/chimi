@@ -2,10 +2,10 @@
     <div class="w-full md:w-1/3 h-auto flex flex-col justify-between">
         <div class="w-full flex justify-between pr-4">
             <div class="h-fit hidden md:block vertical-text ">
-                <h3 class="text-center">Portfolio</h3>
+                <h2 class="text-center">Portfolio</h2>
             </div>
             <div class="h-fit md:hidden">
-                <h3 class="text-center">Portfolio</h3>
+                <h2 class="text-center">Portfolio</h2>
             </div>
             <div class="h-fit -rotate-90">
                 <i class="fi fi-br-arrow-up-left text-4xl overflow-hidden"></i>
@@ -38,7 +38,7 @@
                             </div>
                             <ul class="hidden md:flex flex-wrap gap-2">
                                 @foreach($project->tags as $tag)
-                                <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-2 py-1 text-black">{{ $tag->name }}</li>
+                                <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-2 py-1 text-black dark:bg-dark_gray dark:text-white">{{ $tag->name }}</li>
                                 @endforeach
                             </ul>
                         </div>

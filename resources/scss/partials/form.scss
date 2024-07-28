@@ -2,7 +2,7 @@
     input, select, textarea{
         @apply 
         bg-transparent
-        text-gray-700
+        text-gray-700 dark:text-ligth_gray
         border-b-gray-300
         border-transparent
         focus:ring-transparent
@@ -12,7 +12,7 @@
         focus:ring-0
     }
     select{
-        @apply text-gray-500
+        @apply text-gray-500 dark:bg-dark_gray
     }
     input[type=checkbox]{
         @apply border-gray-300

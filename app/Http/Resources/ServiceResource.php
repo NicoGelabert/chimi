@@ -22,6 +22,7 @@ class ServiceResource extends JsonResource
             'slug' => $this->slug,
             'icon' => $this->icon,
             'active' => $this->active,
+            'short_description' => $this->short_description,
             'description' => $this->description,
             'attributes' => $this->attributes->map(function ($attribute) {
                 return [

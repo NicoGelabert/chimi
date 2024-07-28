@@ -14,6 +14,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+// Mails de confirmación
+// use App\Mail\QuotationConfirmation;
+// use Illuminate\Support\Facades\Mail;
+// Mails de confirmación
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +30,17 @@ use Inertia\Inertia;
 */
 
 Route::middleware(['guestOrVerified'])->group(function () {
+
+    // Route::get('/preview-quotation-confirmation', function () {
+    //     $quotation = [
+    //         'name' => 'Juan Pérez',
+    //         'email' => 'juan@example.com'
+    //     ];
+    
+    //     return new QuotationConfirmation($quotation);
+    // });
+
+
     Route::get('/', function () {
         return view('underconstruction');
     });

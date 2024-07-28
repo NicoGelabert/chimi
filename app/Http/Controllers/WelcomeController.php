@@ -20,7 +20,12 @@ class WelcomeController extends Controller
         $services = Service::all();
         $tags = Tag::all();
         $clients = Client::all();
-        $projects = Project::with('tags', 'clients')->get();
+        $projects = Project::with('tags', 'clients')->whereHas('services', function($query) {
+            $query->where('service_id', 2);
+        })->get();
+        $devprojects = Project::with('tags', 'clients')->whereHas('services', function($query) {
+            $query->where('service_id', 1);
+        })->get();
         $faqs = Faq::all();
         return view('welcome', compact(
             'homeherobanners',
@@ -29,6 +34,7 @@ class WelcomeController extends Controller
             'tags',
             'clients',
             'projects',
+            'devprojects',
             'faqs'
         ));
     }

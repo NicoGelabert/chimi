@@ -22,37 +22,15 @@
                     <x-application-logo/>
                 </div>
                 <ul class="flex flex-col gap-y-4 items-center">
-                    <li x-data="{open: false}" class="relative">
-                        <a
-                            @click="open = !open"
-                            
-                            class="cursor-pointer flex items-center gap-4"
-                        >
-                        {{ __('Servicios') }}
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
+                    <li class="relative">
+                        <a class="cursor-pointer flex items-center gap-4">
+                        <h5>{{ __('Servicios') }}</h5>
                         </a>
-                        <ul
-                            @click.outside="open = false"
-                            x-show="open"
-                            x-transition
-                            x-cloak
-                            class="flex flex-col gap-2 py-4"
-                        >
+                        <ul class="flex flex-col gap-4 py-4 text-center">
                             @foreach ($services as $service)
                                 <li>
                                     <a href="{{ route('service.view', $service->slug) }}">
-                                        <span class="text-xs">{{ $service->name }}</span>
+                                        <span>{{ $service->name }}</span>
                                     </a>
                                 </li>
                             @endforeach
@@ -125,7 +103,7 @@
             <!-- Tema -->
             <li>
                 <div class="relative flex gap-2 items-center">
-                    <button id="toggle-theme" class="relative inline-flex items-center h-6 rounded-full w-12 transition-colors bg-gray-200 dark:bg-gray-600 focus:outline-none">
+                    <button class="toggle-theme relative inline-flex items-center h-6 rounded-full w-12 transition-colors bg-gray-200 dark:bg-gray-600 focus:outline-none">
                         <div class="flex justify-between w-full px-1 pt-px">
                             <i class="fi fi-rr-sun text-transparent dark:text-white"></i>
                             <i class="fi fi-br-moon text-black dark:text-transparent"></i>
@@ -231,7 +209,7 @@
             </ul>
         </div>
         <div class="relative flex gap-2 items-center">
-            <button id="toggle-theme" class="relative inline-flex items-center h-6 rounded-full w-12 transition-colors bg-gray-200 dark:bg-gray-600 focus:outline-none">
+            <button class="toggle-theme relative inline-flex items-center h-6 rounded-full w-12 transition-colors bg-gray-200 dark:bg-gray-600 focus:outline-none">
                 <div class="flex justify-between w-full px-1 pt-px">
                     <i class="fi fi-rr-sun text-transparent dark:text-white"></i>
                     <i class="fi fi-br-moon text-black dark:text-transparent"></i>

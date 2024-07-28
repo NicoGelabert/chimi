@@ -18,7 +18,7 @@ class Service extends Model
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = ['name', 'slug', 'icon', 'active', 'description', 'image', 'image_mime', 'image_size', 'parent_id', 'created_by', 'updated_by'];
+    protected $fillable = ['name', 'slug', 'icon', 'active', 'short_description', 'description', 'image', 'image_mime', 'image_size', 'parent_id', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {

@@ -1,4 +1,4 @@
- <div class="container flex flex-col md:flex-row gap-8 justify-between">
+<div class="container flex flex-col md:flex-row gap-8 justify-between">
     <div class="flex flex-col gap-8 md:gap-24 justify-between items-center h-auto md:w-1/2">
         <div class="w-full"><h3 class="normal-case">Convertimos ideas
         en realidad.</h3></div>
@@ -13,10 +13,10 @@
             </ul>
         </div>
         <div class="w-full flex gap-4">
-            <x-button href="#">
+            <x-button href="#contact">
                 <i class="fi fi-rr-arrow-right arrow-to-right"></i> <span>{{__('Solicitar Presupuesto')}}</span>
             </x-button>
-            <x-button class="btn-secondary" href="#">
+            <x-button class="btn-secondary" href="#services">
                 <i class="fi fi-rr-arrow-right arrow-to-right"></i> <span>{{__('Ver Más')}}</span>
             </x-button>
         </div>

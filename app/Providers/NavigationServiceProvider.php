@@ -20,7 +20,7 @@ class NavigationServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->composer('layouts.navigation', function ($view) {
+        view()->composer(['layouts.navigation', 'layouts.footer'], function ($view) {
             $services = Service::all(); 
             $view->with('services', $services);
         });

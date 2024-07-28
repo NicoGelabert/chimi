@@ -104,15 +104,36 @@ document.addEventListener("alpine:init", async () => {
 
 Alpine.start();
 
-document.getElementById('toggle-theme').addEventListener('click', function() {
+// dark mode
+const toggleThemeButtons = document.querySelectorAll('.toggle-theme');
+function toggleTheme() {
   document.documentElement.classList.toggle('dark');
+  toggleThemeButtons.forEach(button => {
+    button.classList.toggle('dark');
+  });
+
+  if (document.documentElement.classList.contains('dark')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+
+}
+toggleThemeButtons.forEach(button => {
+  button.addEventListener('click', toggleTheme);
 });
 
-const toggleThemeButton = document.getElementById('toggle-theme');
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
 
-toggleThemeButton.addEventListener('click', function() {
-    toggleThemeButton.classList.toggle('dark');
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    toggleThemeButtons.forEach(button => {
+      button.classList.add('dark');
+    });
+  }
 });
+// dark mode
 
 // SPLIDE
 document.addEventListener( 'DOMContentLoaded', function () {

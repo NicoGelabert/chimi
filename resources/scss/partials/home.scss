@@ -1,3 +1,28 @@
+#loader-wrapper {
+    @apply bg-white dark:bg-black items-center flex flex-col gap-8 h-full justify-center left-0 fixed top-0 w-full z-20;
+}
+
+#loader {
+    @apply bg-dark_gray dark:bg-ligth_gray rounded-2xl h-1.5 overflow-hidden relative w-1/2;
+}
+
+#progress-bar {
+    @apply bg-primary rounded-2xl h-full w-0;
+    transition: width 0.3s;
+}
+
+#loader-percentage {
+    @apply text-black dark:text-white text-xl;
+}
+
+#body-content{
+    @apply hidden opacity-0;
+    transition: opacity 1s;
+}
+#body-content.fade-in {
+    @apply opacity-100;
+}
+
 .home-hero-banner{
     @apply flex items-center justify-evenly;
     hr{
@@ -31,9 +56,12 @@
         .content{
             @apply flex flex-col gap-4 px-8;
             .card-title{
-                @apply flex justify-between;
+                @apply flex justify-between items-center;
                 a{
-                    @apply text-primary text-3xl;
+                    @apply text-primary text-3xl hover:text-black dark:hover:text-white hover:rotate-90;
+                    line-height: 0;
+                    transform-origin: center;
+                    transition: transform 0.3s, color 0.3s;
                 }      
             }
         }

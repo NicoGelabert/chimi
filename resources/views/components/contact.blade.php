@@ -2,10 +2,10 @@
     <div class="w-full flex flex-col md:w-1/2 gap-8">
         <div class="flex justify-between items-start">
             <div class="hidden md:flex h-fit vertical-text ">
-                <h3 class="text-center">Contacto</h3>
+                <h2 class="text-center">Contacto</h2>
             </div>
             <div class="block md:hidden">
-                <h3 class="text-left">Contacto</h3>
+                <h2 class="text-left">Contacto</h2>
             </div>
             <i class="fi fi-br-arrow-up-left text-4xl overflow-hidden -rotate-90"></i>
         </div>

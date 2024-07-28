@@ -26,6 +26,7 @@ class UpdateServiceRequest extends FormRequest
             'name' => ['required', 'string'],
             'icon' => ['required', 'string'],
             'active' => ['required', 'boolean'],
+            'short_description' => ['required', 'string'],
             'description' => ['required', 'string'],
             'attributes' => ['required', 'array'],
             'attributes.*.text' => ['required', 'string', 'min:0.01'],

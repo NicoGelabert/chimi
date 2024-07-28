@@ -2,27 +2,29 @@
 
     <x-home-hero-banner :homeherobanners="$homeherobanners" />
 
+    <x-benefits :tags="$tags" />
+    
+    <hr class="divider" id="services"/>
+    
     <x-services :services="$services"/>
     
     <hr class="divider" />
+
+    <x-development :devprojects="$devprojects" />
     
-    <x-benefits :tags="$tags" />
+    <!-- <x-clients :clients="$clients" /> -->
     
     <hr class="divider" />
     
     <x-portfolio :projects="$projects" />
     
-    <hr class="divider" />
-    
-    <x-features :features="$features"/>
-    
-    <x-clients :clients="$clients" />
+    <!-- <x-features :features="$features"/> -->
     
     <hr class="divider" />
     
     <x-faq :faqs="$faqs"/>
     
-    <hr class="divider" />
+    <hr class="divider" id="contact" />
 
     <x-contact />
     

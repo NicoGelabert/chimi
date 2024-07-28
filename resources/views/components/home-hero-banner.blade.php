@@ -13,11 +13,11 @@
                         <h1 class="animate-h1 text-6xl leading-tight dark:text-white">{{ $homeherobanner->headline }}</h1>
                         <p class="animate-p">{{ $homeherobanner->description }}</p>
                         <div class="animate-button">
-                            <x-button href="{{ $homeherobanner->link }}"><i class="fi fi-rr-arrow-right arrow-to-right"></i><span>Conózcanos</span></x-button>
+                            <x-button href="#benefits"><i class="fi fi-rr-arrow-right arrow-to-right"></i><span>Conózcanos</span></x-button>
                         </div>
                     </div>
                     <div class="flex w-full md:w-1/2 h-auto overflow-hidden">
-                        <div class="image-container flex flex-col justify-between">
+                        <div class="image-container flex flex-col justify-between max-h-[450px]">
                             <img src="{{ $homeherobanner->image }}" alt="{{ $homeherobanner->title }}" class="animate-img">
                             <p class="animate-caption text-xs text-right pt-2 font-bold">{{ $homeherobanner->title }}</p>
                         </div>

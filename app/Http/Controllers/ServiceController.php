@@ -30,13 +30,13 @@ class ServiceController extends Controller
         // // Obtenemos todos los ServiceItem y carga la relación con Service
         // 
         // // Agrupamos los items por el servicio
-        $services = Service::all();
+        $service_buttons = Service::all();
         $projects = Project::with('tags', 'clients')->get();
         $tags = Tag::all();
         return view('services.view', compact(
             'service',
             'projects',
-            'services',
+            'service_buttons',
             'tags'
         )
         );

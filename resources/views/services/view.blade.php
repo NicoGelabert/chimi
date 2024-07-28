@@ -2,7 +2,7 @@
 <div class="flex flex-col items-center justify-center">
     <!-- <img src="{{ url($service->image) }}" alt=""> -->
     
-        <div class="flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 mx-auto md:px-16 md:flex-row overflow-hidden">
+        <div class="container flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 mx-auto md:px-16 md:flex-row overflow-hidden">
 
             <div class="flex flex-col justify-start gap-8 w-full md:w-1/2">
                 <hr class="animate-hr border-t-2 border-black" />
@@ -10,15 +10,15 @@
                     <h3 class="animate-h3">0{{ $service->id }}</h3>
                     <i class="fi fi-br-arrow-up-left text-4xl animate-arrow overflow-hidden"></i>
                 </div>
-                <h1 class="animate-h1 text-6xl leading-tight dark:text-primary">{{ $service->name }}</h1>
+                <h1 class="animate-h1 text-6xl leading-tight dark:text-white">{{ $service->name }}</h1>
                 <p class="animate-p">{!! $service->description !!}</p>
 
                 <div class="flex gap-4 justify-start flex-wrap">
-                    @foreach ($services as $service)
+                    @foreach ($service_buttons as $service_button)
                         <div class="animate-button my-2">
-                            <x-button href="{{ route('service.view', $service->slug) }}">
+                            <x-button href="{{ route('service.view', $service_button->slug) }}">
                                 <i class="fi fi-rr-arrow-right arrow-to-right"></i>
-                                <span>{{ $service->name }}</span>
+                                <span>{{ $service_button->name }}</span>
                             </x-button>
                         </div>
                     @endforeach
@@ -94,7 +94,7 @@
 
         <hr class="divider w-full" />
         
-        <x-quotation :tags="$tags" />
+        <x-quotation :tags="$tags"/>
                 
 </div>
 

@@ -5,33 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title inertia>{{ config('app.name', 'Punto Sur Pastelería') }}</title>
+        <title inertia>{{ config('app.name', 'Chimi Design') }}</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/img/puntosur.ico') }}">
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=albert-sans:200,300,500,700|battambang:100,300,400,700,900" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/common/logo_chimi_favicon.ico') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <style>
-    #loader-wrapper{
-        width:100%;
-        height: 100vh;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    #body-content{
-        display:none;
-    }
-</style>
     <body>
         <div id="loader-wrapper">
-            <x-spinner />
+            <div class="w-40">
+                <x-application-logo/>
+            </div>
+            <div id="loader">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="loader-percentage">0%</div>
         </div>
         <div id="body-content">
             <!-- Toast -->
@@ -85,14 +74,23 @@
     </body>
 </html>
 <script>
-    window.onload = function () {
-    //Find the element with id "loader-wrapper" and hide it
-        var loaderWrapper = document.getElementById('loader-wrapper');
-        var bodyContent = document.getElementById('body-content');
-        
-        if (loaderWrapper) {
-            loaderWrapper.style.display = 'none';
-            bodyContent.style.display = 'block';
-        }
-    };
+    document.addEventListener("DOMContentLoaded", function() {
+        let percentage = 0;
+        const progressBar = document.getElementById('progress-bar');
+        const interval = setInterval(function() {
+            if (percentage < 100) {
+                percentage += 1;
+                document.getElementById('loader-percentage').innerText = percentage + '%';
+                progressBar.style.width = percentage + '%';
+            } else {
+                clearInterval(interval);
+                document.getElementById('loader-wrapper').style.display = 'none';
+                const content = document.getElementById('body-content');
+                content.style.display = 'block';
+                setTimeout(function() {
+                    content.classList.add('fade-in');
+                }, 10);
+            }
+        });
+    });
 </script>

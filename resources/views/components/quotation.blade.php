@@ -1,9 +1,9 @@
-<div class="container flex flex-col items-center gap-16" id="quotation">
+<div class="container flex flex-col items-center gap-16 mb-16" id="quotation">
     <div class="w-full md:w-3/4 flex flex-col items-center justify-center gap-8">
         <div class="pretitle">
             <p>Contáctenos</p>
         </div>
-        <h3 class="">Estemos en contacto
+        <h3 class="text-center">Estemos en contacto
         </h3>
         <p class="text-center">Seleccione el servicio que necesite y envíenos una consulta sin cargo. Respondemos en menos de 24 horas.</p>
     </div>
@@ -18,7 +18,7 @@
                             @foreach($tags as $tag)
                             <div class="checkbox-container">
                                 <input type="checkbox" name="tags[]" value="{{ $tag->name }}" id="checkbox-{{ $tag->id }}" class="peer hidden">
-                                <label for="checkbox-{{ $tag->id }}" class="block bg-slate-100 px-4 py-2 rounded-full text-xs">{{ $tag->name }}</label>
+                                <label for="checkbox-{{ $tag->id }}" class="block bg-slate-100 px-4 py-2 rounded-full text-xs dark:bg-dark_gray">{{ $tag->name }}</label>
                             </div>
                             @endforeach
                         </div>
