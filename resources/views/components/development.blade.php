@@ -5,6 +5,7 @@
                 @foreach($devprojects as $devproject)
                 <li>
                     <img src="{{ $devproject->image }}" alt="{{ $devproject->name }}">
+                    <p>{{ $devproject->name }}</p>
                 </li>
                 @endforeach
             </ul>
