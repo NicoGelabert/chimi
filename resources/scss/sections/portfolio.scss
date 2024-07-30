@@ -5,7 +5,7 @@
     }
     #main-carousel{
         .splide__slide img {
-            @apply w-auto h-fit max-h-[420px];
+            @apply w-auto max-h-[420px];
         }
         .splide__arrows{
             @apply absolute w-full md:w-1/2 -bottom-12 md:bottom-0 flex;
