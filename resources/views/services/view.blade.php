@@ -114,7 +114,7 @@
     var serviceItems = document.querySelectorAll('.animate-service-item');
     var buttons = document.querySelectorAll('.animate-button');
 
-    animateElement(hr, 200); // 0.2 segundos después
+    animateElement(hr, 800); // 0.2 segundos después
     animateElement(h3, 500); // 0.5 segundos después
     animateElement(h1, 750); // 0.75 segundos después
     animateElement(p, 1000); // 1 segundo después

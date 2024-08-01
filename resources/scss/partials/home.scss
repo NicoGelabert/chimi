@@ -26,7 +26,7 @@
 .home-hero-banner{
     @apply flex items-center justify-evenly;
     hr{
-        @apply border-t-2 border-black dark:border-white;
+        @apply border-t-2 border-transparent;
     }
     img{
         @apply w-auto h-[90%] rounded-3xl rounded-e-none object-cover;
@@ -100,4 +100,8 @@
         @apply rotate-180;
         writing-mode: vertical-lr;
     }
+}
+
+.big-text{
+    @apply text-ligth_gray dark:text-dark_gray;
 }

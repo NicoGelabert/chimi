@@ -218,7 +218,6 @@ function limitPaginationDots(thumbnails) {
   }
 
   function animateSlideElements(slide) {
-    var hr = slide.querySelector('.animate-hr');
     var h3 = slide.querySelector('.animate-h3');
     var h1 = slide.querySelector('.animate-h1');
     var p = slide.querySelector('.animate-p');
@@ -229,7 +228,6 @@ function limitPaginationDots(thumbnails) {
     var border = slide.querySelector('.animate-border');
     var arrow = slide.querySelector('.animate-arrow');
 
-    animateElement(hr, 200); // 0.2 segundos después
     animateElement(h3, 500); // 0.5 segundos después
     animateElement(h1, 750); // 0.75 segundos después
     animateElement(p, 1000); // 1 segundo después

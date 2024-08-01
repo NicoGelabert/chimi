@@ -36,6 +36,6 @@
         </div>
     </div>
     <div class="flex justify-end">
-        <p class="text-right text-2xl">Diseñamos utilizando inteligencia artesanal.</p>
+        <h2 class="text-right text-7xl big-text">Diseñamos utilizando<br>inteligencia artesanal.</h2>
     </div>
 </div>

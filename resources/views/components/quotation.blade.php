@@ -11,8 +11,15 @@
     <div class="w-full flex flex-col md:flex-row items-start gap-16">
         <form id="quotationForm" action="{{ route('quotation.store') }}" method="post" class="form w-full">
             @csrf
-            <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-8 md:items-center">
                 <div class="flex flex-col md:flex-row gap-8 w-full">
+                    <div class="flex flex-col gap-6 w-full md:w-1/2">
+                        <input id="nameInput" type="text" name="name" placeholder="Su nombre" required >
+                        <input id="emailInput" type="email" name="email" placeholder="Su correo electrónico" required >
+                        <input id="phoneInput" type="tel" name="phone" placeholder="Su teléfono" required pattern="[0-9]{9}">
+                        <textarea id="messageInput" name="message" placeholder="Déjenos un mensaje" rows="4" required ></textarea>
+                        <div class="g-recaptcha" data-sitekey="6LcjHtMpAAAAAII4PAM3Vh2hT-0RDntu6B-3a_pH"></div>
+                    </div>
                     <div class="flex gap-8 flex-wrap w-full md:w-1/2">
                         <div class="flex flex-wrap gap-4" required>
                             @foreach($tags as $tag)
@@ -23,17 +30,10 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="flex flex-col gap-6 w-full md:w-1/2">
-                        <input id="nameInput" type="text" name="name" placeholder="Su nombre" required >
-                        <input id="emailInput" type="email" name="email" placeholder="Su correo electrónico" required >
-                        <input id="phoneInput" type="tel" name="phone" placeholder="Su teléfono" required pattern="[0-9]{9}">
-                        <textarea id="messageInput" name="message" placeholder="Déjenos un mensaje" rows="4" required ></textarea>
-                        <div class="g-recaptcha" data-sitekey="6LcjHtMpAAAAAII4PAM3Vh2hT-0RDntu6B-3a_pH"></div>
-                        <x-button id="subscribeBtn" type="submit">
-                            <i class="fi fi-rr-arrow-right arrow-to-right"></i> <span>{{__('Enviar')}}</span>
-                        </x-button>
-                    </div>
                 </div>
+                <x-button id="subscribeBtn" type="submit">
+                    <i class="fi fi-rr-arrow-right arrow-to-right"></i> <span>{{__('Enviar')}}</span>
+                </x-button>
             </div>
             
         </form>

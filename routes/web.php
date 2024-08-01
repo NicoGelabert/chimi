@@ -41,10 +41,10 @@ Route::middleware(['guestOrVerified'])->group(function () {
     // });
 
 
-    Route::get('/', function () {
+    Route::get('/underconstruction', function () {
         return view('underconstruction');
     });
-    Route::get('/welcome',[WelcomeController::class, 'index'])->name('welcome');
+    Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
     Route::get('/products', [ProductController::class, 'index'])->name('product.index');

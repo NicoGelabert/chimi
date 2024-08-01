@@ -1,11 +1,15 @@
 <div class="home-hero-banner splide" aria-label="Chimi Designs">
     <div class="splide__track">
+        <div class="splide__progress absolute top-16 left-4 pr-4 w-full py-8 md:w-1/2 md:left-16 md:pr-24">
+            <div class="splide__progress__bar bg-primary h-px">
+            </div>
+        </div>
         <ul class="splide__list">
             @foreach($homeherobanners as $homeherobanner)
             <li class="splide__slide mx-auto">
                 <div class="flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 mx-auto md:px-16 md:flex-row">
                     <div class="flex flex-col justify-start gap-8 w-full md:w-1/2">
-                        <hr class="animate-hr" />
+                        <hr />
                         <div class="flex justify-between">
                             <h3 class="animate-h3">0{{ $homeherobanner->id }}</h3>
                             <i class="fi fi-br-arrow-up-left text-4xl animate-arrow overflow-hidden"></i>
@@ -29,9 +33,5 @@
             </li>
             @endforeach
         </ul>
-        <div class="splide__progress w-full py-8 md:py-12">
-            <div class="splide__progress__bar bg-primary h-px">
-            </div>
-        </div>
     </div>
 </div>
