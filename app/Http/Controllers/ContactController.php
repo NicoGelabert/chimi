@@ -37,6 +37,7 @@ class ContactController extends Controller
         try {
             // Send confirmation email to the subscriber
             Mail::to($contact->email)->send(new ContactConfirmation($contact));
+            Mail::to('info@chimicreativo.es')->send(new ContactRequest($contact));
 
             return response()->json(['message' => 'Mensaje Enviado!'], 200);
         } catch (\Exception $e) {

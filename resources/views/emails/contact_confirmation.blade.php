@@ -88,7 +88,7 @@
         <div class="footer">
             <p>© 2024 Chimi Creativo. Todos los derechos reservados.</p>
             <p>Fuengirola, Málaga</p>
-            <p>Email: <a href="mailto:info@chimi.es">info@chimicreativo.es</a></p>
+            <p>Email: <a href="mailto:info@chimichimicreativo.es">info@chimicreativo.es</a></p>
         </div>
     </div>
 </body>
