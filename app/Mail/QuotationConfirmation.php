@@ -27,6 +27,6 @@ class QuotationConfirmation extends Mailable
     public function build()
     {
         return $this->view('emails.quotation_confirmation')
-                    ->subject('Confirmation Email');
+                    ->subject('Recibimos su mail');
     }
 }

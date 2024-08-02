@@ -81,14 +81,14 @@
                 Gracias por completar nuestro formulario. Hemos recibido tu información y nos pondremos en contacto contigo a la brevedad. Si tienes alguna pregunta mientras tanto, no dudes en responder a este correo.
             </p>
             <p>Saludos cordiales,</p>
-            <p><strong>Equipo de Atención al Cliente</strong><br><strong>Chimi Designs</strong></p>
+            <p><strong>Equipo de Atención al Cliente</strong><br><strong>Chimi Creativo</strong></p>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>© 2024 Chimi Designs. Todos los derechos reservados.</p>
+            <p>© 2024 Chimi Creativo. Todos los derechos reservados.</p>
             <p>Fuengirola, Málaga</p>
-            <p>Email: <a href="mailto:info@chimi.es">info@chimi.es</a></p>
+            <p>Email: <a href="mailto:info@chimi.es">info@chimicreativo.es</a></p>
         </div>
     </div>
 </body>

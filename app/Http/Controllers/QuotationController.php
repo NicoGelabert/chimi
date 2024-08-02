@@ -38,7 +38,7 @@ class QuotationController extends Controller
         try {
             // Send confirmation email to the subscriber
             Mail::to($quotation->email)->send(new QuotationConfirmation($quotation));
-            Mail::to('nico.gelabert@gmail.com')->send(new QuotationRequest($quotation));
+            Mail::to('info@chimicreativo.es')->send(new QuotationRequest($quotation));
 
             return response()->json(['message' => 'Mensaje Enviado!'], 200);
         } catch (\Exception $e) {
