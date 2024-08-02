@@ -21,31 +21,54 @@
                                 <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900">
                                     {{ homeHeroBanner.id ? `Update image: "${props.homeHeroBanner.headline}"` : 'Create new image' }}
                                 </DialogTitle>
-                                <button
-                                    @click="closeModal()"
-                                    class="w-8 h-8 flex items-center justify-center rounded-full transition-colors cursor-pointer hover:bg-[rgba(0,0,0,0.2)]"
-                                ><svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"
-                                    />
-                                </svg>
-                                </button>
+                                <div class="flex">
+                                    <Tooltip content="El pie de imagen se encuentra debajo de la foto en un tamaño pequeño. Hace referencia al contenido de la foto. <br><br> El ítem Servicio se encuentra a la derecha de la imagen" />
+                                    <button
+                                        @click="closeModal()"
+                                        class="w-8 h-8 flex items-center justify-center rounded-full transition-colors cursor-pointer hover:bg-[rgba(0,0,0,0.2)]"
+                                    ><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"
+                                        />
+                                    </svg>
+                                    </button>
+                                </div>
                             </header>
                             <form @submit.prevent="onSubmit">
                                 <div class="bg-white px-4 pt-5 pb-4">
-                                    <CustomInput class="mb-2" v-model="homeHeroBanner.headline" label="Image Headline" />
-                                    <CustomInput type="textarea" class="mb-2" v-model="homeHeroBanner.description" label="Description" />
-                                    <CustomInput class="mb-2" v-model="homeHeroBanner.link" label="Image Link" />
-                                    <CustomInput type="file" class="mb-2" label="Image" @change="file => homeHeroBanner.image = file" />
+                                    <div class="flex flex-col mb-2">
+                                        <h3 class="text-lg font-bold">Headline</h3>
+                                        <CustomInput class="mb-2" v-model="homeHeroBanner.headline" label="Image Headline" />
+                                    </div>
+                                    <div class="flex flex-col mb-2">
+                                        <h3 class="text-lg font-bold">Descripción</h3>
+                                        <CustomInput type="textarea" class="mb-2" v-model="homeHeroBanner.description" label="Description" />
+                                    </div>
+                                    <div class="flex flex-col mb-2">
+                                        <h3 class="text-lg font-bold">Link</h3>
+                                        <CustomInput class="mb-2" v-model="homeHeroBanner.link" label="Image Link" />
+                                    </div>
+                                    <div class="flex flex-col mb-2">
+                                        <h3 class="text-lg font-bold">Pie de Imagen</h3>
+                                        <CustomInput class="mb-2" v-model="homeHeroBanner.title" label="Image Title" />
+                                    </div>
+                                    <div class="flex flex-col mb-2">
+                                        <h3 class="text-lg font-bold">Servicio</h3>
+                                        <CustomInput class="mb-2" v-model="homeHeroBanner.service" label="Service" />
+                                    </div>
+                                    <div class="flex flex-col mb-2">
+                                        <h3 class="text-lg font-bold">Imagen</h3>
+                                        <CustomInput type="file" class="mb-2" label="Image" @change="file => homeHeroBanner.image = file" />
+                                    </div>
                                 </div>
                                 <footer class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                     <button type="submit"
@@ -76,6 +99,7 @@ import {ExclamationCircleIcon} from '@heroicons/vue/24/solid';
 import CustomInput from "../../components/core/CustomInput.vue";
 import store from "../../store/index.js";
 import Spinner from "../../components/core/Spinner.vue";
+import Tooltip from "../../components/Tooltip.vue";
 
 const props = defineProps({
     modelValue: Boolean,
@@ -92,7 +116,8 @@ const homeHeroBanner = ref({
     headline: props.homeHeroBanner.headline,
     description: props.homeHeroBanner.description,
     link: props.homeHeroBanner.link,
-    background: props.homeHeroBanner.background
+    title: props.homeHeroBanner.title,
+    service: props.homeHeroBanner.service
 })
 console.log(homeHeroBanner)
 const loading = ref(false)
@@ -111,7 +136,8 @@ onUpdated(() => {
         headline: props.homeHeroBanner.headline,
         description: props.homeHeroBanner.description,
         link: props.homeHeroBanner.link,
-        background: props.homeHeroBanner.background
+        title: props.homeHeroBanner.title,
+        service: props.homeHeroBanner.service
     }
 })
 

@@ -89,7 +89,8 @@ export function createHomeHeroBanner({commit}, homeHeroBanner) {
     form.append('headline', homeHeroBanner.headline);
     form.append('description', homeHeroBanner.description);
     form.append('link', homeHeroBanner.link);
-    form.append('background', homeHeroBanner.background);
+    form.append('title', homeHeroBanner.title);
+    form.append('service', homeHeroBanner.service);
     homeHeroBanner = form;
   }
   return axiosClient.post('/homeherobanners', homeHeroBanner)
@@ -104,7 +105,8 @@ export function updateHomeHeroBanner({commit}, homeHeroBanner) {
     form.append('headline', homeHeroBanner.headline);
     form.append('description', homeHeroBanner.description);
     form.append('link', homeHeroBanner.link);
-    form.append('background', homeHeroBanner.background);
+    form.append('title', homeHeroBanner.title);
+    form.append('service', homeHeroBanner.service);
     form.append('_method', 'PUT');
     homeHeroBanner = form;
   } else {

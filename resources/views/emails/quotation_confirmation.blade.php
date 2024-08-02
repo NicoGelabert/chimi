@@ -61,13 +61,13 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <img src="http://localhost:8000/storage/images/logo_chimi.png" alt="Logo de la Empresa" class="logo">
+            <img src="https://chimicreativo.es/storage/images/logo_chimi.png" alt="Logo de la Empresa" class="logo">
             <div class="social-icons">
                 <a href="https://wa.me/34623037048" target="_blank">
-                    <img src="http://localhost:8000/storage/images/WA_Logo.png" alt="Logo de la Empresa">
+                    <img src="https://chimicreativo.es/storage/images/WA_Logo.png" alt="Logo de la Empresa">
                 </a>
                 <a href="https://www.instagram.com/nicolas.gelabert.dg/" target="_blank">
-                    <img src="http://localhost:8000/storage/images/instagram.png" alt="Logo de la Empresa">
+                    <img src="https://chimicreativo.es/storage/images/instagram.png" alt="Logo de la Empresa">
                 </a>
                
             </div>
