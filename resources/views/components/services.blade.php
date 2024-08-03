@@ -6,7 +6,7 @@
             </div>
             <i class="fi fi-br-arrow-up-left -rotate-90 text-4xl overflow-hidden"></i>
         </div>
-        <div class="splide w-full md:w-10/12" id="home-services">
+        <div class="splide w-full md:w-11/12" id="home-services">
             <div class="splide__track w-full md:px-0  items-start">
                 <ul class="splide__list">
                     @foreach ($services as $service)
