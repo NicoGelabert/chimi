@@ -7,7 +7,7 @@
     class="flex justify-between md:justify-center z-10 w-full"
     id="navbar"
 >
-    <div class="logo flex items-center ml-6 md:hidden">
+    <div class="logo flex items-center ml-4 md:hidden">
         <x-application-logo/>
     </div>
 
@@ -53,7 +53,7 @@
     </div>
     <!--/ Responsive Menu -->
 
-    <nav class="hidden md:flex w-full max-w-screen-xl mx-12 justify-between items-center">
+    <nav class="hidden md:flex w-full max-w-screen-xl mx-4 justify-between items-center">
         <div class="logo flex justify-center">
             <x-application-logo/>
         </div>

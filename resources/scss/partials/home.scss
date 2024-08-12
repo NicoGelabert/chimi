@@ -54,7 +54,7 @@
             }
         }
         .content{
-            @apply flex flex-col gap-4 px-8;
+            @apply flex flex-col gap-4 px-4;
             .card-title{
                 @apply flex justify-between items-center;
                 a{

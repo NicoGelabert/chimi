@@ -38,7 +38,7 @@
                             </div>
                             <ul class="hidden md:flex flex-wrap gap-2">
                                 @foreach($project->tags as $tag)
-                                <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-2 py-1 text-black dark:bg-dark_gray dark:text-white">{{ $tag->name }}</li>
+                                <li class="mt-1 bg-gray-50 text-xs w-fit rounded-full px-2 py-1 text-black dark:bg-dark_gray dark:text-white">{{ $tag->name }}</li>
                                 @endforeach
                             </ul>
                         </div>
@@ -107,7 +107,7 @@
                                     </div>
                                     <ul class="flex flex-wrap gap-2">
                                         @foreach($project->tags as $tag)
-                                        <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-2 py-1 text-black">{{ $tag->name }}</li>
+                                        <li class="mt-1 bg-gray-50 text-xs w-fit rounded-full px-2 py-1 text-black">{{ $tag->name }}</li>
                                         @endforeach
                                     </ul>
                                 </div>

@@ -83,7 +83,7 @@
                         <div>
                             <ul class="flex gap-2 flex-wrap">
                                 <template x-for="tag in currentTags" :key="tag">
-                                    <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-4 py-2 text-black" x-text="tag"></li>
+                                    <li class="mt-1 bg-gray-50 text-xs w-fit rounded-full px-4 py-2 text-black" x-text="tag"></li>
                                 </template>
                             </ul>
                         </div>

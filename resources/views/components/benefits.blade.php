@@ -11,7 +11,7 @@
         <div class="w-full">
             <ul class="flex flex-wrap gap-2">
                 @foreach($tags as $tag)
-                <li class="mt-1 bg-primary/70 text-xxs w-fit rounded-full px-3 py-2 text-white">{{ $tag->name }}</li>
+                <li class="mt-1 bg-primary/70 text-xs w-fit rounded-full px-3 py-2 text-white">{{ $tag->name }}</li>
                 @endforeach
             </ul>
         </div>

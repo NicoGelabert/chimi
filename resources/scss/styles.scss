@@ -10,7 +10,7 @@ body{
         font-family: $primary-font;
     }
     h1{
-        @apply text-6xl;
+        @apply text-5xl leading-tight lg:text-6xl lg:leading-tight;
     }
     h2{
         @apply text-5xl;

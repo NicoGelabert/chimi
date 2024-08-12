@@ -1,14 +1,14 @@
 <div class="container flex flex-col gap-16" id="services">
-    <div class="flex flex-col md:flex-row w-full justify-between gap-16">
-        <div class="flex justify-between md:hidden">
-            <div class="">
+    <div class="flex flex-col md:flex-row w-full justify-between md:gap-16">
+        <div class="flex justify-between items-start md:hidden">
+            <div class="mb-8">
                 <h2 class="text-center">Servicios</h2>
             </div>
             <i class="fi fi-br-arrow-up-left -rotate-90 text-4xl overflow-hidden"></i>
         </div>
         <div class="splide w-full md:w-11/12" id="home-services">
             <div class="splide__track w-full md:px-0  items-start">
-                <ul class="splide__list">
+                <ul class="splide__list items-start">
                     @foreach ($services as $service)
                         <li class="card splide__slide mx-auto">
                             <div class="imgBx" style="background-image:url({{ $service->image }})">
