@@ -30,8 +30,16 @@
                 <textarea id="messageInput" name="message" placeholder="Déjenos un mensaje" rows="4" required ></textarea>
                 <div class="g-recaptcha" data-sitekey="6LcjHtMpAAAAAII4PAM3Vh2hT-0RDntu6B-3a_pH"></div>
                 <x-button id="subscribeBtn" type="submit">
-                    <i class="fi fi-rr-arrow-right arrow-to-right"></i> <span>{{__('Enviar')}}</span>
+                    <i class="fi fi-rr-arrow-right arrow-to-right"></i>
+                    <span>{{__('Enviar')}}</span>
                 </x-button>
+                <div id="loader_container" class="loader_container hidden_loader">
+                    <div class="form_loader ">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <span>{{__('Enviando...')}}</span>
+                </div>
             </div>
         </form>
         <div id="successMessage" class="mx-auto" style="display: none;">
@@ -47,10 +55,16 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('contactForm');
+        const subscribeBtn = document.getElementById('subscribeBtn');
+        const loader = document.getElementById('loader_container');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
         form.addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent default form submission behavior
+
+            subscribeBtn.style.display = 'none';
+            loader.classList.remove('hidden_loader');
+
             const name = document.getElementById('nameInput').value;
             const email = document.getElementById('emailInput').value;
             const phone = document.getElementById('phoneInput').value;
@@ -76,7 +90,9 @@
                 }
             } catch (error) {
                 errorMessage.style.display = 'block';
-            }
+            } finally {
+                loader.classList.add('hidden_loader');
+            }   
         });
     });
 </script>
