@@ -32,61 +32,37 @@
   }
   .form_loader,
   .form_loader div {
-    box-sizing: border-box;
+    @apply box-border;
   }
   .form_loader {
-    display: inline-block;
-    height: 80px;
-    position: relative;
-    width: 80px;
+    @apply inline-block w-20 relative h-20;
   }
   .form_loader div {
     animation: form_loader 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-    border: 4px solid currentColor;
-    border-radius: 50%;
-    opacity: 1;
-    position: absolute;
+    @apply border-4 border-solid border-current rounded-full opacity-100 absolute;
   }
   .form_loader div:nth-child(2) {
     animation-delay: -0.5s;
   }
   @keyframes form_loader {
     0% {
-      height: 8px;
-      left: 36px;
-      opacity: 0;
-      top: 36px;
-      width: 8px;
+        @apply h-2 left-9 top-9 w-2 opacity-0;
     }
     4.9% {
-      height: 8px;
-      left: 36px;
-      opacity: 0;
-      top: 36px;
-      width: 8px;
+        @apply h-2 left-9 top-9 w-2 opacity-0;
     }
     5% {
-      height: 8px;
-      left: 36px;
-      opacity: 1;
-      top: 36px;
-      width: 8px;
+        @apply h-2 left-9 top-9 w-2 opacity-100
     }
     100% {
-      height: 80px;
-      left: 0;
-      opacity: 0;
-      top: 0;
-      width: 80px;
+        @apply h-20 left-0 top-0 w-20 opacity-0;
     }
   }
   
   .loader_container {
-    align-items: center;
-    display: flex;
-    gap: 10px;
+    @apply flex items-center gap-2;
 }
 
   .hidden_loader {
-    display: none;
+    @apply hidden;
   }
