@@ -24,6 +24,10 @@ export default {
                 primary         : '#E74694',
                 secondary       : '#4B30CA',
                 primary_darker  : '#BF125D',
+
+                demo_primary    : '#05A8AA',
+                demo_secondary  : '#401F3E',
+                demo_white      : '#EEF0F2',
             },
             fontSize: {
                 xxs: '0.6rem',

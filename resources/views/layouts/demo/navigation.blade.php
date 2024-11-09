@@ -4,12 +4,11 @@
         cartItemsCount: {{ \App\Helpers\Cart::getCartItemsCount() }},
     }"
     @cart-change.window="cartItemsCount = $event.detail.count"
-    class="flex justify-between shadow-md z-50 fixed w-full demo-header"
+    class="flex justify-between md:justify-center z-10 w-full"
+    id="navbar"
 >
-    <div class="logo flex items-center">
-        <a href="{{ route('welcome') }}" class="flex items-center gap-2 pl-2">
-            <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-        caMWorld </a>
+    <div class="logo demo-logo-hamburguer flex items-center ml-4 md:hidden">
+        <x-application-demo-logo/>
     </div>
 
     <!-- Responsive Menu -->
@@ -210,7 +209,7 @@
                         href="{{ route('register') }}"
                         class="block text-center py-2 px-3 rounded shadow-md transition-colors w-full btn-register"
                     >
-                        {{ __('Register now') }}
+                        {{ __('Sign In') }}
                     </a>
                 </li>
             @endif
@@ -218,43 +217,11 @@
     </div>
     
     <!--/ Responsive Menu -->
-    <nav class="hidden md:block">
-        <ul class="grid grid-flow-col items-center">
-            <li x-data="{open: false}" class="relative">
-                <a
-                    @click="open = !open"
-                    class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
-                >
-                <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span><span class="small-text">{{ Config::get('languages')[App::getLocale()]['display'] }}</span>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5 ml-2"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                        />
-                    </svg>
-                </a>
-                <ul
-                    @click.outside="open = false"
-                    x-show="open"
-                    x-transition
-                    x-cloak
-                    class="absolute z-10 right-0 w-48 dropdown px-4"
-                >
-                    @foreach (Config::get('languages') as $lang => $language)
-                        @if ($lang != App::getLocale())
-                            <li>
-                                <a class="flex items-center underline-hover py-lang-navbar-item" href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span><span class="small-text">{{$language['display']}}</span></a>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </li>
+    <nav class="hidden md:flex w-full max-w-screen-xl mx-4 justify-between items-center">
+        <div class="demo-logo logo w-1/3">
+            <x-application-demo-logo/>
+        </div>
+        <ul class="grid grid-flow-col items-center justify-center gap-4 w-1/3">            
             <li>
                 <a
                     href="{{ route('product.index') }}"
@@ -302,13 +269,63 @@
                     ></small>
                 </a>
             </li>
+        </ul>
+        <ul class="grid grid-flow-col items-center justify-center gap-4 w-1/3">
+            <li x-data="{open: false}" class="relative">
+                <a
+                    @click="open = !open"
+                    class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
+                >
+                <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+                </a>
+                <ul
+                    @click.outside="open = false"
+                    x-show="open"
+                    x-transition
+                    x-cloak
+                    class="absolute z-10 right-0 bg-transparent dropdown px-4"
+                >
+                    @foreach (Config::get('languages') as $lang => $language)
+                        @if ($lang != App::getLocale())
+                            <li>
+                                <a class="flex items-center underline-hover py-lang-navbar-item justify-center pl-2" href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span></a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </li>
+            <!-- Tema -->
+            <li>
+                <div class="relative flex gap-2 items-center">
+                    <button class="toggle-theme relative inline-flex items-center h-6 rounded-full w-12 transition-colors bg-gray-200 dark:bg-gray-600 focus:outline-none">
+                        <div class="flex justify-between w-full px-1 pt-px">
+                            <i class="fi fi-rr-sun text-transparent dark:text-white"></i>
+                            <i class="fi fi-br-moon text-black dark:text-transparent"></i>
+                        </div>
+                        <span class="sr-only">Toggle theme</span>
+                        <span class="indicator absolute left-0 inline-block w-5 h-5 bg-white rounded-full shadow-sm transition-transform"></span>
+                    </button>
+                </div>
+            </li>
             @if (!Auth::guest())
                 <li x-data="{open: false}" class="relative">
                     <a
                         @click="open = !open"
                         class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
                     >
-              <span class="flex items-center">
+                    <span class="flex items-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 mr-2"
@@ -418,35 +435,92 @@
                     </ul>
                 </li>
             @else
-                <li>
+                <li x-data="{open: false}" class="relative">
                     <a
-                        href="{{ route('login') }}"
-                        class="flex items-center py-navbar-item px-navbar-item underline-hover"
+                        @click="open = !open"
+                        class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
                     >
+                    <span class="flex items-center">
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 mr-2"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="1"
                         >
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                             />
                         </svg>
-                        {{ __('Login') }}
+                    </span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
                     </a>
-                </li>
-                <li>
-                    <a
-                        href="{{ route('register') }}"
-                        class="btn-register py-2 px-3 shadow transition-colors mx-5"
+                    <ul
+                        @click.outside="open = false"
+                        x-show="open"
+                        x-transition
+                        x-cloak
+                        class="absolute z-10 right-0 w-48 dropdown"
                     >
-                        {{ __('Register now') }}
-                    </a>
+                        <li>
+                            <a
+                                href="{{ route('login') }}"
+                                class="flex justify-between items-center py-navbar-item px-navbar-item underline-hover"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 mr-2"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                                    />
+                                </svg>
+                                {{ __('Login') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="{{ route('register') }}"
+                                class="flex justify-between items-center py-navbar-item px-navbar-item underline-hover"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 mr-2"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                                    />
+                                </svg>
+                                {{ __('Sign In') }}
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             @endif
         </ul>
@@ -497,3 +571,29 @@
         </button>
 </div>
 </header>
+
+<script>
+    var prevScrollpos = window.pageYOffset;
+    var navbar = document.getElementById("navbar");
+    // navbar.style.top = "5px";
+    var scrollThreshold = 15; // Umbral de desplazamiento mínimo antes de ocultar el encabezado
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        var scrollDifference = Math.abs(prevScrollpos - currentScrollPos);
+        if (scrollDifference >= scrollThreshold) {
+            if (prevScrollpos > currentScrollPos) {
+                navbar.style.top = "0";
+            } else {
+                navbar.style.top = "-110px";
+            }
+        }
+        prevScrollpos = currentScrollPos;
+
+        var distanceFromTop = Math.abs(window.scrollY);
+        if(distanceFromTop <= 5){
+            document.getElementById("navbar").classList.remove("scrolled-bottom");
+        }else{
+            document.getElementById("navbar").classList.add("scrolled-bottom");
+        }
+    }
+</script>

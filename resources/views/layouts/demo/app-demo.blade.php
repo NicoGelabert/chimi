@@ -16,7 +16,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body class="demo-body">
         <div id="loader-wrapper">
             <div class="w-40">
                 <x-application-logo/>

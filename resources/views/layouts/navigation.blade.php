@@ -222,7 +222,6 @@
     </div>
 </header>
 
-</style>
 <script>
     var prevScrollpos = window.pageYOffset;
     var navbar = document.getElementById("navbar");

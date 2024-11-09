@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Battambang:wght@100;300;400;700;900&display=swap');
+
+/* Demo Colors */
+$black:#040403;
+$white:#FBFCFF;
+$gray:#D0CCD0;
+$primary:#00A5E0;
+
+/* Demo Fonts */
+$primary-demo-font: 'Albert Sans', sans-serif;
+$secondary-demo-font: 'Battambang', display;
+
+.demo-body{
+    font-family: $primary-demo-font;
+    a{
+        @apply bg-transparent hover:text-demo_primary hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-family: $secondary-demo-font;
+    }
+    .btn-primary{
+        font-family: $primary-demo-font;
+        @apply bg-demo_primary hover:bg-demo_secondary;
+    }
+    header{
+        .dropdown{
+            @apply w-28 flex flex-col bg-demo_white dark:bg-black;
+            li{
+                @apply bg-transparent py-2;
+            }
+            li:hover{
+                @apply bg-transparent;
+                a{
+                    @apply text-demo_primary bg-transparent;
+                }
+            }
+        }
+    }
+}
