@@ -23,5 +23,5 @@ export default defineConfig({
             },
         }),
     ],
-    base: process.env.ASSET_URL + '/',
+    base: process.env.APP_URL + '/',
 });
