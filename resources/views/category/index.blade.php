@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-demo>
     <div class="">
         @foreach($categories as $category)
             <div class="">
@@ -8,4 +8,4 @@
             </div>
         @endforeach
     </div>
-</x-app-layout>
+</x-app-demo>

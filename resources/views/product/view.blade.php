@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-demo>
     <div  x-data="productItem({{ json_encode([
                     'id' => $product->id,
                     'slug' => $product->slug,
@@ -109,4 +109,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-demo>

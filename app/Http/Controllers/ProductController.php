@@ -28,9 +28,9 @@ class ProductController extends Controller
         return $this->renderProducts($query);
     }
 
-    public function view(Product $product)
+    public function view(Category $category, Product $product)
     {
-        return view('product.view', ['product' => $product]);
+        return view('product.view', ['product' => $product, 'category' => $category]);
     }
 
     private function renderProducts(Builder $query)
