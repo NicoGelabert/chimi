@@ -26,12 +26,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $perPage = request('per_page', 10);
+        $perPage = request('per_page');
         $search = request('search', '');
         $sortField = request('sort_field', 'created_at');
         $sortDirection = request('sort_direction', 'desc');
 
-        $query = Product::query()
+        $query = Product::with(['prices', 'categories'])
             ->where('title', 'like', "%{$search}%")
             ->orderBy($sortField, $sortDirection)
             ->paginate($perPage);

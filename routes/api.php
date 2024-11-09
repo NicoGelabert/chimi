@@ -66,4 +66,5 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('/report/customers', [ReportController::class, 'customers']);
 });
 
+Route::apiResource('products', ProductController::class)->only(['index', 'show']);
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);

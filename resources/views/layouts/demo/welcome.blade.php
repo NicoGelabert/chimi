@@ -38,7 +38,12 @@
 
         <hr class="mt-24 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
         
-        <div>
+        
+        <div id="app">
+            <product-list></product-list>
+        </div>
+        
+        <!-- <div>
         @foreach ($products as $product)
             @foreach ($product->categories as $category)
                 <li>
@@ -48,6 +53,6 @@
                 </li>
             @endforeach
         @endforeach
-        </div>
+        </div> -->
         
     </x-app-demo>

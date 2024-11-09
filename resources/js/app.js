@@ -1,11 +1,17 @@
 import './bootstrap';
 
+import { createApp } from 'vue/dist/vue.esm-bundler';
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse'
 import {get, post} from "./http.js";
 import 'flowbite';
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import ProductList from './components/products/ProductList.vue';
+
+const app = createApp({});
+app.component('product-list', ProductList);
+app.mount('#app');
 
 Alpine.plugin(collapse)
 
