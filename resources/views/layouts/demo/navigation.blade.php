@@ -5,7 +5,7 @@
     }"
     @cart-change.window="cartItemsCount = $event.detail.count"
     class="flex justify-between md:justify-center z-10 w-full"
-    id="navbar"
+    id="demonavbar"
 >
     <div class="logo demo-logo-hamburguer flex items-center ml-4 md:hidden">
         <x-application-demo-logo/>
@@ -574,7 +574,7 @@
 
 <script>
     var prevScrollpos = window.pageYOffset;
-    var navbar = document.getElementById("navbar");
+    var demonavbar = document.getElementById("demonavbar");
     // navbar.style.top = "5px";
     var scrollThreshold = 15; // Umbral de desplazamiento mínimo antes de ocultar el encabezado
     window.onscroll = function() {
@@ -582,18 +582,18 @@
         var scrollDifference = Math.abs(prevScrollpos - currentScrollPos);
         if (scrollDifference >= scrollThreshold) {
             if (prevScrollpos > currentScrollPos) {
-                navbar.style.top = "0";
+                demonavbar.style.top = "0";
             } else {
-                navbar.style.top = "-110px";
+                demonavbar.style.top = "-110px";
             }
         }
         prevScrollpos = currentScrollPos;
 
         var distanceFromTop = Math.abs(window.scrollY);
         if(distanceFromTop <= 5){
-            document.getElementById("navbar").classList.remove("scrolled-bottom");
+            document.getElementById("demonavbar").classList.remove("scrolled-bottom");
         }else{
-            document.getElementById("navbar").classList.add("scrolled-bottom");
+            document.getElementById("demonavbar").classList.add("scrolled-bottom");
         }
     }
 </script>

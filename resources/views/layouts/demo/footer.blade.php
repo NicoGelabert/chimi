@@ -5,17 +5,6 @@
                 <x-logo-footer />
                 <x-social-icons />
             </div>
-            <ul class="footer-menu">
-                @foreach ($products as $product)
-                    @foreach ($product->categories as $category)
-                        <li>
-                            <a href="{{ route('product.view', ['category' => $category->slug, 'product' => $product->slug]) }}">
-                                <span>{{ $product->title }}</span>
-                            </a>
-                        </li>
-                    @endforeach
-                @endforeach
-            </ul>
             <p class="">Fuengirola, Málaga.</p>
         </div>
     </div>
