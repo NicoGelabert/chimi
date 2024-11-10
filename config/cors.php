@@ -19,9 +19,13 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://admin.chimicreativo.es','https://demo.chimicreativo.es'],
+    'allowed_origins' => [
+        'https://admin.chimicreativo.es',
+        'https://demo.chimicreativo.es',
+        'https://chimicreativo.es'
+    ],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => ['https://*.chimicreativo.es'],
 
     'allowed_headers' => ['*'],
 
@@ -29,6 +33,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];
