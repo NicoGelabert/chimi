@@ -2204,19 +2204,19 @@
     "src": "node_modules/flag-icon-css/flags/4x3/zw.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-88ffd7e9.css",
+    "file": "assets/app-a7aaf4de.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.css": {
-    "file": "assets/app-dc518a34.css",
+    "file": "assets/app-4291e343.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-dc518a34.css"
+      "assets/app-4291e343.css"
     ],
-    "file": "assets/app-31ab4b7a.js",
+    "file": "assets/app-32d79ea1.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

@@ -21,7 +21,8 @@ class CategoryController extends Controller
         $sortField = request('sort_field', 'updated_at');
         $sortDirection = request('sort_direction', 'desc');
 
-        $categories = Category::query()
+        // Obtener categorías con sus productos
+        $categories = Category::with('products')  // Incluye productos relacionados
             ->orderBy($sortField, $sortDirection)
             ->latest()
             ->get();

@@ -11,6 +11,7 @@ use App\Models\ProductCategory;
 use App\Models\ProductImage;
 use App\Models\ProductAlergen;
 use App\Models\ProductPrice;
+use App\Models\Api\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -24,19 +25,28 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $perPage = request('per_page');
-        $search = request('search', '');
-        $sortField = request('sort_field', 'created_at');
-        $sortDirection = request('sort_direction', 'desc');
+        $perPage = $request->get('per_page');
+        $search = $request->get('search', '');
+        $categorySlug = $request->get('category', '');  // Agregar parámetro category
 
-        $query = Product::with(['prices', 'categories'])
-            ->where('title', 'like', "%{$search}%")
-            ->orderBy($sortField, $sortDirection)
-            ->paginate($perPage);
+        $query = Product::query()->with(['prices', 'categories'])
+            ->where('title', 'like', "%{$search}%");
 
-        return ProductListResource::collection($query);
+        // Filtrar por categoría si se pasa el slug de la categoría
+        if ($categorySlug) {
+            $query->whereHas('categories', function ($query) use ($categorySlug) {
+                $query->where('slug', $categorySlug);
+            });
+        }
+
+        $sortField = $request->get('sort_field', 'created_at');
+        $sortDirection = $request->get('sort_direction', 'desc');
+
+        $query->orderBy($sortField, $sortDirection);
+
+        return ProductListResource::collection($query->paginate($perPage));
     }
 
     /**
@@ -202,4 +212,22 @@ class ProductController extends Controller
             $image->delete();
         }
     }
+
+    public function productsByCategory($categorySlug)
+    {
+        // Buscar la categoría por el slug
+        $category = Category::where('slug', $categorySlug)->first();
+
+        // Si la categoría no existe, devolvemos una respuesta de error
+        if (!$category) {
+            return response()->json(['error' => 'Categoría no encontrada'], 404);
+        }
+
+        // Obtener los productos asociados a la categoría
+        $products = $category->products()->with(['categories', 'prices'])->get();
+
+        // Retornar los productos usando el recurso ProductListResource
+        return ProductListResource::collection($products);
+    }
+
 }
