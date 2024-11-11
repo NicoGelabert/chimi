@@ -18,8 +18,9 @@
     </head>
     <body class="demo-body">
         <div id="loader-wrapper">
-            <div class="w-40">
-                <x-application-logo/>
+            <div class="w-96">
+                <!-- <x-application-logo/> -->
+                <img src="{{ asset('storage/images/preloader2.gif') }}" alt="">
             </div>
             <div id="loader">
                 <div id="progress-bar"></div>

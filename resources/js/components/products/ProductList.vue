@@ -1,5 +1,5 @@
 <template>
-    <div class="relative my-16">
+    <div class="relative my-16 product-list">
       <!-- Indicador de carga -->
       <div v-if="loading" class="spinner-overlay">
         <div class="spinner"></div>
@@ -9,17 +9,28 @@
       <div v-if="error" class="error">{{ error }}</div>
   
       <!-- Filtro de categorías y listado de productos -->
-      <div class="max-w-screen-xl mx-auto flex gap-8">
-        <aside class="w-1/6">
-          <h3>Categorías</h3>
-          <ul class="flex flex-wrap gap-2">
-            <li class="mt-1 bg-demo_primary text-xs w-fit rounded-full px-3 py-2 text-white">
-              <button @click="filterByCategory(null)" class="text-left">
+      <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8">
+        <aside class="w-full md:w-1/6 px-2">
+          <ul class="flex flex-wrap gap-2 justify-center">
+            <li
+            class="mt-1 bg-demo_white text-xs w-fit rounded-full px-3 py-2 text-demo_primary"
+            :class="{ 'active-category': selectedCategory === null }"
+            >
+              <button
+                @click="filterByCategory(null)"
+                class="text-left"
+              >
                 Todos
               </button>
             </li>
-            <li v-for="category in categories" :key="category.id" class="mt-1 bg-demo_primary text-xs w-fit rounded-full px-3 py-2 text-white">
-              <button @click="filterByCategory(category.slug)" class="text-left">
+            <li v-for="category in categories" :key="category.id"
+            class="mt-1 bg-demo_white text-xs w-fit rounded-full px-3 py-2 text-demo_primary"
+            :class="{ 'active-category': selectedCategory === category.slug }"
+            >
+              <button
+                @click="filterByCategory(category.slug)"
+                class="text-left"
+              >
                 {{ category.name }}
               </button>
             </li>
@@ -118,37 +129,6 @@ export default {
 </script>
 
 <style scoped>
-.error {
-  color: red;
-}
 
-/* Spinner estilo básico */
-.spinner-overlay {
-  position: absolute;
-  top: 4rem; /* Ajustar la posición superior */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(0, 0, 0, 0.2);
-  border-top-color: #05A8AA;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Aplicar opacidad reducida al listado de productos mientras carga */
-.loading-opacity {
-  opacity: 0.2;
-}
 </style>
 

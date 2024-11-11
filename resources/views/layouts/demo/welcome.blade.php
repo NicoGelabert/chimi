@@ -3,8 +3,8 @@
     ?>
     <x-app-demo>
         <div class="bg-demo_white dark:bg-black">
-            <div class="flex flex-col md:flex-row items-center relative h-screen max-w-screen-xl mx-auto">
-                <div class="w-full md:w-3/5 relative isolate px-6 pt-24 pb-3 md:pt-0 md:pb-0 lg:px-8 slide-in-left">
+            <div class="flex flex-col justify-around md:flex-row items-center relative max-w-screen-xl mx-auto py-24">
+                <div class="w-full md:w-3/5 relative isolate px-6 pb-3 md:pt-0 md:pb-0 lg:px-8 slide-in-left">
                     <div class="flex mb-4 justify-start">
                         <div class="relative rounded-full sm:px-3 py-1 text-xs lg:text-sm leading-6 text-gray-600 sm:ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-600 dark:ring-gray-600">
                         {{__('Site design and developed by')}} Nicolás Gelabert 
@@ -33,6 +33,14 @@
                 <div class="md:w-2/5 pr-16 scale-in-center my-6">
                     <img src="{{ asset('storage/images/camera-home.png') }}" alt="" >
                 </div>
+            </div>
+        </div>
+        
+        <div class="relative mx-2">
+            <div class="iconos-entrega">
+                <div><x-icono-envio /><span>Envío<br>gratuito</span></div>
+                <div><x-icono-pago /><span>Pago<br>seguro</span></div>
+                <div><x-icono-devolucion /><span>Devolución<br>garantizada</span></div>
             </div>
         </div>
 

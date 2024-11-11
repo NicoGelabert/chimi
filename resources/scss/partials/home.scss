@@ -7,7 +7,7 @@
 }
 
 #progress-bar {
-    @apply bg-primary rounded-2xl h-full w-0;
+    @apply bg-demo_primary rounded-2xl h-full w-0;
     transition: width 0.3s;
 }
 

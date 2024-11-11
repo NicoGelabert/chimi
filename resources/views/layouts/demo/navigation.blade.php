@@ -71,28 +71,28 @@
                 </a>
             </li>
             @if (!Auth::guest())
-                <li x-data="{open: false}" class="relative">
-                    <a
-                        @click="open = !open"
-                        class="cursor-pointer flex justify-between items-center py-2 px-3 underline-hover"
-                    >
-              <span class="flex items-center">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1"
+            <li x-data="{open: false}" class="relative">
+                <a
+                    @click="open = !open"
+                    class="cursor-pointer flex justify-between items-center py-2 px-3 underline-hover"
                 >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-                {{ __('My account') }}
-              </span>
+                    <span class="flex items-center">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1"
+                        >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        />
+                        </svg>
+                        {{ __('My account') }}
+                    </span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5"
@@ -105,36 +105,62 @@
                                 clip-rule="evenodd"
                             />
                         </svg>
-                    </a>
-                    <ul
-                        x-show="open"
-                        x-transition
-                        class="z-10 right-0 py-2"
-                    >
-                        <li>
-                            <a href="{{ route('profile') }}" class="flex px-3 py-2 underline-hover">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-5 w-5 mr-2"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="1"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                    />
-                                </svg>
-                                {{ __('My profile') }}
-                            </a>
-                        </li>
-                        <li class="underline-hover">
-                            <a
-                                href="{{ route('order.index') }}"
-                                class="flex items-center px-3 py-2 underline-hover"
+                </a>
+                <ul
+                    x-show="open"
+                    x-transition
+                    class="z-10 right-0 py-2"
+                >
+                    <li>
+                        <a href="{{ route('profile') }}" class="flex px-3 py-2 underline-hover">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1"
                             >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                            </svg>
+                            {{ __('My profile') }}
+                        </a>
+                    </li>
+                    <li class="underline-hover">
+                        <a
+                            href="{{ route('order.index') }}"
+                            class="flex items-center px-3 py-2 underline-hover"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                />
+                            </svg>
+                            {{ __('My orders')}}
+                        </a>
+                    </li>
+                    <li class="underline-hover">
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <a href="{{ route('logout') }}"
+                                class="flex items-center px-3 py-2 underline-hover"
+                                onclick="event.preventDefault();
+                                    this.closest('form').submit();">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="h-5 w-5 mr-2"
@@ -146,72 +172,46 @@
                                     <path
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                                     />
                                 </svg>
-                                {{ __('My orders')}}
+                                {{ __('Log Out') }}
                             </a>
-                        </li>
-                        <li class="underline-hover">
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <a href="{{ route('logout') }}"
-                                   class="flex items-center px-3 py-2 underline-hover"
-                                   onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="h-5 w-5 mr-2"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        stroke-width="1"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                                        />
-                                    </svg>
-                                    {{ __('Log Out') }}
-                                </a>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
+                        </form>
+                    </li>
+                </ul>
+            </li>
             @else
-                <li>
-                    <a
-                        href="{{ route('login') }}"
-                        class="flex items-center py-2 px-3 transition-colors underline-hover"
+            <li>
+                <a
+                    href="{{ route('login') }}"
+                    class="flex items-center py-2 px-3 transition-colors underline-hover"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="1"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 mr-2"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                            />
-                        </svg>
-                        {{ __('Login') }}
-                    </a>
-                </li>
-                <li class="px-3 py-3">
-                    <a
-                        href="{{ route('register') }}"
-                        class="block text-center py-2 px-3 rounded shadow-md transition-colors w-full btn-register"
-                    >
-                        {{ __('Sign In') }}
-                    </a>
-                </li>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                        />
+                    </svg>
+                    {{ __('Login') }}
+                </a>
+            </li>
+            <li class="px-3 py-3">
+                <a
+                    href="{{ route('register') }}"
+                    class="block text-center py-2 px-3 rounded shadow-md transition-colors w-full btn-register"
+                >
+                    {{ __('Sign In') }}
+                </a>
+            </li>
             @endif
         </ul>
     </div>
@@ -270,11 +270,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="grid grid-flow-col items-center justify-center gap-4 w-1/3">
+        <ul class="grid grid-flow-col items-center justify-end gap-4 w-1/3">
             <li x-data="{open: false}" class="relative">
                 <a
                     @click="open = !open"
-                    class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
+                    class="cursor-pointer flex items-center py-navbar-item underline-hover"
                 >
                 <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
                     <svg
@@ -300,7 +300,7 @@
                     @foreach (Config::get('languages') as $lang => $language)
                         @if ($lang != App::getLocale())
                             <li>
-                                <a class="flex items-center underline-hover py-lang-navbar-item justify-center pl-2" href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span></a>
+                                <a class="flex items-center underline-hover py-lang-navbar-item justify-end pr-1" href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span></a>
                             </li>
                         @endif
                     @endforeach
@@ -438,7 +438,7 @@
                 <li x-data="{open: false}" class="relative">
                     <a
                         @click="open = !open"
-                        class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
+                        class="cursor-pointer flex items-center py-navbar-item underline-hover"
                     >
                     <span class="flex items-center">
                         <svg
