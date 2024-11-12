@@ -272,8 +272,6 @@ function limitPaginationDots(thumbnails) {
   });
   homeServices.mount();
 // Fin Services Home
-  
-});
 
 // Service galery
 if (document.querySelector('#service_gallery')) {
@@ -292,3 +290,35 @@ if (document.querySelector('#service_gallery')) {
   servicegallery.mount({ AutoScroll });
 }
 // Fin Service galery
+
+});
+
+// Demo Welcome products
+new Splide( '#image-carousel', {
+  type   : 'loop',
+  perPage: 4,
+  perMove: 1,
+  gap    : '0.5rem',
+  autoplay: false,
+  pagination: true,
+  omitEnd  : true,
+  autoWidth: false,
+  breakpoints: {
+    1280: {
+      perPage:4,
+      gap: '1rem',
+    },
+    800: {
+      perPage: 3,
+      gap    : '.7rem',
+    },
+    640: {
+      perPage: 2,
+      gap    : '.7rem',
+    },
+    480: {
+      perPage: 1,
+      gap    : '.5rem',
+    },
+  },
+}).mount();

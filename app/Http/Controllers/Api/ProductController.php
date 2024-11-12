@@ -31,7 +31,7 @@ class ProductController extends Controller
         $search = $request->get('search', '');
         $categorySlug = $request->get('category', '');  // Agregar parámetro category
 
-        $query = Product::query()->with(['prices', 'categories'])
+        $query = Product::query()->with(['prices', 'categories', 'alergens'])
             ->where('title', 'like', "%{$search}%");
 
         // Filtrar por categoría si se pasa el slug de la categoría

@@ -1,58 +1,44 @@
-<div class="promo-welcome">
+<div class="flex flex-col sm:flex-row relative gap-16 -mx-5 md:mx-4">
     <!-- text -->
-    <div class="max-w-screen-lg flex flex-col sm:flex-row relative mx-auto items-center py-8">
-        <div class="w-full flex flex-col sm:flex-row justify-center text-left items-center">
-            <!-- <h2>{{__('La felicidad está en un trozo de tarta')}}</h2> -->
-            <div class="btns-port-web flex justify-center items-center w-1/2">
-                <div class="h-64 w-64 rounded-full absolute">
-                    <img src="{{ asset('storage/img/piece-of-brownie-cake-filled.jpeg') }}" class="max-h-[300px] w-auto rounded-full " alt="brownie" />
-                </div>
-                <div class="text-rotate">
-                    <svg viewBox="0 0 100 100">
-                        <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
-                        <text>
-                            <textPath xlink:href="#circle">
-                                La felicidad está en un trozo de tarta
-                            </textPath>
-                        </text>
-                    </svg>
-                </div>
-            </div>
-            <div class="w-1/2">
-                <p>En nuestra pastelería, las tartas guardan secretos dulces que despiertan sonrisas mientras exploras el mágico universo de lo hecho a mano con cariño.</p>
+    <div class="w-full md:w-1/2 lg:w-3/5 flex flex-col justify-center bg-[url('https://images.pexels.com/photos/1983036/pexels-photo-1983036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover md:bg-none text-center md:text-left">
+        <div class="bg-black/30 p-8 md:p-0 md:bg-transparent">
+            <h2 class="text-3xl font-bold tracking-tight text-white md:text-gray-900 sm:text-4xl md:text-6xl drop-shadow-lg md:drop-shadow-none">{{__('Get vintage. Get real.')}}</h2>
+            <p class="my-8 text-xl text-white md:text-gray-500 drop-shadow-lg md:drop-shadow-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="w-auto">
+                <a href="{{ route('categories.index') }}" class="btn-primary">{{__('Shop Collection')}}</a>
             </div>
         </div>
-        <!-- text -->
-        <!-- image -->
-        <!-- <div class="w-auto flex justify-end sm:justify-center pb-8">
-            <img src="{{ asset('storage/img/torta.png') }}" class="max-h-[300px] w-auto" alt="brownie" />
-        </div> -->
-        <!-- image -->
-
     </div>
+    <!-- text -->
+    <!-- image -->
+    <div class="hidden md:w-1/2 lg:w-2/5 md:flex items-center gap-3 md:gap-6">
+        <div class="w-1/3 gap-y-4 flex flex-col">
+            <div class="overflow-hidden rounded-lg">
+                <img src="{{ asset('storage/images/camaras-001.webp') }}" alt="" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="overflow-hidden rounded-lg">
+                <img src="{{ asset('storage/images/camaras-002.webp') }}" alt="" class="h-full w-full object-cover object-center">
+            </div>
+        </div>
+        <div class=" w-1/3 gap-y-4 flex flex-col">
+            <div class="overflow-hidden rounded-lg">
+                <img src="{{ asset('storage/images/camaras-003.webp') }}" alt="" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="overflow-hidden rounded-lg">
+                <img src="{{ asset('storage/images/camaras-004.webp') }}" alt="" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="overflow-hidden rounded-lg">
+                <img src="{{ asset('storage/images/camaras-005.webp') }}" alt="" class="h-full w-full object-cover object-center">
+            </div>
+        </div>
+        <div class=" w-1/3 gap-y-4 flex flex-col">
+            <div class="overflow-hidden rounded-lg">
+                <img src="{{ asset('storage/images/camaras-006.webp') }}" alt="" class="h-full w-full object-cover object-center">
+            </div>
+            <div class="overflow-hidden rounded-lg">
+                <img src="{{ asset('storage/images/camaras-007.webp') }}" alt="" class="h-full w-full object-cover object-center">
+            </div>
+        </div>
+    </div>
+    <!-- image -->
 </div>
-
-<style>
-    .btns-port-web .text-rotate svg {
-		overflow: visible;
-		animation: circular-text-rotate 5s linear paused infinite;
-		width: 300px;
-        font-family: 'Mount-Hills';
-    	letter-spacing: 0.05rem;
-		font-weight:bold;
-	}
-	.btns-port-web .text-rotate svg:hover {
-		animation-play-state: running;
-	}
-	.btns-port-web .text-rotate path {
-		fill: none;
-	}
-	.btns-port-web .text-rotate text {
-		fill:#6C4852;
-	}
-	@keyframes circular-text-rotate {
-		to {
-		transform: rotate(1turn);
-		}
-	}
-</style>

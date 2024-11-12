@@ -1,5 +1,5 @@
 <template>
-    <div class="relative my-16 product-list">
+    <div class="relative product-list mb-16">
       <!-- Indicador de carga -->
       <div v-if="loading" class="spinner-overlay">
         <div class="spinner"></div>
@@ -9,9 +9,9 @@
       <div v-if="error" class="error">{{ error }}</div>
   
       <!-- Filtro de categorías y listado de productos -->
-      <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8">
-        <aside class="w-full md:w-1/6 px-2">
-          <ul class="flex flex-wrap gap-2 justify-center">
+      <div class="max-w-screen-xl mx-4 flex flex-col md:flex-row gap-8">
+        <aside class="w-full md:w-1/6">
+          <ul class="flex flex-wrap gap-2">
             <li
             class="mt-1 bg-demo_white text-xs w-fit rounded-full px-3 py-2 text-demo_primary"
             :class="{ 'active-category': selectedCategory === null }"
@@ -42,20 +42,24 @@
           <ul class="grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-4">
             <li v-for="product in products" :key="product.id" class="relative overflow-hidden rounded-lg bg-white dark:bg-black flex">
               <a :href="'/products/' + product.categories[0]?.slug + '/' + product.slug" class="aspect-w-3 aspect-h-2 block overflow-hidden">
+                <div v-if="product.alergens && product.alergens.length > 0">
+                  <ul>
+                    <li v-for="alergen in product.alergens" :key="alergen.id" class="text-xs w-fit rounded-full px-2 py-1 absolute z-10 top-4 left-4 text-sm"
+                    :class="alergen.name === 'Analógica' ? 'bg-demo_secondary_soft text-demo_secondary' : 'bg-demo_primary_soft text-demo_primary'">{{ alergen.name }}</li>
+                  </ul>
+                </div>
                 <img :src="product.image_url" alt="" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
-                <div class="p-4 card-listing">
-                  <h6 class="underline-hover w-fit">{{ product.title }}</h6>
-                  <div v-if="product.prices && product.prices.length > 0" class="mt-2">
-                    <strong>Precios:</strong>
-                    <ul class="text-xs">
+                <div class="flex flex-col p-4 gap-2">
+                  <div v-if="product.prices && product.prices.length > 0">
+                    <ul class="font-bold text-sm">
                       <li v-for="price in product.prices" :key="price.id">${{ price.number }}</li>
                     </ul>
                   </div>
-                  <p class="text-xs" v-if="product.quantity">Stock: {{ product.quantity }}</p>
-                  <p class="text-xs" v-else>Sin cantidad disponible</p>
+                  <h6 class="underline-hover w-fit">{{ product.title }}</h6>
+                  <!-- <p class="text-xs" v-if="product.quantity">Stock: {{ product.quantity }}</p>
+                  <p class="text-xs" v-else>Sin cantidad disponible</p> -->
                   <div v-if="product.categories && product.categories.length > 0" class="mt-2 text-xs flex gap-2">
-                    <strong>Marca:</strong>
-                    <ul class="text-xs">
+                    <ul class="font-bold text-xs">
                       <li v-for="category in product.categories" :key="category.id">{{ category.name }}</li>
                     </ul>
                   </div>
@@ -128,7 +132,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
 

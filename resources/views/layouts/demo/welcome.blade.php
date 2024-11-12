@@ -43,24 +43,45 @@
                 <div><x-icono-devolucion /><span>Devolución<br>garantizada</span></div>
             </div>
         </div>
-
-        <hr class="mt-24 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
         
-        
-        <div id="app">
-            <product-list></product-list>
+        <div id="image-carousel" class="splide my-32 md:mx-16" aria-label="Latest products">
+            <div class="mb-16 text-center">
+                <h2 class="font-bold text-3xl">{{__('Latest products')}}
+            </div>
+            <div class="splide__track mx-8">
+                <ul class="splide__list">
+                    @foreach($products as $product)
+                    <li class="splide__slide border-transparent overflow-hidden rounded-lg bg-white">
+                        <a href="#"
+                        class="aspect-w-3 aspect-h-2 block">
+                            @foreach ($product->alergens as $alergen)
+                            <div class="
+                            {{ $alergen->name === 'Analógica' ? 'bg-demo_secondary_soft text-demo_secondary' : 'bg-demo_primary_soft text-demo_primary' }}
+                            text-xs w-fit rounded-full px-2 py-1 absolute z-10 top-4 left-4">
+                                <p class="text-sm">{{$alergen->name}}</p>
+                            </div>
+                            @endforeach
+                            <img src="{{ $product->image }}" alt="{{$product->title}}"
+                            class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform">
+                            <div class="flex flex-col p-4 gap-2">
+                                @foreach ($product->prices as $price)
+                                <p class="font-bold text-sm">${{$price->number}}</p>
+                                @endforeach
+                                <h6 class="underline-hover w-fit">
+                                    {{$product->title}}
+                                </h6>
+                                @foreach ($product->categories as $category)
+                                <p class="font-bold text-xs">{{$category->name}}</p>
+                                @endforeach
+                            </div>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
+
+        <x-promo-welcome />
         
-        <!-- <div>
-        @foreach ($products as $product)
-            @foreach ($product->categories as $category)
-                <li>
-                    <a href="{{ route('product.view', ['category' => $category->slug, 'product' => $product->slug]) }}">
-                        <span>{{ $product->title }}</span>
-                    </a>
-                </li>
-            @endforeach
-        @endforeach
-        </div> -->
         
     </x-app-demo>
