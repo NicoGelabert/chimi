@@ -52,7 +52,7 @@
                 <ul class="splide__list">
                     @foreach($products as $product)
                     <li class="splide__slide border-transparent overflow-hidden rounded-lg bg-white">
-                        <a href="#"
+                        <a href="{{ route('product.view', [$product->categories->first()->slug, $product->slug]) }}"
                         class="aspect-w-3 aspect-h-2 block">
                             @foreach ($product->alergens as $alergen)
                             <div class="

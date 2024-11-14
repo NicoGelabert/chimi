@@ -69,7 +69,7 @@
             </div>
             <!--/ Toast -->
             @include('layouts.demo.navigation')
-            <main class="w-full mx-auto" id="app">
+            <main class="w-full mx-auto">
                 {{ $slot }}
             </main>
             

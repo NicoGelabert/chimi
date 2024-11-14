@@ -1,17 +1,22 @@
 <x-app-demo>
-    <div  x-data="productItem({{ json_encode([
-                    'id' => $product->id,
-                    'slug' => $product->slug,
-                    'image' => $product->image ,
-                    'title' => $product->title,
-                    'price' => $product->price,
-                    'quantity' => $product->quantity,
-                    'addToCartUrl' => route('cart.add', $product)
-                ]) }})" class="container mx-auto">
-        <div class="grid gap-6 grid-cols-1 lg:grid-cols-5">
-            <div class="lg:col-span-3">
+    <div x-data="productItem({{ json_encode([
+        'id' => $product->id,
+        'slug' => $product->slug,
+        'image' => $product->image,
+        'title' => $product->title,
+        'quantity' => $product->quantity,
+        'addToCartUrl' => route('cart.add', $product),
+        'categories' => $product->categories->pluck('name'),
+        'prices' => $product->prices->pluck('number'),
+        'alergens' => $product->alergens->pluck('name'),
+        'images' => $product->images->pluck('url') 
+        ]) }})"
+        class="container mx-auto"
+    >
+        <div class="grid gap-6 grid-cols-1 lg:grid-cols-4 my-32">
+            <div class="lg:col-span-2">
                 <div
-                x-data="{
+                    x-data="{
                       images: ['{{$product->image}}'],
                       activeImage: null,
                       prev() {
@@ -30,42 +35,124 @@
                           this.activeImage = this.images.length > 0 ? this.images[0] : null
                       }
                     }"
+                    class="max-w-fit flex flex-col-reverse lg:flex-row gap-4 md:sticky top-24" id="imagen"
                 >
                     <div class="flex">
                         <template x-for="image in images">
                             <a
                                 @click.prevent="activeImage = image"
-                                class="cursor-pointer w-[80px] h-[80px] border border-gray-300 hover:border-purple-500 flex items-center justify-center"
-                                :class="{'border-purple-600': activeImage === image}"
+                                class="cursor-pointer w-[80px] h-[80px] border flex items-center justify-center product-thumbnail"
+                                :class="{'product-thumbnail-active': activeImage === image}"
                             >
-                                <img :src="image" alt="" class="w-auto max-auto max-h-full"/>
+                                <img :src="image" alt="" class=""/>
                             </a>
                         </template>
+                    </div>
+                    <div class="relative">
+                        <template x-for="image in images">
+                            <div
+                                x-show="activeImage === image"
+                                class="aspect-w-3 aspect-h-2"
+                            >
+                                <img :src="image" alt="" class="w-auto mx-auto"/>
+                            </div>
+                        </template>
+                        <a
+                            @click.prevent="prev"
+                            class="cursor-pointer bg-black/30 text-white absolute left-0 top-1/2 -translate-y-1/2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 19l-7-7 7-7"
+                                />
+                            </svg>
+                        </a>
+                        <a
+                            @click.prevent="next"
+                            class="cursor-pointer bg-black/30 text-white absolute right-0 top-1/2 -translate-y-1/2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="lg:col-span-2">
-                <h1 class="text-lg font-semibold">
-                    {{$product->title}}
-                </h1>
-                <div class="text-xl font-bold mb-6">${{$product->price}}</div>
+                <div class="flex flex-col gap-2">
+                    <ul>
+                        <template x-for="price in product.prices" :key="price">
+                            <li class="font-bold text-lg" x-text="'€ ' + price"></li>
+                        </template>
+                    </ul>
+                    <h3 class="font-semibold">
+                        {{$product->title}}
+                    </h3>
+                    <div class="flex gap-4">
+                        <ul>
+                            <template x-for="category in product.categories" :key="category">
+                                <li x-text="category"></li>
+                            </template>
+                        </ul>
+                        
+                        <ul>
+                            <template x-for="alergen in product.alergens" :key="alergen">
+                                <li x-text="alergen"></li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+
                 @if ($product->quantity === 0)
                     <div class="bg-red-400 text-white py-2 px-3 rounded mb-3">
                         The product is out of stock
                     </div>
                 @endif
-                <div class="flex items-center justify-between mb-5">
+                <div class="flex items-center mb-5">
                     <label for="quantity" class="block font-bold mr-4">
                         Quantity
                     </label>
-                    <input
-                        type="number"
-                        name="quantity"
-                        x-ref="quantityEl"
-                        value="1"
-                        min="1"
-                        class="w-32 focus:border-purple-500 focus:outline-none rounded"
-                    />
+                    <div class="flex items-center content-center quantity">
+                        <button id="down" class="btn-qty" onclick=" down('0')">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="current" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                        <input
+                            type="number"
+                            name="quantity"
+                            x-ref="quantityEl"
+                            value="1"
+                            min="1"
+                            class="w-32 qty bg-transparent border-none"
+                            id="myNumber"
+                        />
+                        <button id="up" class="btn-qty" onclick="up('10')">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="current" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <button
                     :disabled="product.quantity === 0"
@@ -110,3 +197,49 @@
         </div>
     </div>
 </x-app-demo>
+<script>
+    function up(max) {
+    document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) + 1;
+    if (document.getElementById("myNumber").value >= parseInt(max)) {
+        document.getElementById("myNumber").value = max;
+    }
+    }
+    function down(min) {
+        document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) - 1;
+        if (document.getElementById("myNumber").value <= parseInt(min)) {
+            document.getElementById("myNumber").value = min;
+        }
+    }
+
+</script>
+<style>
+    /* Quantity */
+    .quantity {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        align-items: stretch;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .quantity .qty {
+        width: 50px;
+        height: 40px;
+        line-height: 40px;
+        background-color:transparent;
+        border: 0;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .quantity button{
+        color:white;
+        height:auto;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>

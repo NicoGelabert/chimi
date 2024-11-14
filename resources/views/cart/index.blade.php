@@ -1,5 +1,5 @@
 <x-app-demo>
-    <div class="cartview flex flex-col justify-start lg:w-2/3 xl:w-2/3 mx-auto min-h-screen pt-32 pb-16 px-5">
+    <div class="cartview flex flex-col justify-start lg:w-2/3 xl:w-2/3 mx-auto min-h-screen pt-32 pb-16 px-3">
         <h1 class="text-3xl mb-6">{{__('Your Cart Items')}}</h1>
 
         <div x-data="{
@@ -10,9 +10,9 @@
                         'slug' => $product->slug,
                         'image' => $product->image,
                         'title' => $product->title,
-                        'price' => $product->price,
+                        'price' => $product->prices->first()->number,
                         'quantity' => $cartItems[$product->id]['quantity'],
-                        'href' => route('product.view', [$product->category?->slug, $product->slug]),
+                        'href' => route('product.view', [$product->categories->first()->slug, $product->slug]),
                         'removeUrl' => route('cart.remove', $product),
                         'updateQuantityUrl' => route('cart.update-quantity', $product)
                     ])
@@ -31,13 +31,13 @@
                             <div
                                 class="w-full flex gap-4 flex-1">
                                 <a :href="product.href"
-                                   class="w-24 h-21 flex justify-center overflow-hidden">
-                                    <img :src="product.image" class="object-cover" alt=""/>
+                                   class="w-16 h-auto flex items-start overflow-hidden">
+                                    <img :src="product.image" class="object-contain" alt=""/>
                                 </a>
                                 <div class="flex flex-col justify-between flex-1">
-                                    <div class="flex flex-wrap gap-2 justify-between mb-3">
-                                        <h3 x-text="product.title"></h3>
-                                        <span class="text-lg font-semibold">
+                                    <div class="flex flex-wrap gap-2 justify-between">
+                                        <h6 x-text="product.title"></h6>
+                                        <span class="text-sm font-semibold">
                                             $<span x-text="product.price"></span>
                                         </span>
                                     </div>
@@ -106,5 +106,6 @@
             </template>
 
         </div>
+        
     </div>
 </x-app-demo>
