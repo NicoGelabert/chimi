@@ -11,7 +11,7 @@
         
         <title inertia>{{ config('app.name', 'Chimi Design') }}</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/common/logo_chimi_favicon.ico') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/common/logo_demo_chimi_favicon.ico') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

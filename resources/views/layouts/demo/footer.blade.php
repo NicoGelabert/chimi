@@ -1,8 +1,8 @@
 <footer>
     <div class="footer-container">
         <div class="flex flex-col items-center gap-y-8">
-            <div class="logo footer-logo">
-                <x-logo-footer />
+            <div class="footer-logo">
+                <x-application-demo-logo/>
                 <x-social-icons />
             </div>
             <p class="">Fuengirola, Málaga.</p>

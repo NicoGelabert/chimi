@@ -8,8 +8,16 @@ $body-font: "Inter", sans-serif;
 a{
     @apply hover:text-primary;
 }
-.logo{
-    @apply h-auto max-w-24 transition-all fill-primary;
+.logo svg{
+    @apply h-auto w-32 transition-all;
+}
+.demo-logo .logo_letters,
+.demo-logo-hamburguer .logo_letters{
+    @apply fill-black dark:fill-demo_white;
+}
+.demo-logo .logo_squares,
+.demo-logo-hamburguer .logo_squares{
+    @apply fill-demo_primary;
 }
 // nav{
 //     .logo{

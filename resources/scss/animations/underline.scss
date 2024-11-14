@@ -1,6 +1,6 @@
 /* Hover underline effect */
 .underline-hover {
-    position: relative;
+    @apply relative;
   }
   
 .underline-hover::after {

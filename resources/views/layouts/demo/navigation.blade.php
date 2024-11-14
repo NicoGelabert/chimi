@@ -7,7 +7,7 @@
     class="flex justify-between md:justify-center z-20 w-full"
     id="demonavbar"
 >
-    <div class="logo demo-logo-hamburguer flex items-center ml-4 md:hidden">
+    <div class="demo-logo-hamburguer flex items-center ml-4 md:hidden">
         <x-application-demo-logo/>
     </div>
 
@@ -218,7 +218,7 @@
     
     <!--/ Responsive Menu -->
     <nav class="hidden md:flex w-full max-w-screen-xl mx-4 justify-between items-center">
-        <div class="demo-logo logo w-1/3">
+        <div class="demo-logo w-1/3">
             <x-application-demo-logo/>
         </div>
         <ul class="grid grid-flow-col items-center justify-center gap-4 w-1/3">            
