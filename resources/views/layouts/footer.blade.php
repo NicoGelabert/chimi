@@ -14,6 +14,7 @@
                     </li>
                 @endforeach
             </ul>
+            <p><a href="/politica-de-privacidad">{{ __('Política de Privacidad') }}</a></p>
             <p class="">Fuengirola, Málaga.</p>
         </div>
     </div>
