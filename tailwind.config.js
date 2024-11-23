@@ -33,6 +33,9 @@ export default {
             },
             fontSize: {
                 xxs: '0.6rem',
+            },
+            boxShadow: {
+                cookie: '0 2px 4px 6px rgb(0 0 0 / 0.1)',
             }
         },
     },

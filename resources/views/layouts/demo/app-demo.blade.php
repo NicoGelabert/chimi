@@ -23,7 +23,7 @@
                 <img src="{{ asset('storage/images/preloader2.gif') }}" alt="">
             </div>
             <div id="loader">
-                <div id="progress-bar"></div>
+                <div id="demo-progress-bar"></div>
             </div>
             <div id="loader-percentage">0%</div>
         </div>

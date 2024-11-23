@@ -33,6 +33,89 @@
     "una ventana a nuestro mundo creativo" : "A window into our creative world",
     "Desde diseños innovadores hasta soluciones tecnológicas avanzadas, cada proyecto cuenta una historia única de creatividad, pasión y excelencia." : "From innovative designs to advanced technological solutions, each project tells a unique story of creativity, passion and excellence.",
 
+    "Política de privacidad": "Privacy Policy",
+    "Última actualización: 23 de noviembre de 2024": "Last updated: November 23, 2024",
+    
+    "1. Información General": "1. General Information",
+    "Chimicreativo.es, como responsable del tratamiento de los datos, está comprometido con la privacidad de sus usuarios y garantiza que los datos personales recopilados serán tratados conforme al Reglamento General de Protección de Datos (RGPD) y demás normativas aplicables.": 
+    "Chimicreativo.es, as the data controller, is committed to the privacy of its users and ensures that personal data collected will be processed in accordance with the General Data Protection Regulation (GDPR) and other applicable regulations.",
+    
+    "2. Datos Recopilados": "2. Data Collected",
+    "Recopilamos los siguientes datos personales a través de nuestros formularios:": "We collect the following personal data through our forms:",
+    
+    "Formulario de Contacto:": "Contact Form:",
+    "Correo electrónico": "Email",
+    "Teléfono": "Phone",
+    "Servicio solicitado (Diseño gráfico, Desarrollo web, Branding)": "Requested service (Graphic Design, Web Development, Branding)",
+    "Mensaje": "Message",
+    
+    "Formulario de Presupuesto:": "Quote Form:",
+    "Detalles del servicio solicitado": "Details of the requested service",
+    
+    "Automáticamente a través de cookies:": "Automatically via cookies:",
+    "Datos de navegación (dirección IP, dispositivo, tiempo de visita).": "Browsing data (IP address, device, visit time).",
+    "Cookies: XSRF-TOKEN, _ga, _ga_9Q6H0QETRF, chimi_creativo_session, laravel_cookie_consent, ls_smartpush.": 
+    "Cookies: XSRF-TOKEN, _ga, _ga_9Q6H0QETRF, chimi_creativo_session, laravel_cookie_consent, ls_smartpush.",
+    
+    "3. Finalidad del Tratamiento": "3. Purpose of Processing",
+    "Los datos personales serán utilizados para:": "Personal data will be used for:",
+    "Responder consultas y solicitudes de contacto.": "Responding to inquiries and contact requests.",
+    "Gestionar presupuestos.": "Managing quotes.",
+    "Mejorar el rendimiento del sitio web mediante análisis estadísticos.": "Improving website performance through statistical analysis.",
+    "Garantizar la seguridad del sitio.": "Ensuring site security.",
+    "Actividades de marketing:": "Marketing activities:",
+    "Utilizamos los datos personales con fines de marketing, incluyendo:": "We use personal data for marketing purposes, including:",
+    "Email marketing: Enviar boletines informativos, actualizaciones y promociones relacionadas con nuestros servicios.": 
+    "Email marketing: Sending newsletters, updates, and promotions related to our services.",
+    "Publicidad personalizada: Utilización de datos para crear campañas publicitarias en plataformas como Facebook Ads y Google Ads.": 
+    "Personalized advertising: Using data to create advertising campaigns on platforms like Facebook Ads and Google Ads.",
+    "Los datos no serán compartidos con terceros fuera de estos fines.": 
+    "Data will not be shared with third parties beyond these purposes.",
+    
+    "4. Uso de Cookies": "4. Use of Cookies",
+    "En Chimicreativo.es utilizamos cookies para:": "At Chimicreativo.es we use cookies to:",
+    "Mejorar la experiencia del usuario.": "Enhance the user experience.",
+    "Realizar análisis de tráfico (Google Analytics).": "Perform traffic analysis (Google Analytics).",
+    "Personalización de anuncios (para campañas de publicidad en Facebook y Google).": 
+    "Ad personalization (for Facebook and Google ad campaigns).",
+    "Puedes gestionar las cookies desde el banner inicial o configurando tu navegador.": 
+    "You can manage cookies from the initial banner or by configuring your browser.",
+    
+    "5. Base Legal para el Tratamiento": "5. Legal Basis for Processing",
+    "Consentimiento explícito del usuario al suscribirse a nuestros boletines o aceptar recibir publicidad personalizada.": 
+    "Explicit user consent when subscribing to our newsletters or agreeing to receive personalized advertising.",
+    "Cumplimiento de obligaciones legales.": "Compliance with legal obligations.",
+    "Intereses legítimos para mejorar nuestro sitio y servicios.": 
+    "Legitimate interests to improve our site and services.",
+    
+    "6. Conservación de los Datos": "6. Data Retention",
+    "Los datos personales serán conservados mientras sean necesarios para las finalidades descritas, o hasta que el usuario solicite su eliminación.": 
+    "Personal data will be retained as long as necessary for the purposes described, or until the user requests their deletion.",
+    
+    "7. Derechos de los Usuarios": "7. User Rights",
+    "Los usuarios tienen derecho a:": "Users have the right to:",
+    "Acceder a sus datos personales.": "Access their personal data.",
+    "Rectificar datos incorrectos.": "Rectify incorrect data.",
+    "Solicitar la eliminación de sus datos.": "Request the deletion of their data.",
+    "Limitar el tratamiento.": "Restrict processing.",
+    "Revocar el consentimiento otorgado.": "Revoke the consent given.",
+    "Para ejercer tus derechos, puedes escribirnos a: ": 
+    "To exercise your rights, you can write to us at: ",
+    
+    "8. Medidas de Seguridad": "8. Security Measures",
+    "El sitio está protegido mediante:": "The site is protected through:",
+    "Certificado SSL para cifrar las comunicaciones.": "SSL certificate to encrypt communications.",
+    "Almacenamiento en servidores seguros de Hostinger.": "Storage on secure Hostinger servers.",
+    "Copias de seguridad periódicas.": "Periodic backups.",
+    
+    "9. Modificaciones": "9. Modifications",
+    "Nos reservamos el derecho de actualizar esta Política de Privacidad en función de cambios legales o técnicos. La fecha de la última actualización aparecerá al inicio del documento.": 
+    "We reserve the right to update this Privacy Policy based on legal or technical changes. The date of the last update will appear at the beginning of the document.",
+    
+    "10. Contacto": "10. Contact",
+    "Para consultas o solicitudes relacionadas con esta política, contáctanos en: ": 
+    "For inquiries or requests related to this policy, contact us at: ",
+
     "No hay productos publicados" : "There are no products published",
 
     "Ver productos": "See products",
@@ -103,7 +186,6 @@
     "Sobre nosotros": "About us",
     "Trabaja con nosotros": "Work with us",
     "Términos & condiciones": "Terms & conditions",
-    "Política de privacidad": "Privacy policy",
     "Ayuda": "Help",
     "Soporte": "Support",
     "Preguntas frecuentes": "Faq",

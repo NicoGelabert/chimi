@@ -62,6 +62,11 @@ Route::middleware(['guestOrVerified'])->group(function () {
     
         Route::get('/quotation', [QuotationController::class, 'create'])->name('quotation.create');
         Route::post('/quotation', [QuotationController::class, 'store'])->name('quotation.store');
+
+        // Política de Privacidad
+        Route::get('/politica-de-privacidad', function (){
+            return view('legal/privacy-policy');
+        });
     }
     
     
