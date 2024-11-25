@@ -66,7 +66,7 @@
                 <a href="https://wa.me/34623037048" target="_blank">
                     <img src="https://chimicreativo.es/storage/images/WA_Logo.png" alt="Logo de la Empresa">
                 </a>
-                <a href="https://www.instagram.com/nicolas.gelabert.dg/" target="_blank">
+                <a href="https://www.instagram.com/chimi.creativo/" target="_blank">
                     <img src="https://chimicreativo.es/storage/images/instagram.png" alt="Logo de la Empresa">
                 </a>
                

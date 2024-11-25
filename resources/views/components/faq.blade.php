@@ -1,4 +1,4 @@
-<div class="container" id="faqs">
+<div id="faqs">
     <div class="flex flex-col w-full justify-between gap-8">
         <h3 class="text-center">{{__('Faq´s')}}</h3>
         <div class="w-full questions">

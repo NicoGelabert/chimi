@@ -67,6 +67,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
         Route::get('/politica-de-privacidad', function (){
             return view('legal/privacy-policy');
         });
+        Route::get('/terminos-y-condiciones', function (){
+            return view('legal/terms-and-conditions');
+        });
     }
     
     

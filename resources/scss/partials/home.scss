@@ -92,7 +92,7 @@
     .questions{
         @apply flex flex-col md:flex-row justify-between flex-wrap w-full gap-4;
         .question{
-            @apply w-full md:w-[30%];
+            @apply w-full h-fit md:w-[30%];
         }
     }
     .vertical-text{

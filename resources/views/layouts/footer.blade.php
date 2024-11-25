@@ -14,7 +14,10 @@
                     </li>
                 @endforeach
             </ul>
-            <p><a href="/politica-de-privacidad">{{ __('Política de Privacidad') }}</a></p>
+            <div class="flex gap-4">
+                <p><a href="/politica-de-privacidad">{{ __('Política de Privacidad') }}</a></p>
+                <p><a href="/terminos-y-condiciones">{{ __('Términos y Condiciones') }}</a></p>
+            </div>
             <p class="">Fuengirola, Málaga.</p>
         </div>
     </div>

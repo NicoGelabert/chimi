@@ -6,7 +6,7 @@
             <hr class="my-8 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
             <div class="flex justify-center items-center gap-6">
                 <p class="small font-bold">Send us a message</p>
-                <a href="https://wa.me/34622406965?text=Hola!%20Quería%20hacer%20un%20encargo" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" >
+                <a href="https://wa.me/34623037048?text=Hola!%20Quería%20hacer%20un%20encargo" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" >
                     <i class="flex text-2xl leading-none fi fi-brands-whatsapp"></i>
                 </a>
             </div>

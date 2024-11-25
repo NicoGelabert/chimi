@@ -23,6 +23,19 @@
 .btn-primary span{
     transition: padding-right 0.3s;
 }
+
+.btn-primary:disabled{
+    @apply opacity-50;
+}
+.btn-primary:disabled:hover{
+    @apply bg-black;
+    i{
+        @apply hidden;
+    }
+    span{
+        @apply pr-0;
+    }
+}
 // Fin Botón Primario con Animación 
 
 .btn-secondary{

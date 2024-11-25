@@ -24,7 +24,7 @@ function openWhatsApp(element) {
     var paymentId = element.dataset.paymentId;
     var createdAt = element.dataset.createdAt;
     var message = encodeURIComponent("Hola! hice un pedido. El número de seguimiento es: #00" + paymentId + "-" + createdAt);
-    var whatsappLink = "https://wa.me/34622406965?text=" + message;
+    var whatsappLink = "https://wa.me/34623037048?text=" + message;
     
     window.open(whatsappLink, "_blank");
 }

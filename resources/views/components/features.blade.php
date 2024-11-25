@@ -1,4 +1,4 @@
-<div class="container flex flex-col gap-8 items-center">
+<div class="flex flex-col gap-8 items-center">
     <div class="pretitle ">
         <p>Cómo trabajamos</p>
     </div>

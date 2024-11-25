@@ -1,4 +1,4 @@
-<div class="container flex flex-col md:flex-row gap-8 justify-between">
+<div class="flex flex-col md:flex-row gap-8 justify-between">
     <div class="flex flex-col gap-8 md:gap-24 justify-between items-center h-auto md:w-1/2">
         <div class="w-full">
             <p class="text-lg">Somos Chimi Design, una agencia de diseño que combina creatividad y experiencia para ofrecer soluciones atractivas de diseño gráfico y web que ayuden a las empresas a tener éxito.</p>

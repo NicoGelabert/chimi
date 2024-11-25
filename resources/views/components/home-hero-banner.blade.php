@@ -7,7 +7,7 @@
         <ul class="splide__list">
             @foreach($homeherobanners as $homeherobanner)
             <li class="splide__slide mx-auto">
-                <div class="flex flex-col justify-center md:items-stretch gap-12 max-w-screen-xl px-4 pt-24 mx-auto md:flex-row">
+                <div class="flex flex-col justify-between md:items-stretch gap-12 px-4 pt-24 mx-auto md:flex-row">
                     <div class="flex flex-col justify-start gap-8 w-full md:w-1/2">
                         <hr />
                         <div class="flex justify-between">
@@ -20,7 +20,7 @@
                             <x-button href="{{ $homeherobanner->link }}"><i class="fi fi-rr-arrow-right arrow-to-right"></i><span>Conózcanos</span></x-button>
                         </div>
                     </div>
-                    <div class="flex w-full md:w-1/2 justify-between gap-4 h-auto overflow-hidden">
+                    <div class="flex w-full md:w-1/2 justify-end gap-4 h-auto overflow-hidden">
                         <div class="image-container flex flex-col justify-between max-h-[450px]">
                             <img src="{{ $homeherobanner->image }}" alt="{{ $homeherobanner->title }}" class="animate-img">
                             <p class="animate-caption text-xs text-right pt-2 font-bold">{{ $homeherobanner->title }}</p>

@@ -1,4 +1,4 @@
-<div class="container flex flex-col items-center gap-16 mb-16" id="quotation">
+<div class="flex flex-col items-center gap-16 mb-16" id="quotation">
     <div class="w-full md:w-3/4 flex flex-col items-center justify-center gap-8">
         <div class="pretitle">
             <p>Contáctenos</p>

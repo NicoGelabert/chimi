@@ -273,6 +273,8 @@ function limitPaginationDots(thumbnails) {
   homeServices.mount();
 // Fin Services Home
 
+});
+
 // Service galery
 if (document.querySelector('#service_gallery')) {
   var servicegallery = new Splide('#service_gallery', {
@@ -290,8 +292,6 @@ if (document.querySelector('#service_gallery')) {
   servicegallery.mount({ AutoScroll });
 }
 // Fin Service galery
-
-});
 
 // Demo Welcome products
 new Splide( '#image-carousel', {

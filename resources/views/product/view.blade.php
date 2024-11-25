@@ -11,7 +11,7 @@
         'alergens' => $product->alergens->pluck('name'),
         'images' => $product->images->pluck('url') 
         ]) }})"
-        class="container mx-auto"
+        class="mx-auto"
     >
         <div class="grid gap-6 grid-cols-1 lg:grid-cols-4 my-32">
             <div class="lg:col-span-2">

@@ -13,11 +13,13 @@
 
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/common/logo_chimi_favicon.ico') }}">
 
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-        <div id="loader-wrapper">
+        <div id="loader-wrapper" class="dark:bg-black">
             <div class="w-40">
                 <x-application-logo/>
             </div>
@@ -68,7 +70,7 @@
             </div>
             <!--/ Toast -->
             @include('layouts.navigation')
-            <main class="w-full mx-auto">
+            <main class="w-full mx-auto container">
                 {{ $slot }}
             </main>
             

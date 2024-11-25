@@ -1,4 +1,4 @@
-<div class="container flex flex-col gap-16" id="services">
+<div class="flex flex-col gap-16" id="services">
     <div class="flex flex-col md:flex-row w-full justify-between md:gap-16">
         <div class="flex justify-between items-start md:hidden">
             <div class="mb-8">

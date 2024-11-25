@@ -39,21 +39,18 @@
                 </ul>
             </div>
             <div class="flex justify-center gap-4 social-icons">
-                <a href="https://wa.me/34622406965" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                <a href="https://wa.me/34623037048" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
                     <i class="flex text-2xl leading-none fi fi-brands-whatsapp"></i>
                 </a>
-                <a href="https://www.instagram.com/puntosurfuengirola/?hl=es" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                <a href="https://www.instagram.com/chimi.creativo/?hl=es" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
                     <i class="flex text-2xl leading-none fi fi-brands-instagram"></i>
-                </a>
-                <a href="https://maps.app.goo.gl/22GUnZ2foJeEYud98" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
-                    <i class="flex text-2xl leading-none fi fi-rs-map-marker"></i>
                 </a>
             </div>
         </div>
     </div>
     <!--/ Responsive Menu -->
 
-    <nav class="hidden md:flex w-full max-w-screen-xl mx-4 justify-between items-center">
+    <nav class="hidden md:flex w-full container mx-4 justify-between items-center">
         <div class="logo flex justify-center">
             <x-application-logo/>
         </div>
@@ -153,14 +150,11 @@
             </li>
             <li>
                 <div class="flex justify-center gap-4 social-icons">
-                    <a href="https://wa.me/34622406965" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                    <a href="https://wa.me/34623037048" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
                         <i class="flex text-base leading-none fi fi-brands-whatsapp"></i>
                     </a>
-                    <a href="https://www.instagram.com/puntosurfuengirola/?hl=es" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                    <a href="https://www.instagram.com/chimi.creativo/?hl=es" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
                         <i class="flex text-base leading-none fi fi-brands-instagram"></i>
-                    </a>
-                    <a href="https://maps.app.goo.gl/22GUnZ2foJeEYud98" class="h-6 w-6 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
-                        <i class="flex text-base leading-none fi fi-rs-map-marker"></i>
                     </a>
                 </div>
             </li>
