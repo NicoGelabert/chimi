@@ -34,7 +34,7 @@
                 <!-- FIN PÁGINA WEB -->
                 <ul class="flex flex-wrap gap-2">
                     @foreach($project->tags as $tag)
-                    <li class="mt-1 bg-slate-100 text-xs w-fit rounded-full px-3 py-2">{{ $tag->name }}</li>
+                    <li class="mt-1 bg-slate-100 dark:bg-dark_gray text-xs w-fit rounded-full px-3 py-2">{{ $tag->name }}</li>
                     @endforeach
                 </ul>
             </div>
