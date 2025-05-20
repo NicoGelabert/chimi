@@ -39,7 +39,7 @@
                 </ul>
             </div>
         </div>
-        <hr class="my-8 w-full"/>
+        <hr class="my-8 w-full dak:border-zinc-700"/>
         <div class="animate-p text-center">
             <p>{!! $project->short_description !!}</p>
         </div>
