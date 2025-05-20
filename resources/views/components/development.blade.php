@@ -1,7 +1,7 @@
 <div class="flex flex-col-reverse md:flex-row gap-8 justify-between">
     <div class="flex flex-col gap-8 md:gap-24 justify-between items-center h-auto md:w-1/2">
         <div class="w-full">
-            <ul class="flex flex-col md:flex-row gap-2">
+            <ul class="grid grid-cols-2 gap-2">
                 @foreach($devprojects as $devproject)
                 <li>
                     <a href="{{ route('project.view', [$devproject->services->first()->slug, $devproject->slug]) }}">

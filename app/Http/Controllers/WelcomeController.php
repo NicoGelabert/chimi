@@ -25,7 +25,7 @@ class WelcomeController extends Controller
         })->get();
         $devprojects = Project::with('tags', 'clients', 'services')->whereHas('services', function($query) {
             $query->where('service_id', 1)->where('published', 1);
-        })->get();
+        })->orderBy('id', 'desc')->limit(2)->get();
         $faqs = Faq::all();
         return view('welcome', compact(
             'homeherobanners',
