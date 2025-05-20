@@ -39,18 +39,18 @@
                 </ul>
             </div>
         </div>
-        <hr class="my-8 w-full dak:border-zinc-700"/>
+        <hr class="my-8 w-full dark:border-zinc-700"/>
         <div class="animate-p text-center">
             <p>{!! $project->short_description !!}</p>
         </div>
         @if ($project->images->count() > 1)
-        <hr class="my-8 w-full"/>
+        <hr class="my-8 w-full dark:border-zinc-700"/>
         <div class="project_gallery">
             <x-image-gallery :images="$project->images" class="project_gallery_images"></x-image-gallery>
         </div>
         @endif
         @if ($project->client_review)
-        <hr class="my-8 w-full"/>
+        <hr class="my-8 w-full dark:border-zinc-700"/>
         <p>{!! $project->client_review !!}</p>
         @endif
     </div>
