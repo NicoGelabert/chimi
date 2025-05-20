@@ -39,6 +39,7 @@
         currentImage: '', 
         currentTitle: '',
         currentDescription: '',
+        currentShortDescription: '',
         currentTags: [],
         currentClients: [],
         projectSlug: '',
@@ -52,7 +53,7 @@
                         @click="isOpen = true; 
                                 currentImage = '{{ ($devproject->image) }}'; 
                                 currentTitle = '{{ $devproject->title }}';
-                                currentDescription = @js($devproject->description);
+                                currentShortDescription = @js($devproject->short_description);
                                 projectSlug = '{{ $devproject->slug }}';
                                 currentTags = @js($devproject->tags->pluck('name')->toArray());
                                 currentClients = @js($devproject->clients->pluck('name')->toArray())">
@@ -74,7 +75,7 @@
                         @click="isOpen = true; 
                                 currentImage = '{{ ($project->image) }}'; 
                                 currentTitle = '{{ $project->title }}';
-                                currentDescription = @js($project->description);
+                                currentShortDescription = @js($project->short_description);
                                 projectSlug = '{{ $project->slug }}';
                                 currentTags = @js($project->tags->pluck('name')->toArray());
                                 currentClients = @js($project->clients->pluck('name')->toArray())">
@@ -103,7 +104,7 @@
                 <div class="text-white lg:w-1/2 flex flex-col gap-8">
                     <div class="flex flex-col gap-4">
                         <h3 x-text="currentTitle"></h3>
-                        <p x-html="currentDescription"></p>
+                        <p x-html="currentShortDescription"></p>
                         <!-- <ul class="flex gap-2 flex-wrap">
                             <template x-for="client in currentClients" :key="client">
                                 <li class="text-sm" x-text="client"></li>
