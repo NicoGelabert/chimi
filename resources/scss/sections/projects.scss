@@ -1,0 +1,29 @@
+.project_gallery{
+    @apply flex flex-col gap-4 ;
+    #project_lightbox{
+        img{
+            @apply max-h-full;
+        }
+    }
+
+}
+.project_gallery_images {
+    .splide__arrows{
+        @apply flex justify-end mb-8;
+        .splide__arrow{
+            @apply top-0 translate-y-0;
+        }    
+    }
+    .splide__arrows{
+        @apply absolute flex justify-between w-full top-1/2 -translate-y-1/2 mb-0;
+        .splide__arrow{
+            @apply relative;
+        }
+        .splide__arrow--prev{
+            @apply left-0;
+        }
+        .splide__arrow--next{
+            @apply right-0;
+        }
+    }
+}

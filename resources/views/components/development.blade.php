@@ -4,8 +4,10 @@
             <ul class="flex flex-col md:flex-row gap-2">
                 @foreach($devprojects as $devproject)
                 <li>
-                    <img src="{{ $devproject->image }}" alt="{{ $devproject->name }}">
-                    <p>{{ $devproject->name }}</p>
+                    <a href="{{ route('project.view', [$devproject->services->first()->slug, $devproject->slug]) }}">
+                        <img src="{{ $devproject->image }}" alt="{{ $devproject->name }}">
+                        <p>{{ $devproject->name }}</p>
+                    </a>
                 </li>
                 @endforeach
             </ul>

@@ -15,7 +15,7 @@ class Project extends Model
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = ['title', 'image', 'image_mime', 'image_size', 'description', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'image', 'image_mime', 'image_size', 'short_description', 'description', 'link', 'client_review', 'published', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {

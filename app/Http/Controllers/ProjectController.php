@@ -28,9 +28,10 @@ class ProjectController extends Controller
         return $this->renderProjects($query);
     }
 
-    public function view(Project $project)
+    public function view(Service $service, Project $project)
     {
-        return view('project.view', ['project' => $project]);
+        $project->load(['images', 'services', 'tags', 'clients']);
+        return view('project.view', compact('service', 'project'));
     }
 
     private function renderProjects(Builder $query)

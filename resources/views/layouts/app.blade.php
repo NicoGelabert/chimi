@@ -28,7 +28,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body data-page="{{ request()->route()->getName() ?? '' }}">
         <div id="loader-wrapper" class="dark:bg-black">
             <div class="w-40">
                 <x-application-logo/>
@@ -80,7 +80,7 @@
             </div>
             <!--/ Toast -->
             @include('layouts.navigation')
-            <main class="w-full mx-auto container">
+            <main class="w-full mx-auto max-w-screen-xl px-4">
                 {{ $slot }}
             </main>
             

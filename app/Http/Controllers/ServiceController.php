@@ -31,11 +31,17 @@ class ServiceController extends Controller
         // 
         // // Agrupamos los items por el servicio
         $service_buttons = Service::all();
-        $projects = Project::with('tags', 'clients')->get();
+        $projects = Project::with('tags', 'clients')->whereHas('services', function($query) {
+            $query->where('service_id', 2);
+        })->get();
+        $devprojects = Project::with('tags', 'clients', 'services')->whereHas('services', function($query) {
+            $query->where('service_id', 1)->where('published', 1);
+        })->get();
         $tags = Tag::all();
         return view('services.view', compact(
             'service',
             'projects',
+            'devprojects',
             'service_buttons',
             'tags'
         )

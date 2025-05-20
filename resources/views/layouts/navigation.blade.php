@@ -50,7 +50,7 @@
     </div>
     <!--/ Responsive Menu -->
 
-    <nav class="hidden md:flex w-full container mx-4 justify-between items-center">
+    <nav class="hidden md:flex w-full max-w-screen-xl mx-auto justify-between items-center px-4">
         <div class="logo flex justify-center">
             <x-application-logo/>
         </div>

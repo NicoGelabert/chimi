@@ -79,6 +79,11 @@ class Service extends Model
         return $this->hasMany(ServiceAttributes::class);
     }
 
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class, 'project_services');
+    }
+
     // public function serviceItems()
     // {
     //     return $this->hasMany(ServiceItem::class);

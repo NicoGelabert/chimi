@@ -494,7 +494,10 @@ export function createProject({ commit }, project) {
   const form = new FormData();
 
   form.append('title', project.title);
+  form.append('short_description', project.short_description || '');
   form.append('description', project.description || '');
+  form.append('link', project.link || '');
+  form.append('client_review', project.client_review || '');
   form.append('published', project.published ? 1 : 0);
 
   // Agregar imágenes al FormData
@@ -535,7 +538,10 @@ export function updateProject({commit}, project) {
     const form = new FormData();
     form.append('id', project.id);
     form.append('title', project.title);
+    form.append('short_description', project.short_description || '');
     form.append('description', project.description || '');
+    form.append('link', project.link || '');
+    form.append('client_review', project.client_review || '');
     form.append('published', project.published ? 1 : 0);
     
     // Agregar services al FormData

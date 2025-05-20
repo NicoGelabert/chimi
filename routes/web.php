@@ -6,6 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ContactController;
@@ -56,6 +57,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
         //Servicios
         Route::get('/servicios', [ServiceController::class, 'index'])->name('service.index');
         Route::get('/servicios/{service:slug}', [ServiceController::class, 'view'])->name('service.view');
+
+        //Proyectos
+        Route::get('/servicios/{service:slug}/{project:slug}', [ProjectController::class, 'view'])->name('project.view');
     
         Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
         Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

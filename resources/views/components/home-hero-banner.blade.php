@@ -7,7 +7,7 @@
         <ul class="splide__list">
             @foreach($homeherobanners as $homeherobanner)
             <li class="splide__slide mx-auto">
-                <div class="flex flex-col justify-between md:items-stretch gap-12 px-4 pt-24 mx-auto md:flex-row">
+                <div class="flex flex-col justify-between md:items-stretch gap-12 pt-24 mx-auto md:flex-row">
                     <div class="flex flex-col justify-start gap-8 w-full md:w-1/2">
                         <hr />
                         <div class="flex justify-between">

@@ -28,8 +28,23 @@
                     </div>
                     <hr class="my-4">
                     <div class="flex flex-col gap-2">
-                        <h3 class="text-lg font-bold">Description</h3>
+                        <h3 class="text-lg font-bold">Descripción corta</h3>
+                        <CustomInput type="richtext" class="mb-2" v-model="project.short_description" label="Short description" :errors="errors['short_description']"/>
+                    </div>
+                    <hr class="my-4">
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-lg font-bold">Descripción</h3>
                         <CustomInput type="richtext" class="mb-2" v-model="project.description" label="Description" :errors="errors['description']"/>
+                    </div>
+                    <hr class="my-4">
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-lg font-bold">Link</h3>
+                        <CustomInput class="mb-2" v-model="project.link" label="Project link" :errors="errors['link']"/>
+                    </div>
+                    <hr class="my-4">
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-lg font-bold">Review del Cliente</h3>
+                        <CustomInput type="richtext" class="mb-2" v-model="project.client_review" label="Client Review" :errors="errors['client_review']"/>
                     </div>
                     <hr class="my-4">
                     <div class="flex flex-col gap-2">
@@ -95,7 +110,10 @@ const project = ref({
     images: [],
     deleted_images: [],
     image_positions: {},
+    short_description: '',
     description: '',
+    link: '',
+    client_review: '',
     published: false,
     services: [],
     tags: [],

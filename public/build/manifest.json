@@ -1,4 +1,7 @@
 {
+  "_splide.esm-688b6f4b.js": {
+    "file": "assets/splide.esm-688b6f4b.js"
+  },
   "node_modules/@flaticon/flaticon-uicons/css/uicons-bold-rounded-CGKSAYQ5.woff2": {
     "file": "assets/uicons-bold-rounded-CGKSAYQ5-853153c4.woff2",
     "src": "node_modules/@flaticon/flaticon-uicons/css/uicons-bold-rounded-CGKSAYQ5.woff2"
@@ -2204,13 +2207,48 @@
     "src": "node_modules/flag-icon-css/flags/4x3/zw.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-9708f88b.css",
+    "file": "assets/app-15a87e48.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/js/animation.js": {
+    "file": "assets/animation-507d92f1.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/animation.js"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-8fa646f3.js",
+    "dynamicImports": [
+      "resources/js/home.js",
+      "resources/js/service.js",
+      "resources/js/project.js",
+      "resources/js/animation.js"
+    ],
+    "file": "assets/app-cb7b0a10.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/home.js": {
+    "file": "assets/home-e1fdf98c.js",
+    "imports": [
+      "_splide.esm-688b6f4b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/home.js"
+  },
+  "resources/js/project.js": {
+    "file": "assets/project-ecd3ea41.js",
+    "imports": [
+      "_splide.esm-688b6f4b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/project.js"
+  },
+  "resources/js/service.js": {
+    "file": "assets/service-23436515.js",
+    "imports": [
+      "_splide.esm-688b6f4b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/service.js"
   }
 }

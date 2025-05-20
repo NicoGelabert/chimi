@@ -38,9 +38,34 @@
         isOpen: false, 
         currentImage: '', 
         currentTitle: '',
+        currentDescription: '',
         currentTags: [],
-        currentClients: []  
+        currentClients: [],
+        projectSlug: '',
         }" class="w-full">
+        @if($service->id === 1)
+        <div>
+            <div>
+                <ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    @foreach($devprojects as $devproject)
+                    <li class="w-full"
+                        @click="isOpen = true; 
+                                currentImage = '{{ ($devproject->image) }}'; 
+                                currentTitle = '{{ $devproject->title }}';
+                                currentDescription = @js($devproject->description);
+                                projectSlug = '{{ $devproject->slug }}';
+                                currentTags = @js($devproject->tags->pluck('name')->toArray());
+                                currentClients = @js($devproject->clients->pluck('name')->toArray())">
+                        <div class="">
+                            <img src="{{ ($devproject->image) }}" class="" alt="{{ $devproject->title }}">
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        @endif
+        @if($service->id === 2)
         <div id="service_gallery" class="splide">
             <div class="splide__track">
                 <ul class="splide__list">
@@ -48,7 +73,9 @@
                     <li class="splide__slide" 
                         @click="isOpen = true; 
                                 currentImage = '{{ ($project->image) }}'; 
-                                currentTitle = '{{ $project->title }}'; 
+                                currentTitle = '{{ $project->title }}';
+                                currentDescription = @js($project->description);
+                                projectSlug = '{{ $project->slug }}';
                                 currentTags = @js($project->tags->pluck('name')->toArray());
                                 currentClients = @js($project->clients->pluck('name')->toArray())">
                         <div class="h-[300px] w-[300px]">
@@ -59,28 +86,31 @@
                 </ul>
             </div>
         </div>
+        @endif
         <div x-show="isOpen" @click.away="isOpen = false" class="fixed inset-0 flex justify-center bg-black bg-opacity-75 z-50 overflow-auto">
             <div class="mx-8 my-8 lg:my-auto lg:flex lg:flex-row lg:gap-8 lg:max-h-1/2 lg:max-w-screen-xl">
                 <button @click="isOpen = false" class="absolute top-0 right-0 m-4 text-white text-xl">&times;</button>
-                <div class="lg:w-1/2 flex justify-center">
-                    <img :src="currentImage" class="max-h-[80vh]">
-                </div>
-                <div class="text-white lg:w-1/2 py-8 flex flex-col gap-8 justify-between">
-                    <div class="flex flex-col gap-4">
-                        <h3 x-text="currentTitle"></h3>
-                        <ul class="flex gap-2 flex-wrap">
-                            <template x-for="client in currentClients" :key="client">
-                                <li class="text-sm" x-text="client"></li>
-                            </template>
-                        </ul>
-                    </div>
+                <div class="lg:w-1/2 flex flex-col gap-4 justify-center items-start">
+                    <img :src="currentImage" class="w-full object-contain">
                     <div>
                         <ul class="flex gap-2 flex-wrap">
                             <template x-for="tag in currentTags" :key="tag">
-                                <li class="mt-1 bg-gray-50 text-xs w-fit rounded-full px-4 py-2 text-black" x-text="tag"></li>
+                                <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-lg px-2 py-1 text-black" x-text="tag"></li>
                             </template>
                         </ul>
                     </div>
+                </div>
+                <div class="text-white lg:w-1/2 flex flex-col gap-8">
+                    <div class="flex flex-col gap-4">
+                        <h3 x-text="currentTitle"></h3>
+                        <p x-html="currentDescription"></p>
+                        <!-- <ul class="flex gap-2 flex-wrap">
+                            <template x-for="client in currentClients" :key="client">
+                                <li class="text-sm" x-text="client"></li>
+                            </template>
+                        </ul> -->
+                    </div>
+                    <a :href="`/servicios/{{ $service->slug }}/${projectSlug}`" class="text-xs btn-primary">Ver proyecto completo</a>
                 </div>
             </div>
         </div>
@@ -92,32 +122,3 @@
 </div>
 
 </x-app-layout>
-<script>
-    function animateElement(element, delay) {
-    setTimeout(() => {
-      element.classList.add('active');
-    }, delay);
-  }
-  
-    var hr = document.querySelector('.animate-hr');
-    var h3 = document.querySelector('.animate-h3');
-    var h1 = document.querySelector('.animate-h1');
-    var p = document.querySelector('.animate-p');
-    var arrow = document.querySelector('.animate-arrow');
-    var serviceItems = document.querySelectorAll('.animate-service-item');
-    var buttons = document.querySelectorAll('.animate-button');
-
-    animateElement(hr, 800); // 0.2 segundos después
-    animateElement(h3, 500); // 0.5 segundos después
-    animateElement(h1, 750); // 0.75 segundos después
-    animateElement(p, 1000); // 1 segundo después
-    animateElement(arrow, 1250); // 2.5 segundos después (flecha)
-    // Animar secuencialmente los items del servicio
-    serviceItems.forEach((item, index) => {
-        animateElement(item, 1500 + index * 250); // 1.5 segundos + 0.25 segundos por cada item
-    });
-    buttons.forEach((item, index) => {
-        animateElement(item, 2750 + index * 250);
-    });
-
-</script>
