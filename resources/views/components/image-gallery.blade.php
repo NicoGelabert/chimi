@@ -19,7 +19,7 @@
     <!-- Splide Slider -->
     <div {{ $attributes->merge(['class' => 'splide']) }}>
         <div class="splide__track mx-10">
-            <ul class="splide__list">
+            <ul class="splide__list items-center">
                 @foreach ($filteredImages as $index => $imageUrl)
                 <li class="splide__slide">
                     <img src="{{ $imageUrl }}" 
@@ -34,7 +34,7 @@
     <!-- Lightbox -->
     <template x-if="open && images.length">
         <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50" id="project_lightbox">
-            <div class="relative w-full h-full flex items-center justify-center">
+            <div class="relative w-full h-full flex items-center justify-center p-8">
                 <!-- Imagen Actual -->
                 <img :src="images[imageIndex]" class="max-w-full max-h-full">                
                 <div class="absolute bottom-4 right-4 flex w-auto gap-2">
