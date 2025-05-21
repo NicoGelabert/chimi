@@ -31,10 +31,10 @@ class ServiceController extends Controller
         // 
         // // Agrupamos los items por el servicio
         $service_buttons = Service::all();
-        $projects = Project::with('tags', 'clients')->whereHas('services', function($query) {
-            $query->where('service_id', 2);
+        $projects = Project::with('services', 'tags', 'clients')->whereHas('services', function($query) {
+            $query->where('service_id', 2)->where('published', 1);
         })->get();
-        $devprojects = Project::with('tags', 'clients', 'services')->whereHas('services', function($query) {
+        $devprojects = Project::with('services', 'tags', 'clients')->whereHas('services', function($query) {
             $query->where('service_id', 1)->where('published', 1);
         })->orderBy('id', 'desc')->get();
         $tags = Tag::all();
@@ -44,7 +44,6 @@ class ServiceController extends Controller
             'devprojects',
             'service_buttons',
             'tags'
-        )
-        );
+        ));
     }
 }
