@@ -1,0 +1,1 @@
+import{S as e}from"./splide.esm-688b6f4b.js";import{A as r}from"./splide-extension-auto-scroll.esm-73be386a.js";var o=new e("#service_gallery",{type:"loop",drag:"free",focus:"center",arrows:!1,pagination:!1,fixedWidth:300,autoScroll:{speed:1}});o.mount({AutoScroll:r});

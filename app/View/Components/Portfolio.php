@@ -9,14 +9,16 @@ use Illuminate\View\Component;
 class Portfolio extends Component
 {
     public $projects;
+    public $projectsJson;
     /**
      * Create a new component instance.
-     * @param  mixed  $projects
+     * @param  mixed  $projectsJson
      * @return void
      */
-    public function __construct($projects)
+    public function __construct($projects, $projectsJson)
     {
         $this->projects = $projects;
+        $this->projectsJson = $projectsJson;
     }
 
     /**

@@ -1,4 +1,7 @@
 {
+  "_splide-extension-auto-scroll.esm-73be386a.js": {
+    "file": "assets/splide-extension-auto-scroll.esm-73be386a.js"
+  },
   "_splide.esm-688b6f4b.js": {
     "file": "assets/splide.esm-688b6f4b.js"
   },
@@ -2207,7 +2210,7 @@
     "src": "node_modules/flag-icon-css/flags/4x3/zw.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-5fc438d6.css",
+    "file": "assets/app-e8c7879d.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -2223,20 +2226,21 @@
       "resources/js/project.js",
       "resources/js/animation.js"
     ],
-    "file": "assets/app-cb7b0a10.js",
+    "file": "assets/app-608b1d87.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/home.js": {
-    "file": "assets/home-e1fdf98c.js",
+    "file": "assets/home-371cd7d5.js",
     "imports": [
-      "_splide.esm-688b6f4b.js"
+      "_splide.esm-688b6f4b.js",
+      "_splide-extension-auto-scroll.esm-73be386a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/home.js"
   },
   "resources/js/project.js": {
-    "file": "assets/project-ecd3ea41.js",
+    "file": "assets/project-6f5c62e4.js",
     "imports": [
       "_splide.esm-688b6f4b.js"
     ],
@@ -2244,9 +2248,10 @@
     "src": "resources/js/project.js"
   },
   "resources/js/service.js": {
-    "file": "assets/service-23436515.js",
+    "file": "assets/service-021f285a.js",
     "imports": [
-      "_splide.esm-688b6f4b.js"
+      "_splide.esm-688b6f4b.js",
+      "_splide-extension-auto-scroll.esm-73be386a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/service.js"

@@ -14,7 +14,7 @@ if (projectGalleryElement) {
         pagination  : false,
         perMove     : 1,
         perPage     : 4,
-        type        : 'loop',
+        type        : 'fade',
 });
 
 projectGallery.mount();

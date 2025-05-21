@@ -18,7 +18,7 @@
     
     <hr class="divider" />
     
-    <x-portfolio :projects="$projects" />
+    <x-portfolio :projects="$projects" :projects-json="$projectsJson" />
     
     <!-- <x-features :features="$features"/> -->
     

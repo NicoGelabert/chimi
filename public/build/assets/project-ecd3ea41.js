@@ -1,1 +1,0 @@
-import{S as r}from"./splide.esm-688b6f4b.js";var e=document.querySelector(".project_gallery_images");if(e){var a=new r(e,{arrows:!0,breakpoints:{480:{perPage:2}},gap:"1rem",lazyLoad:"nearby",pagination:!1,perMove:1,perPage:4,type:"loop"});a.mount()}
