@@ -2226,7 +2226,7 @@
       "resources/js/project.js",
       "resources/js/animation.js"
     ],
-    "file": "assets/app-608b1d87.js",
+    "file": "assets/app-8b0bc06c.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -2240,7 +2240,7 @@
     "src": "resources/js/home.js"
   },
   "resources/js/project.js": {
-    "file": "assets/project-6f5c62e4.js",
+    "file": "assets/project-ca98997b.js",
     "imports": [
       "_splide.esm-688b6f4b.js"
     ],

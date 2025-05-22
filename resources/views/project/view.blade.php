@@ -1,3 +1,9 @@
+@section('meta')
+    <title>{{ $project->title }}, {{ $service->name }}</title>
+    <meta name="description" content="{{ $project->short_description }}">
+    <meta name="keywords" content="{{ $project->tags->pluck('name')->implode(', ') }}">
+    <link rel="canonical" href="{{ url()->current() }}">
+@endsection
 <x-app-layout>
     <div class="flex flex-col items-center justify-center pb-24">
         <div class="flex flex-col justify-center md:items-stretch gap-12 px-4 lg:px-0 pt-24 mx-auto md:flex-row overflow-hidden">
@@ -39,10 +45,12 @@
                 </ul>
             </div>
         </div>
+        @if($project->short_description)
         <hr class="my-8 w-full dark:border-zinc-700"/>
         <div class="animate-p text-center">
             <p>{!! $project->short_description !!}</p>
         </div>
+        @endif
         @if ($project->images->count() > 1)
         <hr class="my-8 w-full dark:border-zinc-700"/>
         <div class="project_gallery">

@@ -15,13 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <meta name="description" content="Chimi Creativo es un estudio especializado en diseño gráfico, desarrollo web y branding que transforma tus ideas en experiencias visuales impactantes. Ofrecemos soluciones personalizadas que destacan por su creatividad e innovación. Descubre cómo podemos impulsar tu marca y darle vida a tus proyectos con nuestro equipo de expertos en diseño y desarrollo.">
-
-        <meta name="keywords" content="Chimi Creativo, estudio de diseño gráfico, desarrollo web, diseño de marca, branding, diseño web, agencia de diseño, diseño UX/UI, identidad visual, Málaga, diseño creativo, diseño de logotipos, marketing digital, soluciones creativas">
-        
-        <title inertia>{{ config('app.name', 'Chimi Design') }}</title>
-
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/common/logo_chimi_favicon.ico') }}">
+        @yield('meta', view('partials.meta'))
 
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
