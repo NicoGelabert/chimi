@@ -89,28 +89,19 @@
         </div>
         @endif
         <div x-show="isOpen" @click.away="isOpen = false" class="fixed inset-0 flex justify-center bg-black bg-opacity-75 z-50 overflow-auto">
-            <div class="mx-8 my-8 lg:my-auto lg:flex lg:flex-row lg:gap-8 lg:max-h-1/2 lg:max-w-screen-xl">
+            <div class="mx-8 my-8 lg:my-auto flex flex-col lg:flex-row gap-6 lg:gap-8 lg:max-h-1/2 lg:max-w-screen-xl lg:items-start">
                 <button @click="isOpen = false" class="absolute top-0 right-0 m-4 text-white text-xl">&times;</button>
                 <div class="lg:w-1/2 flex flex-col gap-4 justify-center items-start">
                     <img :src="currentImage" class="w-full object-contain">
-                    <div>
-                        <ul class="flex gap-2 flex-wrap">
-                            <template x-for="tag in currentTags" :key="tag">
-                                <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-lg px-2 py-1 text-black" x-text="tag"></li>
-                            </template>
-                        </ul>
-                    </div>
                 </div>
-                <div class="text-white lg:w-1/2 flex flex-col gap-8">
-                    <div class="flex flex-col gap-4">
-                        <h3 x-text="currentTitle"></h3>
-                        <p x-html="currentShortDescription"></p>
-                        <!-- <ul class="flex gap-2 flex-wrap">
-                            <template x-for="client in currentClients" :key="client">
-                                <li class="text-sm" x-text="client"></li>
-                            </template>
-                        </ul> -->
-                    </div>
+                <div class="text-white lg:w-1/2 flex flex-col gap-6">
+                    <h3 x-text="currentTitle"></h3>
+                    <p x-html="currentShortDescription"></p>
+                    <ul class="flex gap-2 flex-wrap">
+                        <template x-for="tag in currentTags" :key="tag">
+                            <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-2 py-1 text-black" x-text="tag"></li>
+                        </template>
+                    </ul>
                     <a :href="`/servicios/{{ $service->slug }}/${projectSlug}`" class="text-xs btn-primary">Ver proyecto completo</a>
                 </div>
             </div>
