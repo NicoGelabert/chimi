@@ -21,7 +21,8 @@
                 :value="props.modelValue"
                 @input="emit('update:modelValue', $event.target.value)"
                 :class="inputClasses"
-                :placeholder="label"></textarea>
+                :placeholder="label"
+                rows="5"></textarea>
       </template>
       <template v-else-if="type === 'richtext'">
         <ckeditor :editor="editor"

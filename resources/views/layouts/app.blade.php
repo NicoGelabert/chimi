@@ -17,6 +17,8 @@
 
         @yield('meta', view('partials.meta'))
 
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/common/logo_chimi_favicon.ico') }}">
+
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
         <!-- Scripts -->

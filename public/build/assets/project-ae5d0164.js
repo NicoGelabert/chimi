@@ -1,0 +1,1 @@
+import{S as a}from"./splide.esm-688b6f4b.js";var e=document.querySelector(".project_gallery_images");if(e){var t=new a(e,{arrows:!0,breakpoints:{480:{perPage:2}},gap:"1rem",lazyLoad:"nearby",pagination:!1,perMove:1,perPage:4,type:"slide"});t.mount()}const r=document.getElementById("short_description");r.innerHTML=r.innerText.replace(/\.\s*/g,".<br><br>");

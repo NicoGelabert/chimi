@@ -48,7 +48,7 @@
         @if($project->short_description)
         <hr class="my-8 w-full dark:border-zinc-700"/>
         <div class="animate-p text-center">
-            <p>{!! $project->short_description !!}</p>
+            <p id="short_description">{!! $project->short_description !!}</p>
         </div>
         @endif
         @if ($project->images->count() > 1)

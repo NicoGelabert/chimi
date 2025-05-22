@@ -29,7 +29,7 @@
                     <hr class="my-4">
                     <div class="flex flex-col gap-2">
                         <h3 class="text-lg font-bold">Descripción corta</h3>
-                        <CustomInput type="richtext" class="mb-2" v-model="project.short_description" label="Short description" :errors="errors['short_description']"/>
+                        <CustomInput type="textarea" class="mb-2" v-model="project.short_description" label="Short description" :errors="errors['short_description']"/>
                     </div>
                     <hr class="my-4">
                     <div class="flex flex-col gap-2">

@@ -19,3 +19,8 @@ if (projectGalleryElement) {
 
 projectGallery.mount();
 };
+
+// Salto de línea en la descripción corta
+const p = document.getElementById("short_description");
+p.innerHTML = p.innerText.replace(/\.\s*/g, '.<br><br>');
+// Fin salto de línea en la descripción corta
