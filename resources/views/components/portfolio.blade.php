@@ -69,10 +69,10 @@
                 </div>
                 <div class="fixed bottom-4 right-4 flex w-auto gap-2">
                     <!-- Flecha Anterior -->
-                    <button @click="prev" class=" w-12 h-12 bg-primary text-white p-2 rounded-full">❮</button>
+                    <button @click="prev" :class="currentIndex === 0 ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''" class=" w-12 h-12 bg-primary text-white p-2 rounded-full">❮</button>
                     
                     <!-- Flecha Siguiente -->
-                    <button @click="next" class="w-12 h-12 bg-primary text-white p-2 rounded-full">❯</button>
+                    <button @click="next" :class="currentIndex === projects.length - 1 ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''" class="w-12 h-12 bg-primary text-white p-2 rounded-full">❯</button>
 
                     <!-- Botón Cerrar -->
                     <button @click="isOpen = false" class="w-12 h-12 bg-black border-2 border-primary text-primary p-2 rounded-full ml-4">✕</button>
