@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div x-show="isOpen" @click.away="isOpen = false" class="fixed inset-0 flex justify-center bg-black bg-opacity-75 z-50 overflow-auto">
-                <div class="mx-8 my-8 lg:my-auto lg:flex lg:flex-row lg:gap-8 lg:max-h-1/2 lg:max-w-screen-xl">
+                <div class="mx-8 my-8 lg:my-auto lg:flex lg:flex-row lg:gap-8 w-full h-[70vh] lg:max-w-screen-xl">
                     <div class="lg:w-1/2 flex flex-col mb-4 justify-center items-start">
                         <img :src="currentProject.image" class="w-full h-auto object-contain max-h-[70vh]">
                     </div>
