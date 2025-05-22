@@ -59,7 +59,9 @@
         @endif
         @if ($project->client_review)
         <hr class="my-8 w-full dark:border-zinc-700"/>
-        <p>{!! $project->client_review !!}</p>
+        <div class="customer_review">
+            <p>{!! $project->client_review !!}</p>
+        </div>
         @endif
     </div>
 </x-app-layout>

@@ -27,3 +27,10 @@
         }
     }
 }
+
+.customer_review{
+    @apply text-center max-w-3xl;
+    p{
+        @apply text-sm;
+    }
+}
