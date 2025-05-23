@@ -8,6 +8,7 @@ use Illuminate\View\Component;
 
 class Portfolio extends Component
 {
+    public $service;
     public $projects;
     public $projectsJson;
     /**
@@ -15,8 +16,9 @@ class Portfolio extends Component
      * @param  mixed  $projectsJson
      * @return void
      */
-    public function __construct($projects, $projectsJson)
+    public function __construct($service, $projects, $projectsJson)
     {
+        $this->service = $service;
         $this->projects = $projects;
         $this->projectsJson = $projectsJson;
     }

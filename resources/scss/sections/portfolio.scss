@@ -1,0 +1,28 @@
+#portfolio{
+    @apply list-none;
+    #portfolio_gallery{
+        .portfolio_project{
+            @apply h-[300px] w-[300px];
+        }    
+    }
+    .portfolio_project{
+        @apply relative;
+        img{
+            @apply h-full w-full object-cover;
+        }
+        .portfolio_project_content{
+            @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-0 flex flex-col items-center;
+        }
+        img, .portfolio_project_content{
+            @apply transition-opacity duration-300 ease-in-out;
+        }
+    }
+    .portfolio_project:hover{
+        img{
+            @apply opacity-20;
+        }
+        .portfolio_project_content{
+            @apply opacity-100;
+        }
+    }
+}

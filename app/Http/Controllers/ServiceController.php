@@ -31,17 +31,39 @@ class ServiceController extends Controller
         // 
         // // Agrupamos los items por el servicio
         $service_buttons = Service::all();
-        $projects = Project::with('services', 'tags', 'clients')->whereHas('services', function($query) {
-            $query->where('service_id', 2)->where('published', 1);
-        })->get();
-        $devprojects = Project::with('services', 'tags', 'clients')->whereHas('services', function($query) {
-            $query->where('service_id', 1)->where('published', 1);
-        })->orderBy('id', 'desc')->get();
+        
+        // Si queremos usar el project-modal para todos los servicios, usamos esta query y no necesitamos $devprojects
+        $projects = Project::with('services', 'tags', 'clients')
+            ->whereHas('services', function ($query) use ($service) {
+                $query->where('service_id', $service->id)->where('published', 1);
+            })
+            ->orderBy('id', 'desc')
+            ->get();
+
+        // Projectos filtrados por id=1 (desarrollo web)
+        // $devprojects = Project::with('services', 'tags', 'clients')->whereHas('services', function($query) {
+        //     $query->where('service_id', 1)->where('published', 1);
+        // })->orderBy('id', 'desc')->get();
+        // // Projectos filtrados por id=2 (diseño gráfico)
+        // $projects = Project::with('services', 'tags', 'clients')->whereHas('services', function($query) {
+        //     $query->where('service_id', 2)->where('published', 1);
+        // })->get();
+        $projectsJson = $projects->map(function ($project) {
+            return [
+                'image' => $project->image,
+                'title' => $project->title,
+                'short_description' => $project->short_description,
+                'slug' => $project->slug,
+                'service_slug' => optional($project->services->first())->slug,
+                'tags' => $project->tags->pluck('name'),
+                'clients' => $project->clients->pluck('name'),
+            ];
+        })->values();
         $tags = Tag::all();
         return view('services.view', compact(
             'service',
             'projects',
-            'devprojects',
+            'projectsJson',
             'service_buttons',
             'tags'
         ));

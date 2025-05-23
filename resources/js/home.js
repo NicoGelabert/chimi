@@ -1,32 +1,4 @@
 import Splide from '@splidejs/splide';
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-
-// SPLIDE
-// Portfolio
-// var main = new Splide( '#main-carousel', {
-//   type      : 'fade',
-//   rewind    : true,
-//   pagination: true,
-//   arrows    : true,
-// });
-
-// var thumbnails = new Splide( '#thumbnail-carousel', {
-//   type        : 'loop',
-//   perPage     : 3,
-//   gap         : 10,
-//   rewind      : true,
-//   pagination  : true,
-//   arrows      : false,
-//   isNavigation: true,
-// });
-
-// main.sync( thumbnails );
-// main.mount();
-// thumbnails.mount();
-
-// thumbnails.on('mounted', function(){
-//   limitPaginationDots(thumbnails);
-// })
 
 function limitPaginationDots(thumbnails) {
   const maxDots = 5;
@@ -131,19 +103,3 @@ function limitPaginationDots(thumbnails) {
   });
   homeServices.mount();
 // Fin Services Home
-
-// Portfolio
-var portfoliogallery = new Splide('#portfolio_gallery', {
-    type        : 'loop',
-    drag        : 'free',
-    focus       : 'center',
-    arrows      : false,
-    pagination  : false,
-    fixedWidth  : 300,
-    autoScroll  : {
-        speed     : 1,
-    },
-});
-
-portfoliogallery.mount({ AutoScroll });
-// Fin Portfolio

@@ -1,7 +1,4 @@
 {
-  "_splide-extension-auto-scroll.esm-73be386a.js": {
-    "file": "assets/splide-extension-auto-scroll.esm-73be386a.js"
-  },
   "_splide.esm-688b6f4b.js": {
     "file": "assets/splide.esm-688b6f4b.js"
   },
@@ -2210,7 +2207,7 @@
     "src": "node_modules/flag-icon-css/flags/4x3/zw.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-c94f0969.css",
+    "file": "assets/app-70c104a3.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -2222,22 +2219,29 @@
   "resources/js/app.js": {
     "dynamicImports": [
       "resources/js/home.js",
-      "resources/js/service.js",
       "resources/js/project.js",
-      "resources/js/animation.js"
+      "resources/js/animation.js",
+      "resources/js/portfolio-gallery.js"
     ],
-    "file": "assets/app-c9c62c3e.js",
+    "file": "assets/app-f956fa39.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/home.js": {
-    "file": "assets/home-371cd7d5.js",
+    "file": "assets/home-936c0048.js",
     "imports": [
-      "_splide.esm-688b6f4b.js",
-      "_splide-extension-auto-scroll.esm-73be386a.js"
+      "_splide.esm-688b6f4b.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/home.js"
+  },
+  "resources/js/portfolio-gallery.js": {
+    "file": "assets/portfolio-gallery-29f51c1c.js",
+    "imports": [
+      "_splide.esm-688b6f4b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/portfolio-gallery.js"
   },
   "resources/js/project.js": {
     "file": "assets/project-ae5d0164.js",
@@ -2246,14 +2250,5 @@
     ],
     "isDynamicEntry": true,
     "src": "resources/js/project.js"
-  },
-  "resources/js/service.js": {
-    "file": "assets/service-021f285a.js",
-    "imports": [
-      "_splide.esm-688b6f4b.js",
-      "_splide-extension-auto-scroll.esm-73be386a.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/service.js"
   }
 }

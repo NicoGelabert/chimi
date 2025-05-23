@@ -1,7 +1,8 @@
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-// Service galery
-var servicegallery = new Splide('#service_gallery', {
+
+// Portfolio
+var portfoliogallery = new Splide('#portfolio_gallery', {
     type        : 'loop',
     drag        : 'free',
     focus       : 'center',
@@ -13,5 +14,5 @@ var servicegallery = new Splide('#service_gallery', {
     },
 });
 
-servicegallery.mount({ AutoScroll });
-// Fin Service galery
+portfoliogallery.mount({ AutoScroll });
+// Fin Portfolio

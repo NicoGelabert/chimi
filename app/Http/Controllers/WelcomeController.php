@@ -17,13 +17,16 @@ class WelcomeController extends Controller
     {
         $homeherobanners = HomeHeroBanner::all();
         $features = Feature::all();
-        $service = Service::all();
         $services = Service::all();
         $tags = Tag::all();
         $clients = Client::all();
-        $projects = Project::with('services', 'tags', 'clients')->whereHas('services', function($query) {
-            $query->where('service_id', 2);
-        })->get();
+        $service = Service::find(2); // Filtro para el portfolio de home
+        $projects = Project::with('services', 'tags', 'clients')
+            ->whereHas('services', function ($query) use ($service) {
+                $query->where('service_id', $service->id)->where('published', 1);
+            })
+            ->orderBy('id', 'desc')
+            ->get();
         $projectsJson = $projects->map(function ($project) {
             return [
                 'image' => $project->image,

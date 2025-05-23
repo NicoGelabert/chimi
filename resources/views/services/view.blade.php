@@ -33,81 +33,10 @@
         </div>
     </div>
     
-    <hr class="divider w-full" />
-    <div x-data="{ 
-        isOpen: false, 
-        currentImage: '', 
-        currentTitle: '',
-        currentDescription: '',
-        currentShortDescription: '',
-        currentTags: [],
-        currentClients: [],
-        projectSlug: '',
-        }" class="w-full">
-        @if($service->id === 1)
-        <div>
-            <div>
-                <ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    @foreach($devprojects as $devproject)
-                    <li class="w-full"
-                        @click="isOpen = true; 
-                                currentImage = '{{ ($devproject->image) }}'; 
-                                currentTitle = '{{ $devproject->title }}';
-                                currentShortDescription = @js($devproject->short_description);
-                                projectSlug = '{{ $devproject->slug }}';
-                                currentTags = @js($devproject->tags->pluck('name')->toArray());
-                                currentClients = @js($devproject->clients->pluck('name')->toArray())">
-                        <div class="">
-                            <img src="{{ ($devproject->image) }}" class="" alt="{{ $devproject->title }}">
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        @endif
-        @if($service->id === 2)
-        <div id="service_gallery" class="splide">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    @foreach($projects as $project)
-                    <li class="splide__slide" 
-                        @click="isOpen = true; 
-                                currentImage = '{{ ($project->image) }}'; 
-                                currentTitle = '{{ $project->title }}';
-                                currentShortDescription = @js($project->short_description);
-                                projectSlug = '{{ $project->slug }}';
-                                currentTags = @js($project->tags->pluck('name')->toArray());
-                                currentClients = @js($project->clients->pluck('name')->toArray())">
-                        <div class="h-[300px] w-[300px]">
-                            <img src="{{ ($project->image) }}" class="h-full w-full object-cover" alt="{{ $project->title }}">
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        @endif
-        <div x-show="isOpen" @click.away="isOpen = false" class="fixed inset-0 flex justify-center bg-black bg-opacity-75 z-50 overflow-auto">
-            <div class="mx-8 my-8 lg:my-auto flex flex-col lg:flex-row gap-6 lg:gap-8 lg:max-h-1/2 lg:max-w-screen-xl lg:items-start">
-                <button @click="isOpen = false" class="absolute top-0 right-0 m-4 text-white text-xl">&times;</button>
-                <div class="lg:w-1/2 flex flex-col gap-4 justify-center items-start">
-                    <img :src="currentImage" class="w-full object-contain">
-                </div>
-                <div class="text-white lg:w-1/2 flex flex-col gap-6">
-                    <h3 x-text="currentTitle"></h3>
-                    <p x-html="currentShortDescription"></p>
-                    <ul class="flex gap-2 flex-wrap">
-                        <template x-for="tag in currentTags" :key="tag">
-                            <li class="mt-1 bg-gray-50 text-xxs w-fit rounded-full px-2 py-1 text-black" x-text="tag"></li>
-                        </template>
-                    </ul>
-                    <a :href="`/servicios/{{ $service->slug }}/${projectSlug}`" class="text-xs btn-primary">Ver proyecto completo</a>
-                </div>
-            </div>
-        </div>
+    <div class="max-w-screen-xl w-full">
+        <x-project-modal :service="$service" :projects="$projects" :projectsJson="$projectsJson" />
     </div>
-    
+        
     <hr class="divider w-full" />
     
     <x-quotation :tags="$tags"/>

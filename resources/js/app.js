@@ -35,13 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // carga de archivos js por nombre de página
   if (page === 'welcome') {
     import('./home.js');
-  } else if (page === 'service.view') {
-    import('./service.js');
   } else if (page === 'project.view') {
     import('./project.js');
   } 
   if (page === 'service.view' || page === 'project.view'){
-    import('./animation');
+    import('./animation.js');
+  }
+  if(page === 'welcome' || page === 'service.view'){
+    import('./portfolio-gallery.js');
   }
 });
 // Fin carga de scripts según la página
